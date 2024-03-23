@@ -56,9 +56,9 @@ var moves = 0,
 	evaluating = false,
 	treeTable = `
 		<table id="tree_table_game">
-			<tr><td class="ttd_game"><div id="cell0" onclick="cellClicked(this.id)" class="fixed"></div></td><td class="ttd_game"><div id="cell1" onclick="cellClicked(this.id)" class="fixed"></div></td><td class="ttd_game"><div id="cell2" onclick="cellClicked(this.id)" class="fixed"></div></td></tr>
-			<tr><td class="ttd_game"><div id="cell3" onclick="cellClicked(this.id)" class="fixed"></div></td><td class="ttd_game"><div id="cell4" onclick="cellClicked(this.id)" class="fixed"></div></td><td class="ttd_game"><div id="cell5" onclick="cellClicked(this.id)" class="fixed"></div></td></tr>
-			<tr><td class="ttd_game"><div id="cell6" onclick="cellClicked(this.id)" class="fixed"></div></td><td class="ttd_game"><div id="cell7" onclick="cellClicked(this.id)" class="fixed"></div></td><td class="ttd_game"><div id="cell8" onclick="cellClicked(this.id)" class="fixed"></div></td></tr>
+			<tr><td class="ttd_game"><div id="cell0" onclick="cellClicked(this.id)" class="tree_cell"></div></td><td class="ttd_game"><div id="cell1" onclick="cellClicked(this.id)" class="tree_cell"></div></td><td class="ttd_game"><div id="cell2" onclick="cellClicked(this.id)" class="tree_cell"></div></td></tr>
+			<tr><td class="ttd_game"><div id="cell3" onclick="cellClicked(this.id)" class="tree_cell"></div></td><td class="ttd_game"><div id="cell4" onclick="cellClicked(this.id)" class="tree_cell"></div></td><td class="ttd_game"><div id="cell5" onclick="cellClicked(this.id)" class="tree_cell"></div></td></tr>
+			<tr><td class="ttd_game"><div id="cell6" onclick="cellClicked(this.id)" class="tree_cell"></div></td><td class="ttd_game"><div id="cell7" onclick="cellClicked(this.id)" class="tree_cell"></div></td><td class="ttd_game"><div id="cell8" onclick="cellClicked(this.id)" class="tree_cell"></div></td></tr>
 		</table>
 		`;
 
@@ -76,8 +76,7 @@ function Grid() {
 //=============
 
 // Get free cells in an array.
-// Returns an array of indices in the original Grid.cells array, not the values
-// of the array elements.
+// Returns an array of indices in the original Grid.cells array, not the values of the array elements.
 // Their values can be accessed as Grid.cells[index].
 Grid.prototype.getFreeCellIndices = function () {
 	var i = 0,
@@ -87,8 +86,7 @@ Grid.prototype.getFreeCellIndices = function () {
 			resultArray.push(i);
 		}
 	}
-	// console.log("resultArray: " + resultArray.toString());
-	// debugger;
+
 	return resultArray;
 };
 
@@ -216,12 +214,10 @@ function cellClicked(id) {
 	if (whoseTurn == x) {
 		document.getElementById(id).innerHTML = xText;
 		myGrid.cells[cell] = x;
-		//console.log("Handing turn to o");
 		whoseTurn = o;
 	} else {
 		document.getElementById(id).innerHTML = oText;
 		myGrid.cells[cell] = o;
-		//console.log("Handing turn to x");
 		whoseTurn = x;
 	}
 
@@ -266,10 +262,8 @@ function checkWin() {
 		if (row[0] > 0 && row[0] == row[1] && row[0] == row[2]) {
 			if (row[0] == o) {
 				winner = o;
-				//console.log("o wins");
 			} else {
 				winner = x;
-				//console.log("x wins");
 			}
 			// Give the winning row/column/diagonal a different bg-color
 			var tmpAr = myGrid.getRowIndices(i);
@@ -288,10 +282,8 @@ function checkWin() {
 		if (col[0] > 0 && col[0] == col[1] && col[0] == col[2]) {
 			if (col[0] == o) {
 				winner = o;
-				//console.log("o wins");
 			} else {
 				winner = x;
-				//console.log("x wins");
 			}
 			// Give the winning row/column/diagonal a different bg-color
 			var tmpAr = myGrid.getColumnIndices(i);
@@ -310,10 +302,8 @@ function checkWin() {
 		if (diagonal[0] > 0 && diagonal[0] == diagonal[1] && diagonal[0] == diagonal[2]) {
 			if (diagonal[0] == o) {
 				winner = o;
-				//console.log("o wins");
 			} else {
 				winner = x;
-				//console.log("x wins");
 			}
 			// Give the winning row/column/diagonal a different bg-color
 			var tmpAr = myGrid.getDiagIndices(i);
