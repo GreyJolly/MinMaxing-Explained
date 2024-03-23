@@ -3,18 +3,20 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic-tac-toe</title>
+    <title>TicTacTesting</title>
     <link href="home.css" rel="stylesheet">
 	<script src="tictactoe.js"></script> 
   </head>
   <body onload="initialize()">
-    <h1>Tic-Tac-Toe</h1>
+    <h1>TicTacTesting</h1>
     <table id="table_game">
       <tr><td class="td_game"><div id="cell0" onclick="cellClicked(this.id)" class="fixed"></div></td><td class="td_game"><div id="cell1" onclick="cellClicked(this.id)" class="fixed"></div></td><td class="td_game"><div id="cell2" onclick="cellClicked(this.id)" class="fixed"></div></td></tr>
       <tr><td class="td_game"><div id="cell3" onclick="cellClicked(this.id)" class="fixed"></div></td><td class="td_game"><div id="cell4" onclick="cellClicked(this.id)" class="fixed"></div></td><td class="td_game"><div id="cell5" onclick="cellClicked(this.id)" class="fixed"></div></td></tr>
       <tr><td class="td_game"><div id="cell6" onclick="cellClicked(this.id)" class="fixed"></div></td><td class="td_game"><div id="cell7" onclick="cellClicked(this.id)" class="fixed"></div></td><td class="td_game"><div id="cell8" onclick="cellClicked(this.id)" class="fixed"></div></td></tr>
     </table>
-    <div id="restart" title="Start new game" onclick="restartGame(true)"><span style="vertical-align:top;position:relative;top:-10px">R</span></div>
+    <div id="restart" title="Start new game" onclick="restartGame(true)"><span>Restart</span></div>
+
+	<div id = gameTree></div>
 
     <!-- The modal dialog for announcing the winner -->
     <div id="winAnnounce" class="modal">

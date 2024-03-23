@@ -27,7 +27,7 @@ etc.
 window.onclick = function (evt) {
 	var modal = document.getElementsByClassName("modal")[0];
 	if (evt.target === modal) {
-		modal.style.display = "none";
+		closeModal("winAnnounce");
 	}
 };
 
@@ -43,32 +43,6 @@ function sumArray(array) {
 	return sum;
 }
 
-function isInArray(element, array) {
-	if (array.indexOf(element) > -1) {
-		return true;
-	}
-	return false;
-}
-
-function shuffleArray(array) {
-	var counter = array.length,
-		temp,
-		index;
-	while (counter > 0) {
-		index = Math.floor(Math.random() * counter);
-		counter--;
-		temp = array[counter];
-		array[counter] = array[index];
-		array[index] = temp;
-	}
-	return array;
-}
-
-function intRandom(min, max) {
-	var rand = min + Math.random() * (max + 1 - min);
-	return Math.floor(rand);
-}
-
 // GLOBAL VARIABLES
 var moves = 0,
 	winner = 0,
@@ -78,8 +52,15 @@ var moves = 0,
 	gameOver = false,
 	xText = "<span class=\"x\">&times;</class>",
 	oText = "<span class=\"o\">o</class>",
-	difficulty = 1,
-	myGrid = null;
+	myGrid = null,
+	evaluating = false,
+	treeTable = `
+		<table id="tree_table_game">
+			<tr><td class="ttd_game"><div id="cell0" onclick="cellClicked(this.id)" class="fixed"></div></td><td class="ttd_game"><div id="cell1" onclick="cellClicked(this.id)" class="fixed"></div></td><td class="ttd_game"><div id="cell2" onclick="cellClicked(this.id)" class="fixed"></div></td></tr>
+			<tr><td class="ttd_game"><div id="cell3" onclick="cellClicked(this.id)" class="fixed"></div></td><td class="ttd_game"><div id="cell4" onclick="cellClicked(this.id)" class="fixed"></div></td><td class="ttd_game"><div id="cell5" onclick="cellClicked(this.id)" class="fixed"></div></td></tr>
+			<tr><td class="ttd_game"><div id="cell6" onclick="cellClicked(this.id)" class="fixed"></div></td><td class="ttd_game"><div id="cell7" onclick="cellClicked(this.id)" class="fixed"></div></td><td class="ttd_game"><div id="cell8" onclick="cellClicked(this.id)" class="fixed"></div></td></tr>
+		</table>
+		`;
 
 //==================================
 // GRID OBJECT
@@ -226,7 +207,7 @@ function cellClicked(id) {
 	// The last character of the id corresponds to the numeric index in Grid.cells:
 	var idName = id.toString();
 	var cell = parseInt(idName[idName.length - 1]);
-	if (myGrid.cells[cell] > 0 || gameOver) {
+	if (myGrid.cells[cell] > 0 || gameOver || evaluating) {
 		// cell is already occupied or something else is wrong
 		return false;
 	}
@@ -251,12 +232,14 @@ function cellClicked(id) {
 		winner = checkWin();
 	}
 
+	document.getElementById("gameTree").innerHTML += treeTable;
+
 	return true;
 }
 
 // Executed when x hits restart button.
 // ask should be true if we should ask users if they want to play as X or O
-function restartGame(ask) {
+function restartGame() {
 	gameOver = false;
 	moves = 0;
 	winner = 0;
@@ -268,10 +251,13 @@ function restartGame(ask) {
 		document.getElementById(id).style.cursor = "pointer";
 		document.getElementById(id).classList.remove("win-color");
 	}
+	document.getElementById("gameTree").innerHTML = "";
+	evaluating = false;
 }
 
 // Check if the game is over and determine winner
 function checkWin() {
+	evaluating = true;
 	winner = 0;
 
 	// rows
@@ -347,18 +333,19 @@ function checkWin() {
 		endGame(winner);
 		return winner;
 	}
-
+	evaluating = false;
 	return winner;
 }
 
 function announceWinner(text) {
 	document.getElementById("winText").innerHTML = text;
 	document.getElementById("winAnnounce").style.display = "block";
-	setTimeout(closeModal, 1400, "winAnnounce");
+	//setTimeout(closeModal, 1400, "winAnnounce");
 }
 
 function closeModal(id) {
 	document.getElementById(id).style.display = "none";
+	restartGame();
 }
 
 function endGame(who) {
@@ -377,5 +364,5 @@ function endGame(who) {
 		var id = "cell" + i.toString();
 		document.getElementById(id).style.cursor = "default";
 	}
-	setTimeout(restartGame, 800);
+	//setTimeout(restartGame, 800);
 }
