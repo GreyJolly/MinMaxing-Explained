@@ -1,156 +1,182 @@
 body {
-    background-color: white;
-    color: black;
-    text-align: center;
-    font-family: 'Arial', cursive;
-    font-size: 0.7em;
+	background-color: white;
+	color: black;
+	text-align: center;
+	font-family: 'Arial', cursive;
+	font-size: 0.7em;
 }
+
 h1 {
-    line-height: 1em;
-    margin-bottom: 0;
-    padding-bottom: 5px;
-    font-size: 2.8em;
-    font-weight: bold;
+	line-height: 1em;
+	margin-bottom: 0;
+	padding-bottom: 5px;
+	font-size: 2.8em;
+	font-weight: bold;
 }
+
 h2 {
-    font-size: 1.3em;
-    font-weight: bold;
-    padding: 0;
-    margin: 0;
+	font-size: 1.3em;
+	font-weight: bold;
+	padding: 0;
+	margin: 0;
 
 }
+
 h3 {
-    font-size: 1.1em;
-    text-decoration: underline;
-    text-decoration-style: dashed;
-    padding: 0;
-    margin: 10px 0 2px 0;
+	font-size: 1.1em;
+	text-decoration: underline;
+	text-decoration-style: dashed;
+	padding: 0;
+	margin: 10px 0 2px 0;
 }
+
 table {
-    margin: 2% auto;
-    border-collapse: collapse;
+	margin: 2% auto;
+	border-collapse: collapse;
 }
+
 #table_game {
-    position: relative;
-    font-size: 120px;
-    margin: 1% auto;
-    border-collapse: collapse;
+	position: relative;
+	font-size: 120px;
+	margin: 1% auto;
+	border-collapse: collapse;
 }
+
 .td_game {
-    border: 4px solid black;
-    width: 90px;
-    height: 90px;
-    padding: 0;
-    vertical-align: middle;
-    text-align: center;
+	border: 4px solid black;
+	width: 90px;
+	height: 90px;
+	padding: 0;
+	vertical-align: middle;
+	text-align: center;
 }
 
 .cell {
-    width: 90px;
-    height: 90px;
-    line-height: 90px;
-    display: block;
-    overflow: hidden;
-    cursor: pointer;
+	width: 90px;
+	height: 90px;
+	line-height: 90px;
+	display: block;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.x {
+	color: blue;
+	position: relative;
+	top: px;
+	font-size: 1.2em;
+	cursor: default;
+}
+
+.o {
+	color: red;
+	position: relative;
+	top: -7px;
+	font-size: 1.0em;
+	cursor: default;
 }
 
 #tree_table_game {
-	display:inline-block;
-    position: relative;
-    font-size: 40px;
-    margin: 1%;
-    border-collapse: collapse;
+	display: inline-block;
+	position: relative;
+	font-size: 40px;
+	margin: 1%;
+	border-collapse: collapse;
 }
+
 .ttd_game {
-    border: 4px solid rgb(170, 170, 170);
-    width: 50px;
-    height: 50px;
-    padding: 0;
-    vertical-align: middle;
-    text-align: center;
+	border: 4px solid rgb(170, 170, 170);
+	width: 50px;
+	height: 50px;
+	padding: 0;
+	vertical-align: middle;
+	text-align: center;
 }
 
 .tree_cell {
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    display: block;
-    overflow: hidden;
-    cursor: pointer;
+	line-height: 40px;
+	display: block;
+	overflow: hidden;
+	cursor: pointer;
 }
 
+.tree_x {
+	color: cyan;
+	position: relative;
+	top: px;
+	font-size: 1.2em;
+	cursor: default;
+}
+
+.tree_o {
+	color: magenta;
+	position: relative;
+	top: -7px;
+	font-size: 1.0em;
+	cursor: default;
+}
 
 #restart {
-    font-size: 3em;
-    cursor: pointer;
-    margin: 0 auto;
+	font-size: 3em;
+	cursor: pointer;
+	margin: 0 auto;
 
-}
-.x {
-    color: blue;
-    position: relative;
-    top: px;
-    font-size: 1.2em;
-    cursor: default;
-}
-.o {
-    color: red;
-    position: relative;
-    top: -7px;
-    font-size: 1.0em;
-    cursor: default;
 }
 
 /* modal background */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto; /* enable scroll if needed */
-    background-color: black; /* fallback color */
-    background-color: rgba(0, 0, 0, 0.6);
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	/* enable scroll if needed */
+	background-color: black;
+	/* fallback color */
+	background-color: rgba(0, 0, 0, 0.6);
 }
 
 /* modal content */
 .modal-content {
-    background-color: rgb(240, 240, 240);
-    color: rgb(32, 32, 32);
-    font-size: 2em;
-    font-weight: bold;
-    /* 16 % from the top and centered */
-    margin: 16% auto;
-    padding: 20px;
-    border: 2px solid black;
-    border-radius: 10px;
-    width: 380px;
-    max-width: 80%;
+	background-color: rgb(240, 240, 240);
+	color: rgb(32, 32, 32);
+	font-size: 2em;
+	font-weight: bold;
+	/* 16 % from the top and centered */
+	margin: 16% auto;
+	padding: 20px;
+	border: 2px solid black;
+	border-radius: 10px;
+	width: 380px;
+	max-width: 80%;
 }
+
 .modal-content p {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 /* close button for modal dialog */
 .close {
-    color: rgb(170, 170, 170);
-    float: right;
-    position: relative;
-    top: -25px;
-    right: -10px;
-    font-size: 34px;
-    font-weight: bold;
+	color: rgb(170, 170, 170);
+	float: right;
+	position: relative;
+	top: -25px;
+	right: -10px;
+	font-size: 34px;
+	font-weight: bold;
 }
+
 .close:hover,
 .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
 }
 
 .win-color {
-    background-color: rgb(230, 230, 230);
+	background-color: rgb(230, 230, 230);
 }

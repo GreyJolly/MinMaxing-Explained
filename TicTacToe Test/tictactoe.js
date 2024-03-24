@@ -50,17 +50,17 @@ var moves = 0,
 	o = 3,
 	whoseTurn = x,
 	gameOver = false,
-	xText = "<span class=\"x\">&times;</class>",
-	oText = "<span class=\"o\">o</class>",
-	myGrid = null,
-	evaluating = false,
-	treeTable = `
-		<table id="tree_table_game">
-			<tr><td class="ttd_game"><div id="cell0" onclick="cellClicked(this.id)" class="tree_cell"></div></td><td class="ttd_game"><div id="cell1" onclick="cellClicked(this.id)" class="tree_cell"></div></td><td class="ttd_game"><div id="cell2" onclick="cellClicked(this.id)" class="tree_cell"></div></td></tr>
-			<tr><td class="ttd_game"><div id="cell3" onclick="cellClicked(this.id)" class="tree_cell"></div></td><td class="ttd_game"><div id="cell4" onclick="cellClicked(this.id)" class="tree_cell"></div></td><td class="ttd_game"><div id="cell5" onclick="cellClicked(this.id)" class="tree_cell"></div></td></tr>
-			<tr><td class="ttd_game"><div id="cell6" onclick="cellClicked(this.id)" class="tree_cell"></div></td><td class="ttd_game"><div id="cell7" onclick="cellClicked(this.id)" class="tree_cell"></div></td><td class="ttd_game"><div id="cell8" onclick="cellClicked(this.id)" class="tree_cell"></div></td></tr>
-		</table>
-		`;
+	xText = '<span class="x">&times;</class>',
+	oText = '<span class="o">o</class>',
+	playingGrid = null,
+	evaluating = false;
+//treeTable = `
+//	<table id="tree_table_game">
+//		<tr><td class="ttd_game"><div id="cell0" class="tree_cell"></div></td><td class="ttd_game"><div id="cell1" class="tree_cell"></div></td><td class="ttd_game"><div id="cell2" class="tree_cell"></div></td></tr>
+//		<tr><td class="ttd_game"><div id="cell3" class="tree_cell"></div></td><td class="ttd_game"><div id="cell4" class="tree_cell"></div></td><td class="ttd_game"><div id="cell5" class="tree_cell"></div></td></tr>
+//		<tr><td class="ttd_game"><div id="cell6" class="tree_cell"></div></td><td class="ttd_game"><div id="cell7" class="tree_cell"></div></td><td class="ttd_game"><div id="cell8" class="tree_cell"></div></td></tr>
+//	</table>
+//	`;
 
 //==================================
 // GRID OBJECT
@@ -76,8 +76,7 @@ function Grid() {
 //=============
 
 // Get free cells in an array.
-// Returns an array of indices in the original Grid.cells array, not the values of the array elements.
-// Their values can be accessed as Grid.cells[index].
+// Returns an array of indices in the original Grid.cells array, not their values.
 Grid.prototype.getFreeCellIndices = function () {
 	var i = 0,
 		resultArray = [];
@@ -86,7 +85,6 @@ Grid.prototype.getFreeCellIndices = function () {
 			resultArray.push(i);
 		}
 	}
-
 	return resultArray;
 };
 
@@ -176,6 +174,20 @@ Grid.prototype.getDiagIndices = function (arg) {
 	}
 };
 
+// Get the index the row, column and eventually the diagonal of a cell
+Grid.prototype.getRowColDiagOfCell = function (arg) {
+	var rowColDiag = [];
+	rowColDiag.push(Math.floor(arg / 3));
+	rowColDiag.push(arg % 3);
+	if (rowColDiag[0] == rowColDiag[1]) rowColDiag.push(0);
+	else if (rowColDiag[0] + rowColDiag[1] == 2) rowColDiag.push(1);
+	else rowColDiag.push(null);
+	return rowColDiag;
+};
+
+Grid.prototype.getCellValue = function (row, col) {
+	return this.cells[row * 3 + col];
+}
 
 Grid.prototype.reset = function () {
 	for (var i = 0; i < this.cells.length; i++) {
@@ -190,22 +202,43 @@ Grid.prototype.reset = function () {
 
 // executed when the page loads
 function initialize() {
-	myGrid = new Grid();
+	playingGrid = new Grid();
 	moves = 0;
 	winner = 0;
 	gameOver = false;
 	whoseTurn = x; // default, this may change
-	for (var i = 0; i <= myGrid.cells.length - 1; i++) {
-		myGrid.cells[i] = 0;
+	for (var i = 0; i < playingGrid.cells.length; i++) {
+		playingGrid.cells[i] = 0;
 	}
 }
+
+// Make an HTML string to display a given Grid
+function makeStringForTreeGame(treeGrid) {
+	var treeTable = '<table id="tree_table_game">\n\t';
+	for (var i = 0; i < 3; i++) {
+		treeTable += '\t<tr>'
+		for (var j = 0; j < 3; j++) {
+			treeTable += '<td class="ttd_game"><div id="cell0" class="tree_cell">';
+			if (treeGrid.cells[i * 3 + j] == x) {
+				treeTable += '<span class="tree_x">&times;</class>';
+			} else if (treeGrid.cells[i * 3 + j] == o) {
+				treeTable += '<span class="tree_o">o</class>';
+			}
+			treeTable += '</div></td>';
+		}
+		treeTable += '</tr>'
+	}
+	treeTable += '</table>';
+
+	return treeTable;
+};
 
 // executed when the user clicks one of the table cells
 function cellClicked(id) {
 	// The last character of the id corresponds to the numeric index in Grid.cells:
 	var idName = id.toString();
 	var cell = parseInt(idName[idName.length - 1]);
-	if (myGrid.cells[cell] > 0 || gameOver || evaluating) {
+	if (playingGrid.cells[cell] > 0 || gameOver || evaluating) {
 		// cell is already occupied or something else is wrong
 		return false;
 	}
@@ -213,11 +246,11 @@ function cellClicked(id) {
 
 	if (whoseTurn == x) {
 		document.getElementById(id).innerHTML = xText;
-		myGrid.cells[cell] = x;
+		playingGrid.cells[cell] = x;
 		whoseTurn = o;
 	} else {
 		document.getElementById(id).innerHTML = oText;
-		myGrid.cells[cell] = o;
+		playingGrid.cells[cell] = o;
 		whoseTurn = x;
 	}
 
@@ -225,13 +258,13 @@ function cellClicked(id) {
 
 	// Test if we have a winner:
 	if (moves >= 5) {
-		winner = checkWin();
+		winner = checkWin(cell);
 	}
 
-	document.getElementById("gameTree").innerHTML += treeTable;
+	document.getElementById("gameTree").innerHTML += makeStringForTreeGame(playingGrid);
 
 	return true;
-}
+};
 
 // Executed when x hits restart button.
 // ask should be true if we should ask users if they want to play as X or O
@@ -240,8 +273,8 @@ function restartGame() {
 	moves = 0;
 	winner = 0;
 	whoseTurn = x;
-	myGrid.reset();
-	for (var i = 0; i <= 8; i++) {
+	playingGrid.reset();
+	for (var i = 0; i < 9; i++) {
 		var id = "cell" + i.toString();
 		document.getElementById(id).innerHTML = "";
 		document.getElementById(id).style.cursor = "pointer";
@@ -252,53 +285,51 @@ function restartGame() {
 }
 
 // Check if the game is over and determine winner
-function checkWin() {
+function checkWin(cellid) {
 	evaluating = true;
 	winner = 0;
+	var stuffToCheck = playingGrid.getRowColDiagOfCell(cellid);
 
 	// rows
-	for (var i = 0; i <= 2; i++) {
-		var row = myGrid.getRowValues(i);
-		if (row[0] > 0 && row[0] == row[1] && row[0] == row[2]) {
-			if (row[0] == o) {
-				winner = o;
-			} else {
-				winner = x;
-			}
-			// Give the winning row/column/diagonal a different bg-color
-			var tmpAr = myGrid.getRowIndices(i);
-			for (var j = 0; j < tmpAr.length; j++) {
-				var str = "cell" + tmpAr[j];
-				document.getElementById(str).classList.add("win-color");
-			}
-			setTimeout(endGame, 1000, winner);
-			return winner;
+	var row = playingGrid.getRowValues(stuffToCheck[0]);
+	if (row[0] > 0 && row[0] == row[1] && row[0] == row[2]) {
+		if (row[0] == o) {
+			winner = o;
+		} else {
+			winner = x;
 		}
+		// Give the winning row/column/diagonal a different bg-color
+		var tmpAr = playingGrid.getRowIndices(stuffToCheck[0]);
+		for (var i = 0; i < tmpAr.length; i++) {
+			var str = "cell" + tmpAr[i];
+			document.getElementById(str).classList.add("win-color");
+		}
+		setTimeout(endGame, 1000, winner);
+		return winner;
 	}
 
+
 	// columns
-	for (i = 0; i <= 2; i++) {
-		var col = myGrid.getColumnValues(i);
-		if (col[0] > 0 && col[0] == col[1] && col[0] == col[2]) {
-			if (col[0] == o) {
-				winner = o;
-			} else {
-				winner = x;
-			}
-			// Give the winning row/column/diagonal a different bg-color
-			var tmpAr = myGrid.getColumnIndices(i);
-			for (var j = 0; j < tmpAr.length; j++) {
-				var str = "cell" + tmpAr[j];
-				document.getElementById(str).classList.add("win-color");
-			}
-			setTimeout(endGame, 1000, winner);
-			return winner;
+	var col = playingGrid.getColumnValues(stuffToCheck[1]);
+	if (col[0] > 0 && col[0] == col[1] && col[0] == col[2]) {
+		if (col[0] == o) {
+			winner = o;
+		} else {
+			winner = x;
 		}
+		// Give the winning row/column/diagonal a different bg-color
+		var tmpAr = playingGrid.getColumnIndices(stuffToCheck[1]);
+		for (var i = 0; i < tmpAr.length; i++) {
+			var str = "cell" + tmpAr[i];
+			document.getElementById(str).classList.add("win-color");
+		}
+		setTimeout(endGame, 1000, winner);
+		return winner;
 	}
 
 	// diagonals
-	for (i = 0; i <= 1; i++) {
-		var diagonal = myGrid.getDiagValues(i);
+	if (stuffToCheck[2] !== null) {
+		var diagonal = playingGrid.getDiagValues(stuffToCheck[2]);
 		if (diagonal[0] > 0 && diagonal[0] == diagonal[1] && diagonal[0] == diagonal[2]) {
 			if (diagonal[0] == o) {
 				winner = o;
@@ -306,9 +337,9 @@ function checkWin() {
 				winner = x;
 			}
 			// Give the winning row/column/diagonal a different bg-color
-			var tmpAr = myGrid.getDiagIndices(i);
-			for (var j = 0; j < tmpAr.length; j++) {
-				var str = "cell" + tmpAr[j];
+			var tmpAr = playingGrid.getDiagIndices(stuffToCheck[2]);
+			for (var i = 0; i < tmpAr.length; i++) {
+				var str = "cell" + tmpAr[i];
 				document.getElementById(str).classList.add("win-color");
 			}
 			setTimeout(endGame, 1000, winner);
@@ -317,7 +348,7 @@ function checkWin() {
 	}
 
 	// If we haven't returned a winner by now, if the board is full, it's a tie
-	var myArr = myGrid.getFreeCellIndices();
+	var myArr = playingGrid.getFreeCellIndices();
 	if (myArr.length === 0) {
 		winner = 10;
 		endGame(winner);
@@ -350,7 +381,7 @@ function endGame(who) {
 	whoseTurn = 0;
 	moves = 0;
 	winner = 0;
-	for (var i = 0; i <= 8; i++) {
+	for (var i = 0; i < 9; i++) {
 		var id = "cell" + i.toString();
 		document.getElementById(id).style.cursor = "default";
 	}
