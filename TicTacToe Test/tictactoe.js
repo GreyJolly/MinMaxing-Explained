@@ -1,24 +1,5 @@
 "use strict";
 
-/*
-
-A SIMPLE TIC-TAC-TOE GAME IN JAVASCRIPT
-
-The game grid is represented in the array Grid.cells as follows:
-
-[0] [1] [2]
-[3] [4] [5]
-[6] [7] [8]
-
-The cells (array elements) hold the following numeric values:
-0 if not occupied, 1 for x, 3 for o.
-This allows us to quickly get an overview of the game state:
-if the sum of all the cells in a row is 9, the o wins,
-if it is 3 and all the cells are occupied, the human x wins,
-etc.
-
-*/
-
 //==================================
 // EVENT BINDINGS
 //==================================
@@ -180,8 +161,8 @@ Grid.prototype.getRowColDiagOfCell = function (arg) {
 	rowColDiag.push(Math.floor(arg / 3));
 	rowColDiag.push(arg % 3);
 	if (rowColDiag[0] == rowColDiag[1]) rowColDiag.push(0);
-	else if (rowColDiag[0] + rowColDiag[1] == 2) rowColDiag.push(1);
-	else rowColDiag.push(null);
+	if (rowColDiag[0] + rowColDiag[1] == 2) rowColDiag.push(1);
+	rowColDiag.push(null);
 	return rowColDiag;
 };
 
@@ -308,7 +289,6 @@ function checkWin(cellid) {
 		return winner;
 	}
 
-
 	// columns
 	var col = playingGrid.getColumnValues(stuffToCheck[1]);
 	if (col[0] > 0 && col[0] == col[1] && col[0] == col[2]) {
@@ -344,6 +324,26 @@ function checkWin(cellid) {
 			}
 			setTimeout(endGame, 1000, winner);
 			return winner;
+		}
+
+		// TODO: OPTIMISE! This section is a crutch added to fix the center checking both diagonals
+		if(stuffToCheck[3] !== null) {	
+			var diagonal = playingGrid.getDiagValues(stuffToCheck[3]);
+			if (diagonal[0] > 0 && diagonal[0] == diagonal[1] && diagonal[0] == diagonal[2]) {
+				if (diagonal[0] == o) {
+					winner = o;
+				} else {
+					winner = x;
+				}
+				// Give the winning row/column/diagonal a different bg-color
+				var tmpAr = playingGrid.getDiagIndices(stuffToCheck[3]);
+				for (var i = 0; i < tmpAr.length; i++) {
+					var str = "cell" + tmpAr[i];
+					document.getElementById(str).classList.add("win-color");
+				}
+				setTimeout(endGame, 1000, winner);
+				return winner;
+			}
 		}
 	}
 
