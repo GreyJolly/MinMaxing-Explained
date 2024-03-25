@@ -12,24 +12,19 @@ window.onclick = function (evt) {
 	}
 };
 
-//==================================
-// HELPER FUNCTIONS
-//==================================
-function sumArray(array) {
-	var sum = 0,
-		i = 0;
-	for (i = 0; i < array.length; i++) {
-		sum += array[i];
-	}
-	return sum;
-}
+// GLOBAL CONSTANTS
 
-// GLOBAL VARIABLES
-var x = 1,
+const 
+	x = 1,
 	o = 3,
-	gameOver = false,
 	xText = '<span class="x">&times;</class>',
 	oText = '<span class="o">o</class>',
+	xWin = 1,	// THIS CONSTANT ISN'T USED
+	oWin = 2,	// THIS CONSTANT ISN'T USED
+	tieWin = 3;	// THIS CONSTANT ISN'T USED
+// GLOBAL VARIABLES
+var 
+	gameOver = false,
 	playingGrid = null;
 
 //==================================
