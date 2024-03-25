@@ -94,7 +94,9 @@ table {
 }
 
 .tree_cell {
-	line-height: 40px;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
 	display: block;
 	overflow: hidden;
 	cursor: pointer;
@@ -178,5 +180,9 @@ table {
 }
 
 .win-color {
+	background-color: rgb(230, 230, 230);
+}
+
+.tree_win-color {
 	background-color: rgb(230, 230, 230);
 }

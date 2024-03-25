@@ -30,8 +30,7 @@ var x = 1,
 	gameOver = false,
 	xText = '<span class="x">&times;</class>',
 	oText = '<span class="o">o</class>',
-	playingGrid = null,
-	evaluating = false;
+	playingGrid = null;
 
 //==================================
 // GRID OBJECT
@@ -53,8 +52,9 @@ function Grid() {
 Grid.prototype.makeMove = function(lastMovePlayed) {
 	if (this.cells[lastMovePlayed] != 0) {
 		console.error("Made a move on a full cell!");
-		return null;
+		return false;
 	}
+	if (this.won !== 0) return false;
 	this.cells[lastMovePlayed] = this.whoseTurn;
 	this.whoseTurn = this.whoseTurn == x?o:x;
 	this.moves++;
@@ -62,6 +62,9 @@ Grid.prototype.makeMove = function(lastMovePlayed) {
 		var results = checkMoveForWin(lastMovePlayed, this);
 		this.won = results[0];
 		this.winningCells = results.splice(1);
+	}
+	if (this.moves >= 9) {
+		this.won = 3;
 	}
 }
 
@@ -208,6 +211,7 @@ Grid.prototype.clone = function() {
 	clonedGrid.cells = this.cells.slice(0);
 	clonedGrid.whoseTurn = this.whoseTurn;
 	clonedGrid.won = this.won;
+	clonedGrid.moves = this.moves;
 	clonedGrid.winningCells = this.winningCells.splice(0);
 	return clonedGrid;
 }
@@ -232,10 +236,15 @@ function makeStringForTreeGame(treeGrid) {
 	for (var i = 0; i < 3; i++) {
 		treeTable += '\t<tr>'
 		for (var j = 0; j < 3; j++) {
-			treeTable += '<td class="ttd_game"><div id="cell0" class="tree_cell">';
-			if (treeGrid.cells[i * 3 + j] == x) {
+			var cellid = i * 3 + j;
+			treeTable += '<td class="ttd_game"><div id="cell0" class="tree_cell';
+			if (treeGrid.winningCells[0] == cellid || treeGrid.winningCells[1] == cellid || treeGrid.winningCells[2] == cellid) {
+				treeTable += ' tree_win-color';
+			}
+			treeTable += '">';
+			if (treeGrid.cells[cellid] == x) {
 				treeTable += '<span class="tree_x">&times;</class>';
-			} else if (treeGrid.cells[i * 3 + j] == o) {
+			} else if (treeGrid.cells[cellid] == o) {
 				treeTable += '<span class="tree_o">o</class>';
 			}
 			treeTable += '</div></td>';
@@ -255,13 +264,11 @@ function cellClicked(id) {
 	var idName = id.toString();
 	var cell = parseInt(idName[idName.length - 1]);
 
-	// TODO: IT'S POSSIBLE TO PLAY AFTER GAMEOVER (EVALUATION ISN'T WORKING)
-	if (playingGrid.cells[cell] > 0 || gameOver || evaluating) {
+	if (playingGrid.cells[cell] > 0 || gameOver ) {
 		// cell is already occupied or something else is wrong
 		return false;
 	}
-	evaluating = true;
-	playingGrid.makeMove(cell);
+	if (playingGrid.makeMove(cell) == false) return false;
 
 	if (playingGrid.whoseTurn == o) {
 		document.getElementById(id).innerHTML = xText;
@@ -282,24 +289,19 @@ function cellClicked(id) {
 		}
 		setTimeout(endGame, 1000, playingGrid.won);
 	}
-
 	if (playingGrid.won == 3 ) {
-		console.log("RILEVATA UNA PATTA");	
 		setTimeout(endGame, 1000, playingGrid.won);
 	}
 	var possibleAnswers = playingGrid.getPossibleAnswers();	
 	for (var i = 0; i<possibleAnswers.length; i++) {
 		document.getElementById("gameTree").innerHTML += makeStringForTreeGame(possibleAnswers[i]);
 	}
-
-	evaluating = false;
 	return true;
 };
 
 // Executed when the player hits restart button
 function restartGame() {
 	gameOver = false;
-	evaluating = false;
 	playingGrid.reset();
 	for (var i = 0; i < 9; i++) {
 		var id = "cell" + i.toString();
@@ -369,14 +371,6 @@ function checkMoveForWin(lastMovePlayed, grid) {
 			}
 		}
 		return [0, null,null,null];
-	}
-
-	//TODO: TIES AREN'T DETECTED
-
-	// If we haven't returned a winner by now, if the board is full, it's a tie
-	if (grid.getFreeCellIndices().length == 0) {
-		console.log("RILEVATA UNA PATTAaaaa");
-		return [3, null, null, null];
 	}
 	
 	return [0, null, null, null];
