@@ -25,23 +25,13 @@ function sumArray(array) {
 }
 
 // GLOBAL VARIABLES
-var moves = 0,
-	winner = 0,
-	x = 1,
+var x = 1,
 	o = 3,
-	whoseTurn = x,
 	gameOver = false,
 	xText = '<span class="x">&times;</class>',
 	oText = '<span class="o">o</class>',
 	playingGrid = null,
 	evaluating = false;
-//treeTable = `
-//	<table id="tree_table_game">
-//		<tr><td class="ttd_game"><div id="cell0" class="tree_cell"></div></td><td class="ttd_game"><div id="cell1" class="tree_cell"></div></td><td class="ttd_game"><div id="cell2" class="tree_cell"></div></td></tr>
-//		<tr><td class="ttd_game"><div id="cell3" class="tree_cell"></div></td><td class="ttd_game"><div id="cell4" class="tree_cell"></div></td><td class="ttd_game"><div id="cell5" class="tree_cell"></div></td></tr>
-//		<tr><td class="ttd_game"><div id="cell6" class="tree_cell"></div></td><td class="ttd_game"><div id="cell7" class="tree_cell"></div></td><td class="ttd_game"><div id="cell8" class="tree_cell"></div></td></tr>
-//	</table>
-//	`;
 
 //==================================
 // GRID OBJECT
@@ -51,10 +41,29 @@ var moves = 0,
 //=================
 function Grid() {
 	this.cells = new Array(9);
+	this.moves = 0;
+	this.whoseTurn = x;
+	this.won = 0; // 0: haven't won yet, 1: X win; 2: O win; 3: tie;
+	this.winningCells = [null,null,null];
 }
 
 // Grid methods
 //=============
+
+Grid.prototype.makeMove = function(lastMovePlayed) {
+	if (this.cells[lastMovePlayed] != 0) {
+		console.error("Made a move on a full cell!");
+		return null;
+	}
+	this.cells[lastMovePlayed] = this.whoseTurn;
+	this.whoseTurn = this.whoseTurn == x?o:x;
+	this.moves++;
+	if (this.moves >= 5) {
+		var results = checkMoveForWin(lastMovePlayed, this);
+		this.won = results[0];
+		this.winningCells = results.splice(1);
+	}
+}
 
 // Get free cells in an array.
 // Returns an array of indices in the original Grid.cells array, not their values.
@@ -174,8 +183,34 @@ Grid.prototype.reset = function () {
 	for (var i = 0; i < this.cells.length; i++) {
 		this.cells[i] = 0;
 	}
+	this.moves = 0;
+	this.whoseTurn = x;
+	this.won = 0; // 0: haven't won yet, 1: X win; 2: O win; 3: tie;
+	this.winningCells = [null,null,null];
 	return true;
 };
+
+Grid.prototype.getPossibleAnswers = function() {
+	if (this.won !== 0) return [];
+	var possibleAnswers = [];
+	for (var i = 0; i<9; i++) {
+		if (this.cells[i] == 0) {
+			var possibleAnswerGrid =  this.clone();
+			possibleAnswerGrid.makeMove(i);
+			possibleAnswers.push(possibleAnswerGrid.clone());
+		}
+	}
+	return possibleAnswers;
+};
+
+Grid.prototype.clone = function() {
+	var clonedGrid = new Grid();
+	clonedGrid.cells = this.cells.slice(0);
+	clonedGrid.whoseTurn = this.whoseTurn;
+	clonedGrid.won = this.won;
+	clonedGrid.winningCells = this.winningCells.splice(0);
+	return clonedGrid;
+}
 
 //==================================
 // MAIN FUNCTIONS
@@ -184,10 +219,8 @@ Grid.prototype.reset = function () {
 // executed when the page loads
 function initialize() {
 	playingGrid = new Grid();
-	moves = 0;
-	winner = 0;
 	gameOver = false;
-	whoseTurn = x; // default, this may change
+	playingGrid.whoseTurn = x;
 	for (var i = 0; i < playingGrid.cells.length; i++) {
 		playingGrid.cells[i] = 0;
 	}
@@ -216,44 +249,57 @@ function makeStringForTreeGame(treeGrid) {
 
 // executed when the user clicks one of the table cells
 function cellClicked(id) {
+	document.getElementById(id).style.cursor = "default";
+
 	// The last character of the id corresponds to the numeric index in Grid.cells:
 	var idName = id.toString();
 	var cell = parseInt(idName[idName.length - 1]);
+
+	// TODO: IT'S POSSIBLE TO PLAY AFTER GAMEOVER (EVALUATION ISN'T WORKING)
 	if (playingGrid.cells[cell] > 0 || gameOver || evaluating) {
 		// cell is already occupied or something else is wrong
 		return false;
 	}
-	moves += 1;
+	evaluating = true;
+	playingGrid.makeMove(cell);
 
-	if (whoseTurn == x) {
+	if (playingGrid.whoseTurn == o) {
 		document.getElementById(id).innerHTML = xText;
 		playingGrid.cells[cell] = x;
-		whoseTurn = o;
 	} else {
 		document.getElementById(id).innerHTML = oText;
 		playingGrid.cells[cell] = o;
-		whoseTurn = x;
 	}
 
-	document.getElementById(id).style.cursor = "default";
+	document.getElementById("gameTree").innerHTML = "";
 
 	// Test if we have a winner:
-	if (moves >= 5) {
-		winner = checkWin(cell);
+	
+	if (playingGrid.won == 1 || playingGrid.won == 2) {
+		for (var i = 0; i < playingGrid.winningCells.length; i++) {
+			var str = "cell" + playingGrid.winningCells[i];
+			document.getElementById(str).classList.add("win-color");
+		}
+		setTimeout(endGame, 1000, playingGrid.won);
 	}
 
-	document.getElementById("gameTree").innerHTML += makeStringForTreeGame(playingGrid);
+	if (playingGrid.won == 3 ) {
+		console.log("RILEVATA UNA PATTA");	
+		setTimeout(endGame, 1000, playingGrid.won);
+	}
+	var possibleAnswers = playingGrid.getPossibleAnswers();	
+	for (var i = 0; i<possibleAnswers.length; i++) {
+		document.getElementById("gameTree").innerHTML += makeStringForTreeGame(possibleAnswers[i]);
+	}
 
+	evaluating = false;
 	return true;
 };
 
-// Executed when x hits restart button.
-// ask should be true if we should ask users if they want to play as X or O
+// Executed when the player hits restart button
 function restartGame() {
 	gameOver = false;
-	moves = 0;
-	winner = 0;
-	whoseTurn = x;
+	evaluating = false;
 	playingGrid.reset();
 	for (var i = 0; i < 9; i++) {
 		var id = "cell" + i.toString();
@@ -262,100 +308,78 @@ function restartGame() {
 		document.getElementById(id).classList.remove("win-color");
 	}
 	document.getElementById("gameTree").innerHTML = "";
-	evaluating = false;
 }
 
-// Check if the game is over and determine winner
-function checkWin(cellid) {
-	evaluating = true;
-	winner = 0;
-	var stuffToCheck = playingGrid.getRowColDiagOfCell(cellid);
-
+// Check if a game is over and determine the winner and the winning row/column/diagonal
+function checkMoveForWin(lastMovePlayed, grid) {
+	var stuffToCheck = grid.getRowColDiagOfCell(lastMovePlayed);
+	var winner;
 	// rows
-	var row = playingGrid.getRowValues(stuffToCheck[0]);
+	var row = grid.getRowValues(stuffToCheck[0]);
 	if (row[0] > 0 && row[0] == row[1] && row[0] == row[2]) {
 		if (row[0] == o) {
-			winner = o;
+			winner = [2];
 		} else {
-			winner = x;
+			winner = [1];
 		}
-		// Give the winning row/column/diagonal a different bg-color
-		var tmpAr = playingGrid.getRowIndices(stuffToCheck[0]);
-		for (var i = 0; i < tmpAr.length; i++) {
-			var str = "cell" + tmpAr[i];
-			document.getElementById(str).classList.add("win-color");
-		}
-		setTimeout(endGame, 1000, winner);
+		// Return the winning row
+		winner = winner.concat(grid.getRowIndices(stuffToCheck[0]));
 		return winner;
 	}
 
 	// columns
-	var col = playingGrid.getColumnValues(stuffToCheck[1]);
+	var col = grid.getColumnValues(stuffToCheck[1]);
 	if (col[0] > 0 && col[0] == col[1] && col[0] == col[2]) {
 		if (col[0] == o) {
-			winner = o;
+			winner = [2];
 		} else {
-			winner = x;
+			winner = [1];
 		}
-		// Give the winning row/column/diagonal a different bg-color
-		var tmpAr = playingGrid.getColumnIndices(stuffToCheck[1]);
-		for (var i = 0; i < tmpAr.length; i++) {
-			var str = "cell" + tmpAr[i];
-			document.getElementById(str).classList.add("win-color");
-		}
-		setTimeout(endGame, 1000, winner);
+		// Return the winning column
+		winner = winner.concat(grid.getColumnIndices(stuffToCheck[1]));
 		return winner;
 	}
 
 	// diagonals
 	if (stuffToCheck[2] !== null) {
-		var diagonal = playingGrid.getDiagValues(stuffToCheck[2]);
+		var diagonal = grid.getDiagValues(stuffToCheck[2]);
 		if (diagonal[0] > 0 && diagonal[0] == diagonal[1] && diagonal[0] == diagonal[2]) {
 			if (diagonal[0] == o) {
-				winner = o;
+				winner = [2];
 			} else {
-				winner = x;
+				winner = [1];
 			}
-			// Give the winning row/column/diagonal a different bg-color
-			var tmpAr = playingGrid.getDiagIndices(stuffToCheck[2]);
-			for (var i = 0; i < tmpAr.length; i++) {
-				var str = "cell" + tmpAr[i];
-				document.getElementById(str).classList.add("win-color");
-			}
-			setTimeout(endGame, 1000, winner);
+			// Return the winning diagonal
+			winner = winner.concat(grid.getDiagIndices(stuffToCheck[2]));
 			return winner;
 		}
 
 		// TODO: OPTIMISE! This section is a crutch added to fix the center checking both diagonals
 		if(stuffToCheck[3] !== null) {	
-			var diagonal = playingGrid.getDiagValues(stuffToCheck[3]);
+			var diagonal = grid.getDiagValues(stuffToCheck[3]);
 			if (diagonal[0] > 0 && diagonal[0] == diagonal[1] && diagonal[0] == diagonal[2]) {
 				if (diagonal[0] == o) {
-					winner = o;
+					winner = [2];
 				} else {
-					winner = x;
+					winner = [1];
 				}
-				// Give the winning row/column/diagonal a different bg-color
-				var tmpAr = playingGrid.getDiagIndices(stuffToCheck[3]);
-				for (var i = 0; i < tmpAr.length; i++) {
-					var str = "cell" + tmpAr[i];
-					document.getElementById(str).classList.add("win-color");
-				}
-				setTimeout(endGame, 1000, winner);
+				// Return the winning diagonal
+				winner = winner.concat(grid.getDiagIndices(stuffToCheck[3]));
 				return winner;
 			}
 		}
+		return [0, null,null,null];
 	}
 
+	//TODO: TIES AREN'T DETECTED
+
 	// If we haven't returned a winner by now, if the board is full, it's a tie
-	var myArr = playingGrid.getFreeCellIndices();
-	if (myArr.length === 0) {
-		winner = 10;
-		endGame(winner);
-		return winner;
+	if (grid.getFreeCellIndices().length == 0) {
+		console.log("RILEVATA UNA PATTAaaaa");
+		return [3, null, null, null];
 	}
-	evaluating = false;
-	return winner;
+	
+	return [0, null, null, null];
 }
 
 function announceWinner(text) {
@@ -369,18 +393,17 @@ function closeModal(id) {
 	restartGame();
 }
 
-function endGame(who) {
-	if (who == x) {
+function endGame(winner) {
+	if (winner == 1) {
 		announceWinner("X won!");
-	} else if (who == o) {
+	} else if (winner == 2) {
 		announceWinner("O won!");
 	} else {
 		announceWinner("It's a tie!");
 	}
 	gameOver = true;
-	whoseTurn = 0;
-	moves = 0;
-	winner = 0;
+	playingGrid.whoseTurn = 0;
+	playingGrid.moves = 0;
 	for (var i = 0; i < 9; i++) {
 		var id = "cell" + i.toString();
 		document.getElementById(id).style.cursor = "default";
