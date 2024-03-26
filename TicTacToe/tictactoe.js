@@ -57,6 +57,7 @@ Grid.prototype.makeMove = function(lastMovePlayed) {
 		var results = checkMoveForWin(lastMovePlayed, this);
 		this.won = results[0];
 		this.winningCells = results.splice(1);
+		return;
 	}
 	if (this.moves >= 9) {
 		this.won = 3;
