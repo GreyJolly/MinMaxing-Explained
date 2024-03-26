@@ -57,11 +57,11 @@ Grid.prototype.makeMove = function (lastMovePlayed) {
 		var results = checkMoveForWin(lastMovePlayed, this);
 		this.won = results[0];
 		this.winningCells = results.splice(1);
-		return;
+		if (this.moves >= 9 && this.won == 0) {
+			this.won = 3;
+		}
 	}
-	if (this.moves >= 9) {
-		this.won = 3;
-	}
+
 }
 
 // Get free cells in an array.
