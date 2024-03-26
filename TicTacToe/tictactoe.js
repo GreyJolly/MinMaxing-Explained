@@ -14,7 +14,7 @@ window.onclick = function (evt) {
 
 // GLOBAL CONSTANTS
 
-const 
+const
 	x = 1,
 	o = 3,
 	xText = '<span class="x">&times;</class>',
@@ -23,7 +23,7 @@ const
 	oWin = 2,	// THIS CONSTANT ISN'T USED
 	tieWin = 3;	// THIS CONSTANT ISN'T USED
 // GLOBAL VARIABLES
-var 
+var
 	gameOver = false,
 	playingGrid = null;
 
@@ -38,20 +38,20 @@ function Grid() {
 	this.moves = 0;
 	this.whoseTurn = x;
 	this.won = 0; // 0: haven't won yet, 1: X win; 2: O win; 3: tie;
-	this.winningCells = [null,null,null];
+	this.winningCells = [null, null, null];
 }
 
 // Grid methods
 //=============
 
-Grid.prototype.makeMove = function(lastMovePlayed) {
+Grid.prototype.makeMove = function (lastMovePlayed) {
 	if (this.cells[lastMovePlayed] != 0) {
 		console.error("Made a move on a full cell!");
 		return false;
 	}
 	if (this.won !== 0) return false;
 	this.cells[lastMovePlayed] = this.whoseTurn;
-	this.whoseTurn = this.whoseTurn == x?o:x;
+	this.whoseTurn = this.whoseTurn == x ? o : x;
 	this.moves++;
 	if (this.moves >= 5) {
 		var results = checkMoveForWin(lastMovePlayed, this);
@@ -185,16 +185,16 @@ Grid.prototype.reset = function () {
 	this.moves = 0;
 	this.whoseTurn = x;
 	this.won = 0; // 0: haven't won yet, 1: X win; 2: O win; 3: tie;
-	this.winningCells = [null,null,null];
+	this.winningCells = [null, null, null];
 	return true;
 };
 
-Grid.prototype.getPossibleAnswers = function() {
+Grid.prototype.getPossibleAnswers = function () {
 	if (this.won !== 0) return [];
 	var possibleAnswers = [];
-	for (var i = 0; i<9; i++) {
+	for (var i = 0; i < 9; i++) {
 		if (this.cells[i] == 0) {
-			var possibleAnswerGrid =  this.clone();
+			var possibleAnswerGrid = this.clone();
 			possibleAnswerGrid.makeMove(i);
 			possibleAnswers.push(possibleAnswerGrid.clone());
 		}
@@ -202,7 +202,7 @@ Grid.prototype.getPossibleAnswers = function() {
 	return possibleAnswers;
 };
 
-Grid.prototype.clone = function() {
+Grid.prototype.clone = function () {
 	var clonedGrid = new Grid();
 	clonedGrid.cells = this.cells.slice(0);
 	clonedGrid.whoseTurn = this.whoseTurn;
@@ -260,7 +260,7 @@ function cellClicked(id) {
 	var idName = id.toString();
 	var cell = parseInt(idName[idName.length - 1]);
 
-	if (playingGrid.cells[cell] > 0 || gameOver ) {
+	if (playingGrid.cells[cell] > 0 || gameOver) {
 		// cell is already occupied or something else is wrong
 		return false;
 	}
@@ -277,7 +277,7 @@ function cellClicked(id) {
 	document.getElementById("gameTree").innerHTML = "";
 
 	// Test if we have a winner:
-	
+
 	if (playingGrid.won == 1 || playingGrid.won == 2) {
 		for (var i = 0; i < playingGrid.winningCells.length; i++) {
 			var str = "cell" + playingGrid.winningCells[i];
@@ -285,13 +285,14 @@ function cellClicked(id) {
 		}
 		setTimeout(endGame, 1000, playingGrid.won);
 	}
-	if (playingGrid.won == 3 ) {
+	if (playingGrid.won == 3) {
 		setTimeout(endGame, 1000, playingGrid.won);
 	}
-	var possibleAnswers = playingGrid.getPossibleAnswers();	
-	for (var i = 0; i<possibleAnswers.length; i++) {
+	var possibleAnswers = playingGrid.getPossibleAnswers();
+	for (var i = 0; i < possibleAnswers.length; i++) {
 		document.getElementById("gameTree").innerHTML += makeStringForTreeGame(possibleAnswers[i]);
 	}
+	adjustTreeTablesSize();
 	return true;
 };
 
@@ -353,7 +354,7 @@ function checkMoveForWin(lastMovePlayed, grid) {
 		}
 
 		// TODO: OPTIMISE! This section is a crutch added to fix the center checking both diagonals
-		if(stuffToCheck[3] !== null) {	
+		if (stuffToCheck[3] !== null) {
 			var diagonal = grid.getDiagValues(stuffToCheck[3]);
 			if (diagonal[0] > 0 && diagonal[0] == diagonal[1] && diagonal[0] == diagonal[2]) {
 				if (diagonal[0] == o) {
@@ -366,9 +367,9 @@ function checkMoveForWin(lastMovePlayed, grid) {
 				return winner;
 			}
 		}
-		return [0, null,null,null];
+		return [0, null, null, null];
 	}
-	
+
 	return [0, null, null, null];
 }
 
@@ -399,4 +400,16 @@ function endGame(winner) {
 		document.getElementById(id).style.cursor = "default";
 	}
 	//setTimeout(restartGame, 800);
+}
+
+// Adjust the size of existing tables to fit on the same row
+function adjustTreeTablesSize() {
+
+	const allTables = document.querySelectorAll('.ttd_game');
+	for (var i = 0; i<allTables.length; i++) {
+		// TODO: check all elements to change
+		// TODO: check proportion appropiately
+		allTables[i].style.width = `${60/((allTables.length)/9)/3}vw`;
+		allTables[i].style.height = `${60/((allTables.length)/9)/3}vw`;
+	}
 }
