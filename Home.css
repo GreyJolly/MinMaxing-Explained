@@ -4,9 +4,9 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-
-
-h1{text-align: center;}
+h1{
+  text-align: center;
+}
 
 
 nav {
@@ -114,4 +114,24 @@ button:hover{
   'opsz' 24
 }
 
+
+/*@media(max-width:700px){
+
+  .navbar ul li{
+    display: block;
+  }
+
+  .navbar{
+    position: absolute;
+    background: black;
+    height: 100vh;
+    width: 200px;
+    top: 0;
+    right: 0;
+    text-align: left;
+    z-index: 2;
+  }
+
+}
+*/
 
