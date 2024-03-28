@@ -86,7 +86,7 @@ button{
 
 }
 
-span{
+.button_span{
   background: goldenrod;
   height: 100%;
   width: 0;
