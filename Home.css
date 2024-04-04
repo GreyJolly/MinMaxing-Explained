@@ -50,7 +50,7 @@ nav {
   width: 100%;
 }
 
-button{
+.progressButton{
 	width: 200px;
 	padding: 15px 0;
 	text-align: center;
@@ -70,7 +70,7 @@ button{
 	background: goldenrod;
 	height: 100%;
 	width: 0;
-	border-radius: 25px;
+	border-radius: 0;
 	position:absolute;
 	left:0;
 	bottom: 0;
@@ -81,10 +81,10 @@ button{
 button:hover span{
 width: 100%;
 }
-
+/*
 button:hover{
 border:none;
-}
+}*/
 
 .material-symbols-outlined {
 font-variation-settings:

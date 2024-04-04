@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TicTacTesting</title>
     <link href="Home.css" rel="stylesheet">
+    <link rel = "stylesheet" href = "./bookstrap/css/bookstrap.css">
 	<script src="Scripts/tictactoe.js"></script>
+  
   </head>
 
   <body onload="initialize()">
@@ -33,9 +35,13 @@
       <tr><td class="td_game"><div id="cell3" onclick="cellClicked(this.id)" class="cell"></div></td><td class="td_game"><div id="cell4" onclick="cellClicked(this.id)" class="cell"></div></td><td class="td_game"><div id="cell5" onclick="cellClicked(this.id)" class="cell"></div></td></tr>
       <tr><td class="td_game"><div id="cell6" onclick="cellClicked(this.id)" class="cell"></div></td><td class="td_game"><div id="cell7" onclick="cellClicked(this.id)" class="cell"></div></td><td class="td_game"><div id="cell8" onclick="cellClicked(this.id)" class="cell"></div></td></tr>
     </table>
+
+    <div><span id="phase"></span></div>
+
     
     
-    <button type ="button" onclick="restartGame(true)"><span class ="button_span"></span>Restart</button>
+    
+    <button class ="progressButton" onclick="restartGame(true)"><span class ="button_span"></span>Restart</button>
 
 	<div id = "gameTree"></div>
 

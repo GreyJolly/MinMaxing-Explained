@@ -302,6 +302,7 @@ Grid.prototype.clone = function () {
 
 // Executed when the page loads
 function initialize() {
+	document.getElementById("phase").innerHTML = "It's X's turn";
 	playingGrid = new Grid();
 	gameOver = false;
 	playingGrid.whoseTurn = x;
@@ -313,6 +314,14 @@ function initialize() {
 // Executed when the user clicks one of the table cells
 function cellClicked(id) {
 	document.getElementById(id).style.cursor = "default";
+
+	//check turn for the write
+	if(playingGrid.whoseTurn == x){
+		document.getElementById("phase").innerHTML = "It's O's turn";
+	}
+	else{
+		document.getElementById("phase").innerHTML = "It's X's turn";
+	}
 
 	// The last character of the id corresponds to the numeric index in Grid.cells:
 	var idName = id.toString();
@@ -356,6 +365,9 @@ function cellClicked(id) {
 
 // Executed when the player hits restart button
 function restartGame() {
+
+	document.getElementById("phase").innerHTML = "It's X's turn";
+
 	gameOver = false;
 	playingGrid.reset();
 	for (var i = 0; i < 9; i++) {
@@ -365,6 +377,7 @@ function restartGame() {
 		document.getElementById(id).classList.remove("win-color");
 	}
 	document.getElementById("gameTree").innerHTML = "";
+	
 }
 
 function announceWinner(text) {
@@ -434,4 +447,9 @@ function adjustTreeTablesSize() {
 		allTables[i].style.width = `${60/((allTables.length)/9)/3}vw`;
 		allTables[i].style.height = `${60/((allTables.length)/9)/3}vw`;
 	}
+}
+
+//phrase for the turn
+function displayPhrase(ID, stringa){
+    
 }
