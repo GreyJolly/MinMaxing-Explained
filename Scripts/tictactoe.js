@@ -54,7 +54,7 @@ Grid.prototype.makeMove = function (lastMovePlayed) {
 	this.whoseTurn = this.whoseTurn == x ? o : x;
 	this.moves++;
 	if (this.moves >= 5) {
-		var results = checkMoveForWin(lastMovePlayed, this);
+		var results = this.checkMoveForWin(lastMovePlayed);
 		this.won = results[0];
 		this.winningCells = results.splice(1);
 		if (this.moves >= 9 && this.won == 0) {
@@ -219,6 +219,57 @@ Grid.prototype.getPossibleAnswers = function () {
 	return possibleAnswers;
 };
 
+// Check if a game is over and determine the winner and the winning row/column/diagonal
+Grid.prototype.checkMoveForWin = function(lastMovePlayed) {
+	var stuffToCheck = this.getRowColDiagOfCell(lastMovePlayed);
+	var winner;
+	// rows
+	var row = this.getRowValues(stuffToCheck[0]);
+	if (row[0] > 0 && row[0] == row[1] && row[0] == row[2]) {
+		if (row[0] == o) {
+			winner = [2];
+		} else {
+			winner = [1];
+		}
+		// Return the winning row
+		winner = winner.concat(this.getRowIndices(stuffToCheck[0]));
+		return winner;
+	}
+
+	// columns
+	var col = this.getColumnValues(stuffToCheck[1]);
+	if (col[0] > 0 && col[0] == col[1] && col[0] == col[2]) {
+		if (col[0] == o) {
+			winner = [2];
+		} else {
+			winner = [1];
+		}
+		// Return the winning column
+		winner = winner.concat(this.getColumnIndices(stuffToCheck[1]));
+		return winner;
+	}
+
+	// diagonals
+
+	for (var i = 2; i<=3; i++) {
+		if (stuffToCheck[i] !== null) {
+			var diagonal = this.getDiagValues(stuffToCheck[i]);
+			if (diagonal[0] > 0 && diagonal[0] == diagonal[1] && diagonal[0] == diagonal[2]) {
+				if (diagonal[0] == o) {
+					winner = [2];
+				} else {
+					winner = [1];
+				}
+				// Return the winning diagonal
+				winner = winner.concat(this.getDiagIndices(stuffToCheck[i]));
+				return winner;
+			}
+		} else break;
+	}
+
+	return [0, null, null, null];
+};
+
 Grid.prototype.getSymmetries = function() {
 	var symmetries = [this.cells];
 	
@@ -258,32 +309,6 @@ function initialize() {
 		playingGrid.cells[i] = 0;
 	}
 }
-
-// Make an HTML string to display a given Grid
-function makeStringForTreeGame(treeGrid) {
-	var treeTable = '<table id="tree_table_game">\n\t';
-	for (var i = 0; i < 3; i++) {
-		treeTable += '\t<tr>'
-		for (var j = 0; j < 3; j++) {
-			var cellid = i * 3 + j;
-			treeTable += '<td class="ttd_game"><div id="cell0" class="tree_cell';
-			if (treeGrid.winningCells[0] == cellid || treeGrid.winningCells[1] == cellid || treeGrid.winningCells[2] == cellid) {
-				treeTable += ' tree_win-color';
-			}
-			treeTable += '">';
-			if (treeGrid.cells[cellid] == x) {
-				treeTable += '<span class="tree_x">&times;</class>';
-			} else if (treeGrid.cells[cellid] == o) {
-				treeTable += '<span class="tree_o">o</class>';
-			}
-			treeTable += '</div></td>';
-		}
-		treeTable += '</tr>'
-	}
-	treeTable += '</table>';
-
-	return treeTable;
-};
 
 // Executed when the user clicks one of the table cells
 function cellClicked(id) {
@@ -342,57 +367,6 @@ function restartGame() {
 	document.getElementById("gameTree").innerHTML = "";
 }
 
-// Check if a game is over and determine the winner and the winning row/column/diagonal
-function checkMoveForWin(lastMovePlayed, grid) {
-	var stuffToCheck = grid.getRowColDiagOfCell(lastMovePlayed);
-	var winner;
-	// rows
-	var row = grid.getRowValues(stuffToCheck[0]);
-	if (row[0] > 0 && row[0] == row[1] && row[0] == row[2]) {
-		if (row[0] == o) {
-			winner = [2];
-		} else {
-			winner = [1];
-		}
-		// Return the winning row
-		winner = winner.concat(grid.getRowIndices(stuffToCheck[0]));
-		return winner;
-	}
-
-	// columns
-	var col = grid.getColumnValues(stuffToCheck[1]);
-	if (col[0] > 0 && col[0] == col[1] && col[0] == col[2]) {
-		if (col[0] == o) {
-			winner = [2];
-		} else {
-			winner = [1];
-		}
-		// Return the winning column
-		winner = winner.concat(grid.getColumnIndices(stuffToCheck[1]));
-		return winner;
-	}
-
-	// diagonals
-
-	for (var i = 2; i<=3; i++) {
-		if (stuffToCheck[i] !== null) {
-			var diagonal = grid.getDiagValues(stuffToCheck[i]);
-			if (diagonal[0] > 0 && diagonal[0] == diagonal[1] && diagonal[0] == diagonal[2]) {
-				if (diagonal[0] == o) {
-					winner = [2];
-				} else {
-					winner = [1];
-				}
-				// Return the winning diagonal
-				winner = winner.concat(grid.getDiagIndices(stuffToCheck[i]));
-				return winner;
-			}
-		} else break;
-	}
-
-	return [0, null, null, null];
-}
-
 function announceWinner(text) {
 	document.getElementById("winText").innerHTML = text;
 	document.getElementById("winAnnounce").style.display = "block";
@@ -418,6 +392,36 @@ function endGame(winner) {
 		var id = "cell" + i.toString();
 		document.getElementById(id).style.cursor = "default";
 	}
+}
+
+//==================================
+// HELPER FUNCTIONS
+//==================================
+
+// Make an HTML string to display a given Grid
+function makeStringForTreeGame(treeGrid) {
+	var treeTable = '<table id="tree_table_game">\n\t';
+	for (var i = 0; i < 3; i++) {
+		treeTable += '\t<tr>'
+		for (var j = 0; j < 3; j++) {
+			var cellid = i * 3 + j;
+			treeTable += '<td class="ttd_game"><div id="cell0" class="tree_cell';
+			if (treeGrid.winningCells[0] == cellid || treeGrid.winningCells[1] == cellid || treeGrid.winningCells[2] == cellid) {
+				treeTable += ' tree_win-color';
+			}
+			treeTable += '">';
+			if (treeGrid.cells[cellid] == x) {
+				treeTable += '<span class="tree_x">&times;</class>';
+			} else if (treeGrid.cells[cellid] == o) {
+				treeTable += '<span class="tree_o">o</class>';
+			}
+			treeTable += '</div></td>';
+		}
+		treeTable += '</tr>'
+	}
+	treeTable += '</table>';
+
+	return treeTable;
 }
 
 // Adjust the size of existing tables to fit on the same row
