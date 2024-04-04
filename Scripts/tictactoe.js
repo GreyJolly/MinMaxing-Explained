@@ -13,7 +13,6 @@ window.onclick = function (evt) {
 };
 
 // GLOBAL CONSTANTS
-
 const
 	x = 1,
 	o = 3,
@@ -22,6 +21,7 @@ const
 	xWin = 1,	// THIS CONSTANT ISN'T USED
 	oWin = 2,	// THIS CONSTANT ISN'T USED
 	tieWin = 3;	// THIS CONSTANT ISN'T USED
+
 // GLOBAL VARIABLES
 var
 	gameOver = false,
@@ -192,15 +192,48 @@ Grid.prototype.reset = function () {
 Grid.prototype.getPossibleAnswers = function () {
 	if (this.won !== 0) return [];
 	var possibleAnswers = [];
+	var include = true;
 	for (var i = 0; i < 9; i++) {
 		if (this.cells[i] == 0) {
 			var possibleAnswerGrid = this.clone();
 			possibleAnswerGrid.makeMove(i);
-			possibleAnswers.push(possibleAnswerGrid.clone());
+			
+			include = true;
+			for (const tempAnswer of possibleAnswers) {
+				//console.log("Comparing: "+ tempAnswer.getSymmetries()[0] +" with: "+ possibleAnswerGrid.cells );
+				
+				var testarray = [];
+				testarray.push([0,3,0,0,1,0,0,0,0]);
+				console.log("test0: "+ testarray[0] +" possible: "+possibleAnswerGrid.cells);
+				
+				//if (tempAnswer.getSymmetries().includes(possibleAnswerGrid.cells)) {
+				if (testarray[0] == possibleAnswerGrid.cells) {
+					console.log("BECCATO");
+					include = false;
+					break;
+				}
+			}
+			if (include) possibleAnswers.push(possibleAnswerGrid.clone());
 		}
 	}
 	return possibleAnswers;
 };
+
+Grid.prototype.getSymmetries = function() {
+	var symmetries = [this.cells];
+	
+	// Vertical simmetry
+	symmetries.push([this.cells[6], this.cells[7], this.cells[8], this.cells[3], this.cells[4], this.cells[5], this.cells[0], this.cells[1], this.cells[2]]);
+	// Horizontal simmetry
+	symmetries.push([this.cells[2], this.cells[1], this.cells[0], this.cells[5], this.cells[4], this.cells[3], this.cells[8], this.cells[7], this.cells[6]]);
+	// First diagonal simmetry
+	symmetries.push([this.cells[0], this.cells[3], this.cells[6], this.cells[1], this.cells[4], this.cells[7], this.cells[2], this.cells[5], this.cells[8]]);
+	// Second diagonale simmetry
+	symmetries.push([this.cells[8], this.cells[5], this.cells[2], this.cells[7], this.cells[4], this.cells[1], this.cells[6], this.cells[3], this.cells[0]]);
+
+	return symmetries;
+}
+
 
 Grid.prototype.clone = function () {
 	var clonedGrid = new Grid();
@@ -216,7 +249,7 @@ Grid.prototype.clone = function () {
 // MAIN FUNCTIONS
 //==================================
 
-// executed when the page loads
+// Executed when the page loads
 function initialize() {
 	playingGrid = new Grid();
 	gameOver = false;
@@ -252,7 +285,7 @@ function makeStringForTreeGame(treeGrid) {
 	return treeTable;
 };
 
-// executed when the user clicks one of the table cells
+// Executed when the user clicks one of the table cells
 function cellClicked(id) {
 	document.getElementById(id).style.cursor = "default";
 
@@ -340,22 +373,10 @@ function checkMoveForWin(lastMovePlayed, grid) {
 	}
 
 	// diagonals
-	if (stuffToCheck[2] !== null) {
-		var diagonal = grid.getDiagValues(stuffToCheck[2]);
-		if (diagonal[0] > 0 && diagonal[0] == diagonal[1] && diagonal[0] == diagonal[2]) {
-			if (diagonal[0] == o) {
-				winner = [2];
-			} else {
-				winner = [1];
-			}
-			// Return the winning diagonal
-			winner = winner.concat(grid.getDiagIndices(stuffToCheck[2]));
-			return winner;
-		}
 
-		// TODO: OPTIMISE! This section is a crutch added to fix the center checking both diagonals
-		if (stuffToCheck[3] !== null) {
-			var diagonal = grid.getDiagValues(stuffToCheck[3]);
+	for (var i = 2; i<=3; i++) {
+		if (stuffToCheck[i] !== null) {
+			var diagonal = grid.getDiagValues(stuffToCheck[i]);
 			if (diagonal[0] > 0 && diagonal[0] == diagonal[1] && diagonal[0] == diagonal[2]) {
 				if (diagonal[0] == o) {
 					winner = [2];
@@ -363,11 +384,10 @@ function checkMoveForWin(lastMovePlayed, grid) {
 					winner = [1];
 				}
 				// Return the winning diagonal
-				winner = winner.concat(grid.getDiagIndices(stuffToCheck[3]));
+				winner = winner.concat(grid.getDiagIndices(stuffToCheck[i]));
 				return winner;
 			}
-		}
-		return [0, null, null, null];
+		} else break;
 	}
 
 	return [0, null, null, null];
@@ -376,7 +396,6 @@ function checkMoveForWin(lastMovePlayed, grid) {
 function announceWinner(text) {
 	document.getElementById("winText").innerHTML = text;
 	document.getElementById("winAnnounce").style.display = "block";
-	//setTimeout(closeModal, 1400, "winAnnounce");
 }
 
 function closeModal(id) {
@@ -399,7 +418,6 @@ function endGame(winner) {
 		var id = "cell" + i.toString();
 		document.getElementById(id).style.cursor = "default";
 	}
-	//setTimeout(restartGame, 800);
 }
 
 // Adjust the size of existing tables to fit on the same row
