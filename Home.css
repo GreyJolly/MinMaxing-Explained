@@ -17,7 +17,7 @@ p{
 
 nav {
   margin-bottom: 40px;
-  background-color:#002d60;
+  background-color:#383838;
 }
 
 .navbar{
@@ -140,7 +140,7 @@ table {
 }
 
 .x {
-	color: #ffba08;
+	color: cyan;
 	position: relative;
 	top: px;
 	font-size: 1.2em;
@@ -148,7 +148,7 @@ table {
 }
 
 .o {
-	color: #d00000;
+	color: magenta;
 	position: relative;
 	top: -7px;
 	font-size: 1.0em;
@@ -219,7 +219,7 @@ table {
 
 /* modal content */
 .modal-content {
-	background-color: rgb(240, 240, 240);
+	background-color: rgb(36, 36, 36);
 	color: rgb(32, 32, 32);
 	font-size: 2em;
 	font-weight: bold;
