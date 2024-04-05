@@ -89,10 +89,7 @@ nav {
 button:hover span{
 width: 100%;
 }
-/*
-button:hover{
-border:none;
-}*/
+
 
 .material-symbols-outlined {
 font-variation-settings:
@@ -100,6 +97,17 @@ font-variation-settings:
 'wght' 400,
 'GRAD' 0,
 'opsz' 24
+}
+
+
+/*style Carousel*/
+.c-item {
+	height: 500px;
+}
+
+.c-img {
+	height: 100%;
+	object-fit: cover;
 }
 
 /* style Tic Tac Toe */
