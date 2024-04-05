@@ -165,11 +165,10 @@ table {
 
 .ttd_game {
 	border: 4px solid rgb(170, 170, 170);
-	width: 1cqb;
-	height: 1cqb;
 	padding: 0;
 	vertical-align: middle;
 	text-align: center;
+	
 }
 
 .tree_cell {
@@ -256,9 +255,9 @@ table {
 }
 
 .win-color {
-	background-color: rgb(230, 230, 230);
+	background-color: rgb(35, 35, 35);
 }
 
 .tree_win-color {
-	background-color: rgb(230, 230, 230);
+	background-color: rgb(35, 35, 35);
 }
