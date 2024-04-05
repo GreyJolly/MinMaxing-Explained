@@ -448,8 +448,3 @@ function adjustTreeTablesSize() {
 		allTables[i].style.height = `${60/((allTables.length)/9)/3}vw`;
 	}
 }
-
-//phrase for the turn
-function displayPhrase(ID, stringa){
-    
-}

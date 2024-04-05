@@ -17,7 +17,7 @@ p{
 
 nav {
   margin-bottom: 40px;
-  background-color:#002d60;
+  background-color:#383838;
 }
 
 .navbar{
@@ -100,7 +100,7 @@ font-variation-settings:
 }
 
 
-/*style Carousel*/
+/*style Carousel */
 .c-item {
 	height: 500px;
 }
@@ -109,6 +109,7 @@ font-variation-settings:
 	height: 100%;
 	object-fit: cover;
 }
+
 
 /* style Tic Tac Toe */
 body {
@@ -148,7 +149,7 @@ table {
 }
 
 .x {
-	color: #ffba08;
+	color: cyan;
 	position: relative;
 	top: px;
 	font-size: 1.2em;
@@ -156,7 +157,7 @@ table {
 }
 
 .o {
-	color: #d00000;
+	color: magenta;
 	position: relative;
 	top: -7px;
 	font-size: 1.0em;
@@ -173,11 +174,10 @@ table {
 
 .ttd_game {
 	border: 4px solid rgb(170, 170, 170);
-	width: 1cqb;
-	height: 1cqb;
 	padding: 0;
 	vertical-align: middle;
 	text-align: center;
+	
 }
 
 .tree_cell {
@@ -227,7 +227,7 @@ table {
 
 /* modal content */
 .modal-content {
-	background-color: rgb(240, 240, 240);
+	background-color: rgb(36, 36, 36);
 	color: rgb(32, 32, 32);
 	font-size: 2em;
 	font-weight: bold;
@@ -264,9 +264,9 @@ table {
 }
 
 .win-color {
-	background-color: rgb(230, 230, 230);
+	background-color: rgb(35, 35, 35);
 }
 
 .tree_win-color {
-	background-color: rgb(230, 230, 230);
+	background-color: rgb(35, 35, 35);
 }
