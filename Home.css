@@ -17,6 +17,7 @@ p{
 
 nav {
   margin-bottom: 40px;
+  background-color:#002d60;
 }
 
 .navbar{
@@ -26,6 +27,7 @@ nav {
   display:flex;
   align-items: center;
   justify-content: space-between;
+  
 }
 
 .navbar ul li{
