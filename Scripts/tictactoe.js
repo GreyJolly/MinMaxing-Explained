@@ -198,19 +198,15 @@ Grid.prototype.getPossibleAnswers = function () {
 			var possibleAnswerGrid = this.clone();
 			possibleAnswerGrid.makeMove(i);
 			
+			// We check whether the current possible answer is a symmetry of a previous answer
 			include = true;
-			for (const tempAnswer of possibleAnswers) {
-				//console.log("Comparing: "+ tempAnswer.getSymmetries()[0] +" with: "+ possibleAnswerGrid.cells );
-				
-				var testarray = [];
-				testarray.push([0,3,0,0,1,0,0,0,0]);
-				console.log("test0: "+ testarray[0] +" possible: "+possibleAnswerGrid.cells);
-				
-				//if (tempAnswer.getSymmetries().includes(possibleAnswerGrid.cells)) {
-				if (testarray[0] == possibleAnswerGrid.cells) {
-					console.log("BECCATO");
-					include = false;
-					break;
+			for (const previousAnswer of possibleAnswers) {
+				for (const previousSymmetry of previousAnswer.getSymmetries()) {
+					if (areArraysEqual(previousSymmetry, possibleAnswerGrid.cells)) {
+						include = false;
+						break;
+					}
+
 				}
 			}
 			if (include) possibleAnswers.push(possibleAnswerGrid.clone());
@@ -411,6 +407,15 @@ function endGame(winner) {
 // HELPER FUNCTIONS
 //==================================
 
+// Check if two arrays are equal
+function areArraysEqual(array1, array2) {
+	if (array1.length != array2.length) return false;
+	for (var i = 0; i<array1.length; i++) {
+		if (array1[i] != array2[i]) return false;
+	}
+	return true;
+}
+
 // Make an HTML string to display a given Grid
 function makeStringForTreeGame(treeGrid) {
 	var treeTable = '<table id="tree_table_game">\n\t';
@@ -430,12 +435,13 @@ function makeStringForTreeGame(treeGrid) {
 			}
 			treeTable += '</div></td>';
 		}
-		treeTable += '</tr>'
+		treeTable += '</tr>';
 	}
 	treeTable += '</table>';
 
 	return treeTable;
 }
+
 
 // Adjust the size of existing tables to fit on the same row
 function adjustTreeTablesSize() {
