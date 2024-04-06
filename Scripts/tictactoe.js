@@ -197,7 +197,7 @@ Grid.prototype.getPossibleAnswers = function () {
 		if (this.cells[i] == 0) {
 			var possibleAnswerGrid = this.clone();
 			possibleAnswerGrid.makeMove(i);
-			
+
 			// We check whether the current possible answer is a symmetry of a previous answer
 			include = true;
 			for (const previousAnswer of possibleAnswers) {
@@ -216,7 +216,7 @@ Grid.prototype.getPossibleAnswers = function () {
 };
 
 // Check if a game is over and determine the winner and the winning row/column/diagonal
-Grid.prototype.checkMoveForWin = function(lastMovePlayed) {
+Grid.prototype.checkMoveForWin = function (lastMovePlayed) {
 	var stuffToCheck = this.getRowColDiagOfCell(lastMovePlayed);
 	var winner;
 	// rows
@@ -247,7 +247,7 @@ Grid.prototype.checkMoveForWin = function(lastMovePlayed) {
 
 	// diagonals
 
-	for (var i = 2; i<=3; i++) {
+	for (var i = 2; i <= 3; i++) {
 		if (stuffToCheck[i] !== null) {
 			var diagonal = this.getDiagValues(stuffToCheck[i]);
 			if (diagonal[0] > 0 && diagonal[0] == diagonal[1] && diagonal[0] == diagonal[2]) {
@@ -266,9 +266,9 @@ Grid.prototype.checkMoveForWin = function(lastMovePlayed) {
 	return [0, null, null, null];
 };
 
-Grid.prototype.getSymmetries = function() {
+Grid.prototype.getSymmetries = function () {
 	var symmetries = [this.cells];
-	
+
 	// Vertical simmetry
 	symmetries.push([this.cells[6], this.cells[7], this.cells[8], this.cells[3], this.cells[4], this.cells[5], this.cells[0], this.cells[1], this.cells[2]]);
 	// Horizontal simmetry
@@ -312,10 +312,10 @@ function cellClicked(id) {
 	document.getElementById(id).style.cursor = "default";
 
 	//check turn for the write
-	if(playingGrid.whoseTurn == x){
+	if (playingGrid.whoseTurn == x) {
 		document.getElementById("phase").innerHTML = "It's O's turn";
 	}
-	else{
+	else {
 		document.getElementById("phase").innerHTML = "It's X's turn";
 	}
 
@@ -373,7 +373,7 @@ function restartGame() {
 		document.getElementById(id).classList.remove("win-color");
 	}
 	document.getElementById("gameTree").innerHTML = "";
-	
+
 }
 
 function announceWinner(text) {
@@ -410,7 +410,7 @@ function endGame(winner) {
 // Check if two arrays are equal
 function areArraysEqual(array1, array2) {
 	if (array1.length != array2.length) return false;
-	for (var i = 0; i<array1.length; i++) {
+	for (var i = 0; i < array1.length; i++) {
 		if (array1[i] != array2[i]) return false;
 	}
 	return true;
@@ -447,10 +447,10 @@ function makeStringForTreeGame(treeGrid) {
 function adjustTreeTablesSize() {
 
 	const allTables = document.querySelectorAll('.ttd_game');
-	for (var i = 0; i<allTables.length; i++) {
+	for (var i = 0; i < allTables.length; i++) {
 		// TODO: check all elements to change
 		// TODO: check proportion appropiately
-		allTables[i].style.width = `${60/((allTables.length)/9)/3}vw`;
-		allTables[i].style.height = `${60/((allTables.length)/9)/3}vw`;
+		allTables[i].style.width = `${60 / ((allTables.length) / 9) / 3}vw`;
+		allTables[i].style.height = `${60 / ((allTables.length) / 9) / 3}vw`;
 	}
 }
