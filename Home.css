@@ -62,7 +62,7 @@ nav {
 	width: 100%;
 }
 
-/* Buttons */
+/* Progress buttons */
 
 .progressButton {
 	width: 200px;
@@ -104,7 +104,6 @@ button:hover span {
 }
 
 /* Carousel */
-
 .c-item {
 	height: 500px;
 }
@@ -114,29 +113,7 @@ button:hover span {
 	object-fit: cover;
 }
 
-.split {
-	height: 500px;
-	width: 50%;
-	position: relative;
-	z-index: 1;
-	top: 0;
-	overflow-x: hidden;
-
-}
-
-.left {
-	left: fixed;
-	background-color:  #fca311;
-}
-
-.right {
-	right: 0;
-	background-color: black;
-	position: relative;
-}
-
-/* Container */
-/* Pattern styles */
+/* Container of the carousel*/
 .container {
 	display: grid;
 	gap: 0px 0px;
@@ -157,6 +134,10 @@ button:hover span {
 	text-align: center;
 }
 
+.center{
+	padding: 25vh 0;
+	text-align: center;
+}
 
 /* TicTacToe */
 body {
