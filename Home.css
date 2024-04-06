@@ -163,11 +163,21 @@ body {
 	background-color: black;
 	color: black;
 	text-align: center;
+	color: white;
 }
 
 table {
 	margin: 2% auto;
 	border-collapse: collapse;
+}
+
+.opponent_selection {
+	width: 20vw;
+	text-align: left;
+}
+.opponent_image {
+	width: 20vw;
+	text-align: right;
 }
 
 #table_game {

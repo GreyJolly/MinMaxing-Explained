@@ -20,12 +20,16 @@ const
 	oText = '<span class="o">o</class>',
 	xWin = 1,	// THIS CONSTANT ISN'T USED
 	oWin = 2,	// THIS CONSTANT ISN'T USED
-	tieWin = 3;	// THIS CONSTANT ISN'T USED
+	tieWin = 3,	// THIS CONSTANT ISN'T USED
+	author_player = "player",
+	author_random = "random",
+	authorn_computer = "computer";
 
 // GLOBAL VARIABLES
 var
 	gameOver = false,
-	playingGrid = null;
+	playingGrid = null,
+	author_turn = author_player;
 
 //==================================
 // GRID OBJECT
@@ -75,6 +79,14 @@ Grid.prototype.getFreeCellIndices = function () {
 		}
 	}
 	return resultArray;
+};
+
+Grid.prototype.getRandomFreeCell = function () {
+	var possibleFreeCell;
+	do {
+		possibleFreeCell = Math.floor(Math.random() * 9);
+	} while (this.cells[possibleFreeCell] != 0);
+	return possibleFreeCell;
 };
 
 // Get a row (accepts 0, 1, or 2 as argument).
@@ -315,18 +327,22 @@ function initialize() {
 
 // Executed when the user clicks one of the table cells
 function cellClicked(id) {
-	document.getElementById(id).style.cursor = "default";
-
 	// The last character of the id corresponds to the numeric index in Grid.cells:
 	var idName = id.toString();
-	var cell = parseInt(idName[idName.length - 1]);
+	handleMove(author_player, parseInt(idName[idName.length - 1]));
+};
 
-	if (playingGrid.cells[cell] > 0 || gameOver) {
-		// cell is already occupied or something else is wrong
+function handleMove(author, cell) {
+	var opponent = document.querySelector('input[name="opponent"]:checked').value
+	var id = "cell" + cell.toString();
+
+	// Cell is already occupied, not the correct turn or something else is wrong
+	if (playingGrid.cells[cell] > 0 || gameOver || author != author_turn) {
 		return false;
 	}
 	if (playingGrid.makeMove(cell) == false) return false;
 
+	document.getElementById(id).style.cursor = "default";
 	document.getElementById("turnText").innerHTML = (playingGrid.whoseTurn == x) ? "È il turno delle X" : "È il turno delle O";
 
 	if (playingGrid.whoseTurn == o) {
@@ -348,23 +364,35 @@ function cellClicked(id) {
 		}
 		endGame(playingGrid.won);
 	}
-	if (playingGrid.won == 3) {
+	else if (playingGrid.won == 3) {
 		endGame(playingGrid.won);
 	}
-	var possibleAnswers = playingGrid.getPossibleAnswers();
-	for (var i = 0; i < possibleAnswers.length; i++) {
-		document.getElementById("gameTree").innerHTML += makeStringForTreeGame(possibleAnswers[i]);
+	else {
+		if (author_turn == opponent) author_turn = author_player;
+		else {
+			author_turn = opponent;
+			// TODO: handle computer opponent
+			setTimeout(handleMove, 1000, opponent, playingGrid.getRandomFreeCell());
+
+		}
+		var possibleAnswers = playingGrid.getPossibleAnswers();
+		for (var i = 0; i < possibleAnswers.length; i++) {
+			document.getElementById("gameTree").innerHTML += makeStringForTreeGame(possibleAnswers[i]);
+		}
+		adjustTreeTablesSize();
+
 	}
-	adjustTreeTablesSize();
+
+
 	return true;
-};
+}
 
 // Executed when the player hits restart button
 function restartGame() {
 
 	document.getElementById("turnText").innerHTML = "È il turno delle X";
 
-	gameOver = false;
+
 	playingGrid.reset();
 	for (var i = 0; i < 9; i++) {
 		var id = "cell" + i.toString();
@@ -373,7 +401,8 @@ function restartGame() {
 		document.getElementById(id).classList.remove("win-color");
 	}
 	document.getElementById("gameTree").innerHTML = "";
-
+	author_turn = author_player;
+	gameOver = false;
 }
 
 function announceWinner(text) {

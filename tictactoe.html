@@ -31,45 +31,63 @@
 
 
 	<h1>TicTacTesting</h1>
-	<table id="table_game">
+	<table id="board">
 		<tr>
-			<td class="td_game">
-				<div id="cell0" onclick="cellClicked(this.id)" class="cell"></div>
+			<td class = "opponent_selection">
+				<p>Avversario: </p><br>
+				<input type="radio" id="radio_player" name="opponent" value="player" onclick="restartGame()">
+				<label for="radio_player">Giocatore</label><br>
+				<input type="radio" id="radio_random" name="opponent" value="random" onclick="restartGame()">
+				<label for="radio_random">Casuale</label><br>
+				<input type="radio" id="radio_computer" name="opponent" value="computer" onclick="restartGame()">
+				<label for="radio_computer">Computer</label> 
 			</td>
-			<td class="td_game">
-				<div id="cell1" onclick="cellClicked(this.id)" class="cell"></div>
+			<td>
+				<table id="table_game">
+					<tr>
+						<td class="td_game">
+							<div id="cell0" onclick="cellClicked(this.id)" class="cell"></div>
+						</td>
+						<td class="td_game">
+							<div id="cell1" onclick="cellClicked(this.id)" class="cell"></div>
+						</td>
+						<td class="td_game">
+							<div id="cell2" onclick="cellClicked(this.id)" class="cell"></div>
+						</td>
+					</tr>
+					<tr>
+						<td class="td_game">
+							<div id="cell3" onclick="cellClicked(this.id)" class="cell"></div>
+						</td>
+						<td class="td_game">
+							<div id="cell4" onclick="cellClicked(this.id)" class="cell"></div>
+						</td>
+						<td class="td_game">
+							<div id="cell5" onclick="cellClicked(this.id)" class="cell"></div>
+						</td>
+					</tr>
+					<tr>
+						<td class="td_game">
+							<div id="cell6" onclick="cellClicked(this.id)" class="cell"></div>
+						</td>
+						<td class="td_game">
+							<div id="cell7" onclick="cellClicked(this.id)" class="cell"></div>
+						</td>
+						<td class="td_game">
+							<div id="cell8" onclick="cellClicked(this.id)" class="cell"></div>
+						</td>
+					</tr>
+				</table>
 			</td>
-			<td class="td_game">
-				<div id="cell2" onclick="cellClicked(this.id)" class="cell"></div>
-			</td>
-		</tr>
-		<tr>
-			<td class="td_game">
-				<div id="cell3" onclick="cellClicked(this.id)" class="cell"></div>
-			</td>
-			<td class="td_game">
-				<div id="cell4" onclick="cellClicked(this.id)" class="cell"></div>
-			</td>
-			<td class="td_game">
-				<div id="cell5" onclick="cellClicked(this.id)" class="cell"></div>
-			</td>
-		</tr>
-		<tr>
-			<td class="td_game">
-				<div id="cell6" onclick="cellClicked(this.id)" class="cell"></div>
-			</td>
-			<td class="td_game">
-				<div id="cell7" onclick="cellClicked(this.id)" class="cell"></div>
-			</td>
-			<td class="td_game">
-				<div id="cell8" onclick="cellClicked(this.id)" class="cell"></div>
-			</td>
+			<td class = "opponent_image">
+				<p>WEEEE</p><br>
+				</td>
 		</tr>
 	</table>
 
 	<div><span style="color:white" id="turnText"></span></div>
 
-	<button class="progressButton" onclick="restartGame(true)"><span class="button_span"></span>Ricomincia</button>
+	<button class="progressButton" onclick="restartGame()"><span class="button_span"></span>Ricomincia</button>
 
 	<div id="gameTree"></div>
 
