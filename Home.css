@@ -104,7 +104,6 @@ button:hover span {
 }
 
 /* Carousel */
-
 .c-item {
 	height: 500px;
 }
@@ -133,6 +132,12 @@ button:hover span {
 	right: 0;
 	background-color: black;
 	position: relative;
+	
+}
+
+.center{
+	padding: 25vh 0;
+	text-align: center;
 }
 
 /* Container */
