@@ -267,16 +267,22 @@ Grid.prototype.checkMoveForWin = function (lastMovePlayed) {
 };
 
 Grid.prototype.getSymmetries = function () {
-	var symmetries = [this.cells];
+	var symmetries = [];
 
-	// Vertical simmetry
+	// Vertical symmetry
 	symmetries.push([this.cells[6], this.cells[7], this.cells[8], this.cells[3], this.cells[4], this.cells[5], this.cells[0], this.cells[1], this.cells[2]]);
-	// Horizontal simmetry
+	// Horizontal symmetry
 	symmetries.push([this.cells[2], this.cells[1], this.cells[0], this.cells[5], this.cells[4], this.cells[3], this.cells[8], this.cells[7], this.cells[6]]);
-	// First diagonal simmetry
+	// First diagonal symmetry
 	symmetries.push([this.cells[0], this.cells[3], this.cells[6], this.cells[1], this.cells[4], this.cells[7], this.cells[2], this.cells[5], this.cells[8]]);
-	// Second diagonale simmetry
+	// Second diagonale symmetry
 	symmetries.push([this.cells[8], this.cells[5], this.cells[2], this.cells[7], this.cells[4], this.cells[1], this.cells[6], this.cells[3], this.cells[0]]);
+	// 90° Rotational symmetry
+	symmetries.push([this.cells[6], this.cells[3], this.cells[0], this.cells[7], this.cells[4], this.cells[1], this.cells[8], this.cells[5], this.cells[2]]);
+	// 180° Rotational symmetry
+	symmetries.push([this.cells[8], this.cells[7], this.cells[6], this.cells[5], this.cells[4], this.cells[3], this.cells[2], this.cells[1], this.cells[0]]);
+	// 270° Rotational symmetry
+	symmetries.push([this.cells[2], this.cells[5], this.cells[8], this.cells[1], this.cells[4], this.cells[7], this.cells[0], this.cells[3], this.cells[6]]);
 
 	return symmetries;
 }
