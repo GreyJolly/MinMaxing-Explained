@@ -11,6 +11,12 @@
 h1{
   text-align: center;
   color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nav_header {
+	
 }
 
 p{
@@ -20,8 +26,9 @@ p{
 
 
 nav {
-  margin-bottom: 40px;
-  background-color:#383838;
+	height: 95px;
+	margin-bottom: 40px;
+	background-color:#383838;
 }
 
 .navbar{
