@@ -1,75 +1,70 @@
-*{
-  margin: 0;
-  padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
-/*sovrascrivere bootstrap*/
-
-
-
-
-h1{
-  text-align: center;
-  color: #ffffff;
-  font-size: 20px;
-  font-weight: bold;
+* {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
-.nav_header {
-	
+h1 {
+	text-align: center;
+	color: #ffffff;
+	font-size: 20px;
+	font-weight: bold;
 }
 
-p{
+p {
 	color: #e5e5e5;
 	text-align: center;
 }
 
+/* Navigation Bar */
 
 nav {
 	height: 95px;
 	margin-bottom: 40px;
-	background-color:#383838;
+	background-color: #383838;
 }
 
-.navbar{
-  width:85%;
-  margin:auto;
-  padding: 35px 0;
-  display:flex;
-  align-items: center;
-  justify-content: space-between;
-  
+.navbar {
+	width: 85%;
+	margin: auto;
+	padding: 35px 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
 }
 
-.navbar ul li{
-  list-style:none;
-  display: inline-block;
-  margin: 0 20px;
-  position:relative;
+.navbar ul li {
+	list-style: none;
+	display: inline-block;
+	margin: 0 20px;
+	position: relative;
 }
 
-.navbar ul li a{
-  text-decoration: none;
-  color: #fca311;
-  text-transform: uppercase;
+.navbar ul li a {
+	text-decoration: none;
+	color: #fca311;
+	text-transform: uppercase;
 }
 
-.navbar ul li::after{
-  content: '';
-  height: 3px;
-  width: 0;
-  background: #fca311;
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  transition:0.5s;
+.navbar ul li::after {
+	content: '';
+	height: 3px;
+	width: 0;
+	background: #fca311;
+	position: absolute;
+	left: 0;
+	bottom: -5px;
+	transition: 0.5s;
 }
 
-.navbar ul li:hover::after{
-  width: 100%;
+.navbar ul li:hover::after {
+	width: 100%;
 }
 
-.progressButton{
+/* Buttons */
+
+.progressButton {
 	width: 200px;
 	padding: 15px 0;
 	text-align: center;
@@ -79,39 +74,36 @@ nav {
 	border: 2px solid #fca311;
 	background: transparent;
 	color: #ffffff;
-	cursor:pointer;
+	cursor: pointer;
 	position: relative;
 	overflow: hidden;
 }
 
-  
-.button_span{
+.button_span {
 	background: #fca311;
 	height: 100%;
 	width: 0;
 	border-radius: 0;
-	position:absolute;
-	left:0;
+	position: absolute;
+	left: 0;
 	bottom: 0;
 	z-index: -1;
 	transition: 0.5s;
 }
-  
-button:hover span{
-width: 100%;
-}
 
+button:hover span {
+	width: 100%;
+}
 
 .material-symbols-outlined {
-font-variation-settings:
-'FILL' 0,
-'wght' 400,
-'GRAD' 0,
-'opsz' 24
+	font-variation-settings:
+		'FILL' 0,
+		'wght' 400,
+		'GRAD' 0,
+		'opsz' 24
 }
 
-
-/*style Carousel */
+/* Carousel */
 
 .c-item {
 	height: 500px;
@@ -123,13 +115,13 @@ font-variation-settings:
 }
 
 .split {
-height: 500px;
-width: 50%;
-position: relative;
-z-index: 1;
-top: 0;
-overflow-x: hidden;
-padding-top: 20px;
+	height: 500px;
+	width: 50%;
+	position: relative;
+	z-index: 1;
+	top: 0;
+	overflow-x: hidden;
+	padding-top: 20px;
 }
 
 .left {
@@ -152,12 +144,12 @@ padding-top: 20px;
 }
 
 .centered img {
-width: 150px;
-border-radius: 50%;
+	width: 150px;
+	border-radius: 50%;
 }
 
 
-/* style Tic Tac Toe */
+/* TicTacToe */
 body {
 	background-color: black;
 	color: black;
@@ -177,7 +169,7 @@ table {
 }
 
 .td_game {
-	border: 4px solid  white;
+	border: 4px solid white;
 	width: 90px;
 	height: 90px;
 	padding: 0;
@@ -213,7 +205,6 @@ table {
 #tree_table_game {
 	display: inline-block;
 	position: relative;
-	font-size: 2cqb;
 	margin: 1%;
 	border-collapse: collapse;
 }
@@ -223,7 +214,6 @@ table {
 	padding: 0;
 	vertical-align: middle;
 	text-align: center;
-	
 }
 
 .tree_cell {
@@ -255,7 +245,6 @@ table {
 
 }
 
-/* modal background */
 .modal {
 	display: none;
 	position: fixed;
@@ -265,19 +254,14 @@ table {
 	width: 100%;
 	height: 100%;
 	overflow: auto;
-	/* enable scroll if needed */
-	background-color: black;
-	/* fallback color */
-	background-color: rgba(0, 0, 0, 0.6);
+	background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* modal content */
 .modal-content {
 	background-color: rgb(36, 36, 36);
 	color: rgb(32, 32, 32);
 	font-size: 2em;
 	font-weight: bold;
-	/* 16 % from the top and centered */
 	margin: 16% auto;
 	padding: 20px;
 	border: 2px solid black;
@@ -291,7 +275,6 @@ table {
 	padding: 0;
 }
 
-/* close button for modal dialog */
 .close {
 	color: rgb(170, 170, 170);
 	float: right;
