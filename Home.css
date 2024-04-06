@@ -121,12 +121,12 @@ button:hover span {
 	z-index: 1;
 	top: 0;
 	overflow-x: hidden;
-	padding-top: 20px;
+
 }
 
 .left {
 	left: fixed;
-	background-color: black;
+	background-color:  #fca311;
 }
 
 .right {
@@ -135,17 +135,26 @@ button:hover span {
 	position: relative;
 }
 
-.centered {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	text-align: center;
+/* Container */
+/* Pattern styles */
+.container {
+	display: grid;
+	gap: 0px 0px;
+	margin-left: 0px; /* TODO: check */
+	margin-right: 0px; /* TODO: check */
 }
-
-.centered img {
-	width: 150px;
-	border-radius: 50%;
+  
+.left-half {
+	background: black;
+	grid-column: 1;
+}
+  
+.right-half {
+	background: black;
+	grid-column: 2;
+	margin: 0 auto;
+    width: 80%;
+	text-align: center;
 }
 
 
