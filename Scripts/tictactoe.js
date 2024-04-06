@@ -298,7 +298,7 @@ Grid.prototype.clone = function () {
 
 // Executed when the page loads
 function initialize() {
-	document.getElementById("phase").innerHTML = "It's X's turn";
+	document.getElementById("turnText").innerHTML = "È il turno delle X";
 	playingGrid = new Grid();
 	gameOver = false;
 	playingGrid.whoseTurn = x;
@@ -311,14 +311,6 @@ function initialize() {
 function cellClicked(id) {
 	document.getElementById(id).style.cursor = "default";
 
-	//check turn for the write
-	if (playingGrid.whoseTurn == x) {
-		document.getElementById("phase").innerHTML = "It's O's turn";
-	}
-	else {
-		document.getElementById("phase").innerHTML = "It's X's turn";
-	}
-
 	// The last character of the id corresponds to the numeric index in Grid.cells:
 	var idName = id.toString();
 	var cell = parseInt(idName[idName.length - 1]);
@@ -328,6 +320,8 @@ function cellClicked(id) {
 		return false;
 	}
 	if (playingGrid.makeMove(cell) == false) return false;
+
+	document.getElementById("turnText").innerHTML = (playingGrid.whoseTurn == x) ? "È il turno delle X" : "È il turno delle O";
 
 	if (playingGrid.whoseTurn == o) {
 		document.getElementById(id).innerHTML = xText;
@@ -346,10 +340,10 @@ function cellClicked(id) {
 			var str = "cell" + playingGrid.winningCells[i];
 			document.getElementById(str).classList.add("win-color");
 		}
-		setTimeout(endGame, 1000, playingGrid.won);
+		endGame(playingGrid.won);
 	}
 	if (playingGrid.won == 3) {
-		setTimeout(endGame, 1000, playingGrid.won);
+		endGame(playingGrid.won);
 	}
 	var possibleAnswers = playingGrid.getPossibleAnswers();
 	for (var i = 0; i < possibleAnswers.length; i++) {
@@ -362,7 +356,7 @@ function cellClicked(id) {
 // Executed when the player hits restart button
 function restartGame() {
 
-	document.getElementById("phase").innerHTML = "It's X's turn";
+	document.getElementById("turnText").innerHTML = "È il turno delle X";
 
 	gameOver = false;
 	playingGrid.reset();
@@ -387,20 +381,15 @@ function closeModal(id) {
 }
 
 function endGame(winner) {
-	if (winner == 1) {
-		announceWinner("X won!");
-	} else if (winner == 2) {
-		announceWinner("O won!");
-	} else {
-		announceWinner("It's a tie!");
-	}
+
 	gameOver = true;
-	playingGrid.whoseTurn = 0;
-	playingGrid.moves = 0;
 	for (var i = 0; i < 9; i++) {
 		var id = "cell" + i.toString();
 		document.getElementById(id).style.cursor = "default";
 	}
+	document.getElementById("turnText").innerHTML = "";
+
+	setTimeout(announceWinner, 1000, (winner == 1) ? "X ha vinto!" : (winner == 2) ? "O ha vinto!" : "Pareggio!");
 }
 
 //==================================
