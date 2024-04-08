@@ -23,7 +23,9 @@ const
 	tieWin = 3,	// THIS CONSTANT ISN'T USED
 	author_player = "player",
 	author_random = "random",
-	author_computer = "computer";
+	author_computer = "computer",
+	x_background = "rgba(0, 255, 255, 0.20)",
+	o_background = "rgba(255, 0, 255, 0.20";
 
 // GLOBAL VARIABLES
 var
@@ -372,7 +374,7 @@ function handleMove(author, cell) {
 	else if (playingGrid.won == 3) {
 		endGame(playingGrid.won);
 	}
-	// Handle next move:
+	// Call the next move
 	else {
 		author_turn = (author_turn == X_player)?O_player:X_player;
 
@@ -380,7 +382,7 @@ function handleMove(author, cell) {
 			setTimeout(handleMove, 1000, author_random, playingGrid.getRandomFreeCell());
 		}
 
-
+		// Generate game tree
 		var possibleAnswers = playingGrid.getPossibleAnswers();
 		var levelString = ["", "", "", ""];
 		for (var i = 0; i < possibleAnswers.length; i++) {
@@ -391,7 +393,7 @@ function handleMove(author, cell) {
 				var possibleAnswersLevel3 = possibleAnswersLevel2[j].getPossibleAnswers();
 				for (var k = 0; k < possibleAnswersLevel3.length; k++) {
 					levelString[2] += makeStringForTreeGame(possibleAnswersLevel3[k]);
-					// TODO: level 4
+					// TODO: see if you want to implement level 4
 					//var possibleAnswersLevel4 = possibleAnswersLevel3[k].getPossibleAnswers();
 					//for (var z = 0; z < possibleAnswersLevel4.length; z++) {
 					//	levelString[3] += makeStringForTreeGame(possibleAnswersLevel4[z]);
@@ -403,6 +405,18 @@ function handleMove(author, cell) {
 		document.getElementById("gameTreeLevel2").innerHTML = levelString[1];
 		document.getElementById("gameTreeLevel3").innerHTML = levelString[2];
 		document.getElementById("gameTreeLevel4").innerHTML = levelString[3];
+		
+		if (playingGrid.whoseTurn == x) {
+			document.querySelector(".level1, .level3").style.backgroundColor = x_background;
+			document.querySelector(".level2").style.backgroundColor = o_background;
+			document.querySelector(".level3").style.backgroundColor = x_background;
+			document.querySelector(".level4").style.backgroundColor = o_background;
+		} else {
+			document.querySelector(".level1").style.backgroundColor = o_background;
+			document.querySelector(".level2").style.backgroundColor = x_background;
+			document.querySelector(".level3").style.backgroundColor = o_background;
+			document.querySelector(".level4").style.backgroundColor = x_background;
+		}
 			
 		adjustTreeTablesSize();
 
