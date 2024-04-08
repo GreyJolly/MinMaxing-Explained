@@ -418,8 +418,7 @@ function handleMove(author, cell) {
 			document.querySelector(".level4").style.backgroundColor = x_background;
 		}
 			
-		adjustTreeTablesSize();
-
+		//adjustTreeTablesSize();
 	}
 
 
@@ -512,8 +511,8 @@ function makeStringForTreeGame(treeGrid) {
 	return treeTable;
 }
 
-// TODO: MAKE WORK FOR SECOND LEVEL!!!!AF
-
+// TODO: MAKE WORK FOR SECOND LEVEL!!!!
+/*
 // Adjust the size of existing tables to fit on the same row
 function adjustTreeTablesSize() {
 
@@ -526,3 +525,4 @@ function adjustTreeTablesSize() {
 		allTables[i].style.height = `${60 / ((allTables.length) / 9) / 3}vw`;
 	}
 }
+*/
