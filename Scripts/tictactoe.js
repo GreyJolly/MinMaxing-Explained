@@ -19,15 +19,15 @@ const
 	xText = '<span class="x">&times;</class>',
 	oText = '<span class="o">o</class>',
 	noWin = null,
-	xWin = 1,
-	oWin = -1,
+	xWin = 30,
+	oWin = -30,
 	tieWin = 0,
 	author_player = "player",
 	author_random = "random",
-	author_computer = "computer",
+	author_minmaxer = "minmaxer",
 	x_background = "rgba(0, 255, 255, 0.20)",
 	o_background = "rgba(255, 0, 255, 0.20",
-	HARD_LIMIT = 3;
+	HARD_LIMIT = 9;
 
 // GLOBAL VARIABLES
 var
@@ -96,10 +96,6 @@ Grid.prototype.getRandomFreeCell = function () {
 // Get a row (accepts 0, 1, or 2 as argument).
 // Returns the values of the elements.
 Grid.prototype.getRowValues = function (index) {
-	if (index !== 0 && index !== 1 && index !== 2) {
-		console.error("Wrong arg for getRowValues!");
-		return undefined;
-	}
 	var i = index * 3;
 	return this.cells.slice(i, i + 3);
 };
@@ -107,10 +103,6 @@ Grid.prototype.getRowValues = function (index) {
 // Get a row (accepts 0, 1, or 2 as argument).
 // Returns an array with the indices, not their values.
 Grid.prototype.getRowIndices = function (index) {
-	if (index !== 0 && index !== 1 && index !== 2) {
-		console.error("Wrong arg for getRowIndices!");
-		return undefined;
-	}
 	var row = [];
 	index = index * 3;
 	row.push(index);
@@ -121,10 +113,6 @@ Grid.prototype.getRowIndices = function (index) {
 
 // get a column (values)
 Grid.prototype.getColumnValues = function (index) {
-	if (index !== 0 && index !== 1 && index !== 2) {
-		console.error("Wrong arg for getColumnValues!");
-		return undefined;
-	}
 	var i, column = [];
 	for (i = index; i < this.cells.length; i += 3) {
 		column.push(this.cells[i]);
@@ -238,7 +226,7 @@ Grid.prototype.checkMoveForWin = function (lastMovePlayed) {
 	// rows
 	var row = this.getRowValues(stuffToCheck[0]);
 	if (row[0] > 0 && row[0] == row[1] && row[0] == row[2]) {
-		winner = (row[0] == x)?[xWin]:[oWin];
+		winner = (row[0] == x) ? [xWin] : [oWin];
 		// Return the winning row
 		winner = winner.concat(this.getRowIndices(stuffToCheck[0]));
 		return winner;
@@ -247,7 +235,7 @@ Grid.prototype.checkMoveForWin = function (lastMovePlayed) {
 	// columns
 	var col = this.getColumnValues(stuffToCheck[1]);
 	if (col[0] > 0 && col[0] == col[1] && col[0] == col[2]) {
-		winner = (col[0] == x)?[xWin]:[oWin];
+		winner = (col[0] == x) ? [xWin] : [oWin];
 		// Return the winning column
 		winner = winner.concat(this.getColumnIndices(stuffToCheck[1]));
 		return winner;
@@ -259,7 +247,7 @@ Grid.prototype.checkMoveForWin = function (lastMovePlayed) {
 		if (stuffToCheck[i] !== null) {
 			var diagonal = this.getDiagValues(stuffToCheck[i]);
 			if (diagonal[0] > 0 && diagonal[0] == diagonal[1] && diagonal[0] == diagonal[2]) {
-				winner = (diagonal[0] == x)?[xWin]:[oWin];
+				winner = (diagonal[0] == x) ? [xWin] : [oWin];
 				// Return the winning diagonal
 				winner = winner.concat(this.getDiagIndices(stuffToCheck[i]));
 				return winner;
@@ -316,7 +304,7 @@ function initialize() {
 	for (var i = 0; i < playingGrid.cells.length; i++) {
 		playingGrid.cells[i] = 0;
 	}
-	
+
 	if (author_turn == author_random) {
 		setTimeout(handleMove, 1000, author_random, playingGrid.getRandomFreeCell());
 	}
@@ -366,12 +354,12 @@ function handleMove(author, cell) {
 	}
 	// Call the next move
 	else {
-		author_turn = (author_turn == X_player)?O_player:X_player;
+		author_turn = (author_turn == X_player) ? O_player : X_player;
 
 		if (author_turn == author_random) {
 			setTimeout(handleMove, 1000, author_random, playingGrid.getRandomFreeCell());
-		} else if(author_turn == author_computer) {
-			setTimeout(handleMove, 1000, author_computer, findBestMove(playingGrid));
+		} else if (author_turn == author_minmaxer) {
+			setTimeout(handleMove, 1000, author_minmaxer, findBestMove(playingGrid));
 		}
 
 		// Generate game tree
@@ -390,14 +378,14 @@ function handleMove(author, cell) {
 					//for (var z = 0; z < possibleAnswersLevel4.length; z++) {
 					//	levelString[3] += makeStringForTreeGame(possibleAnswersLevel4[z]);
 					//}	
-				}	
+				}
 			}
 		}
 		document.getElementById("gameTreeLevel1").innerHTML = levelString[0];
 		document.getElementById("gameTreeLevel2").innerHTML = levelString[1];
 		document.getElementById("gameTreeLevel3").innerHTML = levelString[2];
 		document.getElementById("gameTreeLevel4").innerHTML = levelString[3];
-		
+
 		if (playingGrid.whoseTurn == x) {
 			document.querySelector(".level1, .level3").style.backgroundColor = x_background;
 			document.querySelector(".level2").style.backgroundColor = o_background;
@@ -409,7 +397,7 @@ function handleMove(author, cell) {
 			document.querySelector(".level3").style.backgroundColor = o_background;
 			document.querySelector(".level4").style.backgroundColor = x_background;
 		}
-			
+
 		//adjustTreeTablesSize();
 	}
 
@@ -439,8 +427,8 @@ function restartGame() {
 
 	if (author_turn == author_random) {
 		setTimeout(handleMove, 1000, author_random, playingGrid.getRandomFreeCell());
-	} else if(author_turn == author_computer) {
-	setTimeout(handleMove, 1000, author_computer, findBestMove(playingGrid));
+	} else if (author_turn == author_minmaxer) {
+		setTimeout(handleMove, 1000, author_minmaxer, findBestMove(playingGrid));
 	}
 }
 
@@ -505,39 +493,113 @@ function makeStringForTreeGame(treeGrid) {
 	return treeTable;
 }
 
+//==================================
+// MINMAXING FUNCTIONS
+//==================================
+
+// Warinng! These function have to be quite optimized
+
 function findBestMove(grid) {
-	var bestMove = null, bestScore = -2;
-	for (const move in grid.getFreeCellIndices()) {
-		var moveScore = minimax(grid.clone().makeMove(move),0,true);
-		if (bestScore>moveScore) {
-			bestMove = move;
-			bestScore = moveScore;
+	var cellMatrix = [[, ,], [, ,], [, ,]];
+	for (var i = 0; i < 9; i++) {
+		if (grid.cells[i] != x && grid.cells[i] != o) cellMatrix[Math.floor(i / 3)][i % 3] = 0;
+		else cellMatrix[Math.floor(i / 3)][i % 3] = grid.cells[i];
+	}
+
+	if (grid.whoseTurn == x) {
+		var bestMove, bestScore = -1000;
+		for (var i = 0; i < 3; i++) {
+			for (var j = 0; j < 3; j++) {
+				if (cellMatrix[i][j] == 0) {
+					cellMatrix[i][j] = grid.whoseTurn;
+					var moveScore = minmax(cellMatrix, 1, false, grid.moves + 1, i, j);
+					cellMatrix[i][j] = 0;
+					if (moveScore > bestScore) {
+						bestMove = i * 3 + j
+						bestScore = moveScore;
+					}
+				}
+			}
+		}
+	} else {
+		var bestMove, bestScore = 1000;
+		for (var i = 0; i < 3; i++) {
+			for (var j = 0; j < 3; j++) {
+				if (cellMatrix[i][j] == 0) {
+					cellMatrix[i][j] = grid.whoseTurn;
+					var moveScore = minmax(cellMatrix, 0, true, grid.moves + 1, i, j);
+					cellMatrix[i][j] = 0;
+					if (moveScore < bestScore) {
+						bestMove = i * 3 + j
+						bestScore = moveScore;
+					}
+				}
+			}
 		}
 	}
-	return bestMove;
+	return bestMove
 }
 
-function minimax(grid, depth, isMaximizingPlayer) {
-	console.log("loading...");
-	if (grid.won != noWin) return grid.won;
-	if (depth>HARD_LIMIT) return 0;
+function minmax(cellMatrix, depth, isMaximizingPlayer, movesDone, lastRowPlayed, lastColPlayed) {
+	if (depth > HARD_LIMIT) return 0;
+	var score = evaluate(cellMatrix, lastRowPlayed, lastColPlayed);
+	if (score == xWin) {
+		return xWin;
+	}
+	if (score == oWin) {
+		return oWin;
+	}
+	if (movesDone == 9) {
+		return tieWin;
+	}
+	var bestScore;
+	if (isMaximizingPlayer) {
+		bestScore = -1000;
+		for (var i = 0; i < 3; i++) {
+			for (var j = 0; j < 3; j++) {
+				if (cellMatrix[i][j] == 0) {
+					cellMatrix[i][j] = x;
+					var moveScore = minmax(cellMatrix, depth + 1, false, movesDone + 1, i, j);
+					moveScore -= depth;
+					bestScore = (bestScore > moveScore) ? bestScore : moveScore;
+					cellMatrix[i][j] = 0;
+				}
+			}
+		}
+	} else {
+		bestScore = 1000;
+		for (var i = 0; i < 3; i++) {
+			for (var j = 0; j < 3; j++) {
+				if (cellMatrix[i][j] == 0) {
+					cellMatrix[i][j] = o;
+					var moveScore = minmax(cellMatrix, depth + 1, true, movesDone + 1, i, j);
+					moveScore += depth;
+					bestScore = (bestScore < moveScore) ? bestScore : moveScore;
+					cellMatrix[i][j] = 0;
+				}
+			}
+		}
+	}
+	return bestScore;
+}
 
-	if(isMaximizingPlayer) {
-		var bestVal = -2, value;
-		for (const i of grid.getFreeCellIndices()) {
-			value = minimax(board.clone().makeMove(i), depth+1, false);
-			bestVal = (bestVal>value)?bestVal:value;
-		}
-		return bestVal;
+function evaluate(cellsMatrix, lastRowPlayed, lastColPlayed) {
+	// Check row
+	if (cellsMatrix[lastRowPlayed][0] != 0 && cellsMatrix[lastRowPlayed][0] == cellsMatrix[lastRowPlayed][1] && cellsMatrix[lastRowPlayed][0] == cellsMatrix[lastRowPlayed][2]) {
+		return (cellsMatrix[lastRowPlayed][0] == x) ? xWin : oWin;
 	}
-	else {
-		var bestVal = 2, value;
-		for (const i of grid.getFreeCellIndices()) {
-			value = minimax(board.clone().makeMove(i), depth+1, true);
-			bestVal = (bestVal<value)?bestVal:value;
-		}
-		return bestVal;
+	// Check column
+	if (cellsMatrix[0][lastColPlayed] != 0 && cellsMatrix[0][lastColPlayed] == cellsMatrix[1][lastColPlayed] && cellsMatrix[0][lastColPlayed] == cellsMatrix[2][lastColPlayed]) {
+		return (cellsMatrix[0][lastColPlayed] == x) ? xWin : oWin;
 	}
+	// Check diagonals
+	if (cellsMatrix[0][0] != 0 && cellsMatrix[0][0] == cellsMatrix[1][1] && cellsMatrix[0][0] == cellsMatrix[2][2]) {
+		return (cellsMatrix[0][0] == x) ? xWin : oWin;
+	}
+	if (cellsMatrix[2][0] != 0 && cellsMatrix[2][0] == cellsMatrix[1][1] && cellsMatrix[2][0] == cellsMatrix[0][2]) {
+		return (cellsMatrix[2][0] == x) ? xWin : oWin;
+	}
+	return 0;
 }
 
 // TODO: MAKE WORK FOR SECOND LEVEL!!!!
