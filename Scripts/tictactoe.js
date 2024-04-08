@@ -18,14 +18,16 @@ const
 	o = 3,
 	xText = '<span class="x">&times;</class>',
 	oText = '<span class="o">o</class>',
-	xWin = 1,	// THIS CONSTANT ISN'T USED
-	oWin = 2,	// THIS CONSTANT ISN'T USED
-	tieWin = 3,	// THIS CONSTANT ISN'T USED
+	noWin = null,
+	xWin = 1,
+	oWin = -1,
+	tieWin = 0,
 	author_player = "player",
 	author_random = "random",
 	author_computer = "computer",
 	x_background = "rgba(0, 255, 255, 0.20)",
-	o_background = "rgba(255, 0, 255, 0.20";
+	o_background = "rgba(255, 0, 255, 0.20",
+	HARD_LIMIT = 3;
 
 // GLOBAL VARIABLES
 var
@@ -43,7 +45,7 @@ function Grid() {
 	this.cells = new Array(9);
 	this.moves = 0;
 	this.whoseTurn = x;
-	this.won = 0; // 0: haven't won yet, 1: X win; 2: O win; 3: tie;
+	this.won = noWin;
 	this.winningCells = [null, null, null];
 }
 
@@ -55,7 +57,7 @@ Grid.prototype.makeMove = function (lastMovePlayed) {
 		console.error("Made a move on a full cell!");
 		return false;
 	}
-	if (this.won !== 0) return false;
+	if (this.won !== noWin) return false;
 	this.cells[lastMovePlayed] = this.whoseTurn;
 	this.whoseTurn = this.whoseTurn == x ? o : x;
 	this.moves++;
@@ -63,11 +65,11 @@ Grid.prototype.makeMove = function (lastMovePlayed) {
 		var results = this.checkMoveForWin(lastMovePlayed);
 		this.won = results[0];
 		this.winningCells = results.splice(1);
-		if (this.moves >= 9 && this.won == 0) {
-			this.won = 3;
+		if (this.moves >= 9 && this.won == noWin) {
+			this.won = tieWin;
 		}
 	}
-
+	return this;
 }
 
 // Get free cells in an array.
@@ -198,13 +200,13 @@ Grid.prototype.reset = function () {
 	}
 	this.moves = 0;
 	this.whoseTurn = x;
-	this.won = 0; // 0: haven't won yet, 1: X win; 2: O win; 3: tie;
+	this.won = noWin;
 	this.winningCells = [null, null, null];
 	return true;
 };
 
 Grid.prototype.getPossibleAnswers = function () {
-	if (this.won !== 0) return [];
+	if (this.won !== noWin) return [];
 	var possibleAnswers = [];
 	var include = true;
 	for (var i = 0; i < 9; i++) {
@@ -236,11 +238,7 @@ Grid.prototype.checkMoveForWin = function (lastMovePlayed) {
 	// rows
 	var row = this.getRowValues(stuffToCheck[0]);
 	if (row[0] > 0 && row[0] == row[1] && row[0] == row[2]) {
-		if (row[0] == o) {
-			winner = [2];
-		} else {
-			winner = [1];
-		}
+		winner = (row[0] == x)?[xWin]:[oWin];
 		// Return the winning row
 		winner = winner.concat(this.getRowIndices(stuffToCheck[0]));
 		return winner;
@@ -249,11 +247,7 @@ Grid.prototype.checkMoveForWin = function (lastMovePlayed) {
 	// columns
 	var col = this.getColumnValues(stuffToCheck[1]);
 	if (col[0] > 0 && col[0] == col[1] && col[0] == col[2]) {
-		if (col[0] == o) {
-			winner = [2];
-		} else {
-			winner = [1];
-		}
+		winner = (col[0] == x)?[xWin]:[oWin];
 		// Return the winning column
 		winner = winner.concat(this.getColumnIndices(stuffToCheck[1]));
 		return winner;
@@ -265,11 +259,7 @@ Grid.prototype.checkMoveForWin = function (lastMovePlayed) {
 		if (stuffToCheck[i] !== null) {
 			var diagonal = this.getDiagValues(stuffToCheck[i]);
 			if (diagonal[0] > 0 && diagonal[0] == diagonal[1] && diagonal[0] == diagonal[2]) {
-				if (diagonal[0] == o) {
-					winner = [2];
-				} else {
-					winner = [1];
-				}
+				winner = (diagonal[0] == x)?[xWin]:[oWin];
 				// Return the winning diagonal
 				winner = winner.concat(this.getDiagIndices(stuffToCheck[i]));
 				return winner;
@@ -277,7 +267,7 @@ Grid.prototype.checkMoveForWin = function (lastMovePlayed) {
 		} else break;
 	}
 
-	return [0, null, null, null];
+	return [noWin, null, null, null];
 };
 
 Grid.prototype.getSymmetries = function () {
@@ -364,14 +354,14 @@ function handleMove(author, cell) {
 
 	// Test if we have a winner:
 
-	if (playingGrid.won == 1 || playingGrid.won == 2) {
+	if (playingGrid.won == xWin || playingGrid.won == oWin) {
 		for (var i = 0; i < playingGrid.winningCells.length; i++) {
 			var str = "cell" + playingGrid.winningCells[i];
 			document.getElementById(str).classList.add("win-color");
 		}
 		endGame(playingGrid.won);
 	}
-	else if (playingGrid.won == 3) {
+	else if (playingGrid.won == tieWin) {
 		endGame(playingGrid.won);
 	}
 	// Call the next move
@@ -380,6 +370,8 @@ function handleMove(author, cell) {
 
 		if (author_turn == author_random) {
 			setTimeout(handleMove, 1000, author_random, playingGrid.getRandomFreeCell());
+		} else if(author_turn == author_computer) {
+			setTimeout(handleMove, 1000, author_computer, findBestMove(playingGrid));
 		}
 
 		// Generate game tree
@@ -447,6 +439,8 @@ function restartGame() {
 
 	if (author_turn == author_random) {
 		setTimeout(handleMove, 1000, author_random, playingGrid.getRandomFreeCell());
+	} else if(author_turn == author_computer) {
+	setTimeout(handleMove, 1000, author_computer, findBestMove(playingGrid));
 	}
 }
 
@@ -469,7 +463,7 @@ function endGame(winner) {
 	}
 	document.getElementById("turnText").innerHTML = "";
 
-	setTimeout(announceWinner, 1000, (winner == 1) ? "X ha vinto!" : (winner == 2) ? "O ha vinto!" : "Pareggio!");
+	setTimeout(announceWinner, 1000, (winner == xWin) ? "X ha vinto!" : (winner == oWin) ? "O ha vinto!" : "Pareggio!");
 }
 
 //==================================
@@ -509,6 +503,41 @@ function makeStringForTreeGame(treeGrid) {
 	treeTable += '</table>';
 
 	return treeTable;
+}
+
+function findBestMove(grid) {
+	var bestMove = null, bestScore = -2;
+	for (const move in grid.getFreeCellIndices()) {
+		var moveScore = minimax(grid.clone().makeMove(move),0,true);
+		if (bestScore>moveScore) {
+			bestMove = move;
+			bestScore = moveScore;
+		}
+	}
+	return bestMove;
+}
+
+function minimax(grid, depth, isMaximizingPlayer) {
+	console.log("loading...");
+	if (grid.won != noWin) return grid.won;
+	if (depth>HARD_LIMIT) return 0;
+
+	if(isMaximizingPlayer) {
+		var bestVal = -2, value;
+		for (const i of grid.getFreeCellIndices()) {
+			value = minimax(board.clone().makeMove(i), depth+1, false);
+			bestVal = (bestVal>value)?bestVal:value;
+		}
+		return bestVal;
+	}
+	else {
+		var bestVal = 2, value;
+		for (const i of grid.getFreeCellIndices()) {
+			value = minimax(board.clone().makeMove(i), depth+1, true);
+			bestVal = (bestVal<value)?bestVal:value;
+		}
+		return bestVal;
+	}
 }
 
 // TODO: MAKE WORK FOR SECOND LEVEL!!!!
