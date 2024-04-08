@@ -388,10 +388,21 @@ function handleMove(author, cell) {
 			var possibleAnswersLevel2 = possibleAnswers[i].getPossibleAnswers();
 			for (var j = 0; j < possibleAnswersLevel2.length; j++) {
 				levelString[1] += makeStringForTreeGame(possibleAnswersLevel2[j]);
+				var possibleAnswersLevel3 = possibleAnswersLevel2[j].getPossibleAnswers();
+				for (var k = 0; k < possibleAnswersLevel3.length; k++) {
+					levelString[2] += makeStringForTreeGame(possibleAnswersLevel3[k]);
+					// TODO: level 4
+					//var possibleAnswersLevel4 = possibleAnswersLevel3[k].getPossibleAnswers();
+					//for (var z = 0; z < possibleAnswersLevel4.length; z++) {
+					//	levelString[3] += makeStringForTreeGame(possibleAnswersLevel4[z]);
+					//}	
+				}	
 			}
 		}
 		document.getElementById("gameTreeLevel1").innerHTML = levelString[0];
 		document.getElementById("gameTreeLevel2").innerHTML = levelString[1];
+		document.getElementById("gameTreeLevel3").innerHTML = levelString[2];
+		document.getElementById("gameTreeLevel4").innerHTML = levelString[3];
 			
 		adjustTreeTablesSize();
 
