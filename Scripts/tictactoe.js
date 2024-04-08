@@ -23,13 +23,13 @@ const
 	tieWin = 3,	// THIS CONSTANT ISN'T USED
 	author_player = "player",
 	author_random = "random",
-	authorn_computer = "computer";
+	author_computer = "computer";
 
 // GLOBAL VARIABLES
 var
 	gameOver = false,
 	playingGrid = null,
-	author_turn = author_player;
+	author_turn;
 
 //==================================
 // GRID OBJECT
@@ -323,6 +323,10 @@ function initialize() {
 	for (var i = 0; i < playingGrid.cells.length; i++) {
 		playingGrid.cells[i] = 0;
 	}
+	
+	if (author_turn == author_random) {
+		setTimeout(handleMove, 1000, author_random, playingGrid.getRandomFreeCell());
+	}
 }
 
 // Executed when the user clicks one of the table cells
@@ -333,7 +337,9 @@ function cellClicked(id) {
 };
 
 function handleMove(author, cell) {
-	var opponent = document.querySelector('input[name="opponent"]:checked').value
+	var X_player = document.querySelector('input[name="X_player"]:checked').value
+	var O_player = document.querySelector('input[name="O_player"]:checked').value
+	
 	var id = "cell" + cell.toString();
 
 	// Cell is already occupied, not the correct turn or something else is wrong
@@ -367,14 +373,15 @@ function handleMove(author, cell) {
 	else if (playingGrid.won == 3) {
 		endGame(playingGrid.won);
 	}
+	// Handle next move:
 	else {
-		if (author_turn == opponent) author_turn = author_player;
-		else {
-			author_turn = opponent;
-			// TODO: handle computer opponent
-			setTimeout(handleMove, 1000, opponent, playingGrid.getRandomFreeCell());
+		author_turn = (author_turn == X_player)?O_player:X_player;
 
+		if (author_turn == author_random) {
+			setTimeout(handleMove, 1000, author_random, playingGrid.getRandomFreeCell());
 		}
+
+
 		var possibleAnswers = playingGrid.getPossibleAnswers();
 		for (var i = 0; i < possibleAnswers.length; i++) {
 			document.getElementById("gameTree").innerHTML += makeStringForTreeGame(possibleAnswers[i]);
@@ -401,8 +408,12 @@ function restartGame() {
 		document.getElementById(id).classList.remove("win-color");
 	}
 	document.getElementById("gameTree").innerHTML = "";
-	author_turn = author_player;
+	author_turn = document.querySelector('input[name="X_player"]:checked').value;
 	gameOver = false;
+
+	if (author_turn == author_random) {
+		setTimeout(handleMove, 1000, author_random, playingGrid.getRandomFreeCell());
+	}
 }
 
 function announceWinner(text) {
