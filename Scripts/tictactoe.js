@@ -317,6 +317,7 @@ Grid.prototype.clone = function () {
 // Executed when the page loads
 function initialize() {
 	document.getElementById("turnText").innerHTML = "È il turno delle X";
+	author_turn = document.querySelector('input[name="X_player"]:checked').value;
 	playingGrid = new Grid();
 	gameOver = false;
 	playingGrid.whoseTurn = x;
@@ -339,7 +340,7 @@ function cellClicked(id) {
 function handleMove(author, cell) {
 	var X_player = document.querySelector('input[name="X_player"]:checked').value
 	var O_player = document.querySelector('input[name="O_player"]:checked').value
-	
+
 	var id = "cell" + cell.toString();
 
 	// Cell is already occupied, not the correct turn or something else is wrong
@@ -358,8 +359,6 @@ function handleMove(author, cell) {
 		document.getElementById(id).innerHTML = oText;
 		playingGrid.cells[cell] = o;
 	}
-
-	document.getElementById("gameTree").innerHTML = "";
 
 	// Test if we have a winner:
 
@@ -383,9 +382,17 @@ function handleMove(author, cell) {
 
 
 		var possibleAnswers = playingGrid.getPossibleAnswers();
+		var levelString = ["", "", "", ""];
 		for (var i = 0; i < possibleAnswers.length; i++) {
-			document.getElementById("gameTree").innerHTML += makeStringForTreeGame(possibleAnswers[i]);
+			levelString[0] += makeStringForTreeGame(possibleAnswers[i]);
+			var possibleAnswersLevel2 = possibleAnswers[i].getPossibleAnswers();
+			for (var j = 0; j < possibleAnswersLevel2.length; j++) {
+				levelString[1] += makeStringForTreeGame(possibleAnswersLevel2[j]);
+			}
 		}
+		document.getElementById("gameTreeLevel1").innerHTML = levelString[0];
+		document.getElementById("gameTreeLevel2").innerHTML = levelString[1];
+			
 		adjustTreeTablesSize();
 
 	}
@@ -407,7 +414,10 @@ function restartGame() {
 		document.getElementById(id).style.cursor = "pointer";
 		document.getElementById(id).classList.remove("win-color");
 	}
-	document.getElementById("gameTree").innerHTML = "";
+	document.getElementById("gameTreeLevel1").innerHTML = "";
+	document.getElementById("gameTreeLevel2").innerHTML = "";
+	document.getElementById("gameTreeLevel3").innerHTML = "";
+	document.getElementById("gameTreeLevel4").innerHTML = "";
 	author_turn = document.querySelector('input[name="X_player"]:checked').value;
 	gameOver = false;
 
@@ -477,6 +487,7 @@ function makeStringForTreeGame(treeGrid) {
 	return treeTable;
 }
 
+// TODO: MAKE WORK FOR SECOND LEVEL!!!!AF
 
 // Adjust the size of existing tables to fit on the same row
 function adjustTreeTablesSize() {
@@ -485,6 +496,7 @@ function adjustTreeTablesSize() {
 	for (var i = 0; i < allTables.length; i++) {
 		// TODO: check all elements to change
 		// TODO: check proportion appropiately
+		
 		allTables[i].style.width = `${60 / ((allTables.length) / 9) / 3}vw`;
 		allTables[i].style.height = `${60 / ((allTables.length) / 9) / 3}vw`;
 	}
