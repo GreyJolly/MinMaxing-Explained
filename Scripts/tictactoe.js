@@ -19,8 +19,8 @@ const
 	xText = '<span class="x">&times;</class>',
 	oText = '<span class="o">o</class>',
 	noWin = null,
-	xWin = 1,
-	oWin = -1,
+	xWin = 30,
+	oWin = -30,
 	tieWin = 0,
 	author_player = "player",
 	author_random = "random",
@@ -507,7 +507,7 @@ function findBestMove(grid) {
 	}
 
 	if (grid.whoseTurn == x) {
-		var bestMove, bestScore = -100;
+		var bestMove, bestScore = -1000;
 		for (var i = 0; i < 3; i++) {
 			for (var j = 0; j < 3; j++) {
 				if (cellMatrix[i][j] == 0) {
@@ -522,7 +522,7 @@ function findBestMove(grid) {
 			}
 		}
 	} else {
-		var bestMove, bestScore = 100;
+		var bestMove, bestScore = 1000;
 		for (var i = 0; i < 3; i++) {
 			for (var j = 0; j < 3; j++) {
 				if (cellMatrix[i][j] == 0) {
@@ -554,24 +554,26 @@ function minmax(cellMatrix, depth, isMaximizingPlayer, movesDone, lastRowPlayed,
 	}
 	var bestScore;
 	if (isMaximizingPlayer) {
-		bestScore = -100;
+		bestScore = -1000;
 		for (var i = 0; i < 3; i++) {
 			for (var j = 0; j < 3; j++) {
 				if (cellMatrix[i][j] == 0) {
 					cellMatrix[i][j] = x;
 					var moveScore = minmax(cellMatrix, depth + 1, false, movesDone + 1, i, j);
+					moveScore -= depth;
 					bestScore = (bestScore > moveScore) ? bestScore : moveScore;
 					cellMatrix[i][j] = 0;
 				}
 			}
 		}
 	} else {
-		bestScore = 100;
+		bestScore = 1000;
 		for (var i = 0; i < 3; i++) {
 			for (var j = 0; j < 3; j++) {
 				if (cellMatrix[i][j] == 0) {
 					cellMatrix[i][j] = o;
 					var moveScore = minmax(cellMatrix, depth + 1, true, movesDone + 1, i, j);
+					moveScore += depth;
 					bestScore = (bestScore < moveScore) ? bestScore : moveScore;
 					cellMatrix[i][j] = 0;
 				}
