@@ -34,7 +34,8 @@ const
 var
 	gameOver = false,
 	playingGrid = null,
-	author_turn;
+	author_turn,
+	gameData =  [null,null,noWin];
 
 //==================================
 // GRID OBJECT
@@ -89,6 +90,7 @@ Grid.prototype.reset = function () {
 	this.whoseTurn = x;
 	this.won = noWin;
 	this.winningCells = [null, null, null];
+	gameData = [null,null,noWin];
 	return true;
 }
 
@@ -129,18 +131,18 @@ Grid.prototype.checkMoveForWin = function (lastMovePlayed) {
 
 	// Check row
 	if (cellsMatrix[lastRowPlayed][0] != 0 && cellsMatrix[lastRowPlayed][0] == cellsMatrix[lastRowPlayed][1] && cellsMatrix[lastRowPlayed][0] == cellsMatrix[lastRowPlayed][2]) {
-		return [(cellsMatrix[lastRowPlayed][0] == x) ? [xWin] : [oWin], lastRowPlayed * 3, lastRowPlayed * 3 + 1, lastRowPlayed * 3 + 2];
+		return [(cellsMatrix[lastRowPlayed][0] == x) ? xWin : oWin, lastRowPlayed * 3, lastRowPlayed * 3 + 1, lastRowPlayed * 3 + 2];
 	}
 	// Check column
 	if (cellsMatrix[0][lastColPlayed] != 0 && cellsMatrix[0][lastColPlayed] == cellsMatrix[1][lastColPlayed] && cellsMatrix[0][lastColPlayed] == cellsMatrix[2][lastColPlayed]) {
-		return [(cellsMatrix[0][lastColPlayed] == x) ? [xWin] : [oWin], lastColPlayed, lastColPlayed + 3, lastColPlayed + 6];
+		return [(cellsMatrix[0][lastColPlayed] == x) ? xWin : oWin, lastColPlayed, lastColPlayed + 3, lastColPlayed + 6];
 	}
 	// Check diagonals
 	if (cellsMatrix[0][0] != 0 && cellsMatrix[0][0] == cellsMatrix[1][1] && cellsMatrix[0][0] == cellsMatrix[2][2]) {
-		return [(cellsMatrix[0][0] == x) ? [xWin] : [oWin], 0, 4, 8];
+		return [(cellsMatrix[0][0] == x) ? xWin : oWin, 0, 4, 8];
 	}
 	if (cellsMatrix[2][0] != 0 && cellsMatrix[2][0] == cellsMatrix[1][1] && cellsMatrix[2][0] == cellsMatrix[0][2]) {
-		return [(cellsMatrix[2][0] == x) ? [xWin] : [oWin], 2, 4, 6];
+		return [(cellsMatrix[2][0] == x) ? xWin : oWin, 2, 4, 6];
 	}
 	return [noWin, null, null, null];
 };
@@ -214,6 +216,8 @@ function handleMove(author, cell) {
 		return false;
 	}
 	if (playingGrid.makeMove(cell) == false) return false;
+	
+	gameData.push(cell);
 
 	document.getElementById(id).style.cursor = "default";
 	document.getElementById("turnText").innerHTML = (playingGrid.whoseTurn == x) ? "È il turno delle X" : "È il turno delle O";
@@ -229,7 +233,6 @@ function handleMove(author, cell) {
 	// Test if we have a winner:
 
 	if (playingGrid.won == xWin || playingGrid.won == oWin) {
-
 		endGame(playingGrid.won);
 	}
 	else if (playingGrid.won == tieWin) {
@@ -256,34 +259,25 @@ function handleMove(author, cell) {
 				var possibleAnswersLevel3 = possibleAnswersLevel2[j].getPossibleAnswers();
 				for (var k = 0; k < possibleAnswersLevel3.length; k++) {
 					levelString[2] += makeStringForTreeGame(possibleAnswers[i].cells, possibleAnswers[i].winningCells);
-					// TODO: see if you want to implement level 4
-					//var possibleAnswersLevel4 = possibleAnswersLevel3[k].getPossibleAnswers();
-					//for (var z = 0; z < possibleAnswersLevel4.length; z++) {
-					//	levelString[3] += makeStringForTreeGame(possibleAnswersLevel4[z].cells, possibleAnswersLevel4[z].winningCells);
-					//}	
 				}
 			}
 		}
 		document.getElementById("gameTreeLevel1").innerHTML = levelString[0];
 		document.getElementById("gameTreeLevel2").innerHTML = levelString[1];
 		document.getElementById("gameTreeLevel3").innerHTML = levelString[2];
-		document.getElementById("gameTreeLevel4").innerHTML = levelString[3];
 
 		if (playingGrid.whoseTurn == x) {
 			document.querySelector(".level1, .level3").style.backgroundColor = x_background;
 			document.querySelector(".level2").style.backgroundColor = o_background;
 			document.querySelector(".level3").style.backgroundColor = x_background;
-			document.querySelector(".level4").style.backgroundColor = o_background;
 		} else {
 			document.querySelector(".level1").style.backgroundColor = o_background;
 			document.querySelector(".level2").style.backgroundColor = x_background;
 			document.querySelector(".level3").style.backgroundColor = o_background;
-			document.querySelector(".level4").style.backgroundColor = x_background;
 		}
 
 	}
 
-	sendArrayToAPI(playingGrid.cells);
 	return true;
 }
 
@@ -303,7 +297,6 @@ function restartGame() {
 	document.getElementById("gameTreeLevel1").innerHTML = "";
 	document.getElementById("gameTreeLevel2").innerHTML = "";
 	document.getElementById("gameTreeLevel3").innerHTML = "";
-	document.getElementById("gameTreeLevel4").innerHTML = "";
 	author_turn = document.querySelector('input[name="X_player"]:checked').value;
 	gameOver = false;
 
@@ -321,15 +314,20 @@ function announceWinner(text) {
 
 function closeModal(id) {
 	document.getElementById(id).style.display = "none";
+	// Send game data to the server
+	sendArrayToAPI(gameData);
 	restartGame();
 }
 
 function endGame(winner) {
 	gameOver = true;
+	gameData[0] = document.querySelector('input[name="X_player"]:checked').value;
+	gameData[1] = document.querySelector('input[name="O_player"]:checked').value;
+	gameData[2] = (winner==xWin)?"X":(winner==oWin)?"O":"Tie";
 	document.getElementById("gameTreeLevel1").innerHTML = "";
+	
 	document.getElementById("gameTreeLevel2").innerHTML = "";
 	document.getElementById("gameTreeLevel3").innerHTML = "";
-	document.getElementById("gameTreeLevel4").innerHTML = "";
 
 	if (winner == xWin || winner == oWin) {
 		for (var i = 0; i < playingGrid.winningCells.length; i++) {
@@ -499,9 +497,8 @@ function sendArrayToAPI(array) {
 		headers: {
 			'Content-Type': 'application/json',
 		},
-		body: JSON.stringify({ array_data: array }),
+		body: JSON.stringify({ game_data: array }),
 	})
 		.then(response => response.json())
-		.then(data => console.log('Success:', data))
 		.catch((error) => console.error('Error:', error));
 }

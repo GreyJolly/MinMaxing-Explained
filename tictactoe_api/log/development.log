@@ -824,3 +824,217 @@ Processing by Api::DataController#save as */*
 Completed 200 OK in 4ms (Views: 1.6ms | ActiveRecord: 0.0ms | Allocations: 139)
 
 
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (17.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (10.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGamesPlayeds (20240409135614)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "games_playeds" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "winner" varchar, "firstMove" integer, "secondMove" integer, "thirdMove" integer, "fourthMove" integer, "fifthMove" integer, "sixthMove" integer, "seventhMove" integer, "eightMove" integer, "ninthMove" integer)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20240409135614"]]
+  [1m[36mTRANSACTION (10.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-04-09 14:02:32.244283"], ["updated_at", "2024-04-09 14:02:32.244283"]]
+  [1m[36mTRANSACTION (6.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 16:06:13 +0200
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>[30, 0, 3, 1, 4, 2], "datum"=>{"game_data"=>[30, 0, 3, 1, 4, 2]}}
+Completed 200 OK in 12ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 2742)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 16:11:40 +0200
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>[30, 0, 3, 1, 4, 2], "datum"=>{"game_data"=>[30, 0, 3, 1, 4, 2]}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/data_controller.rb:17:in `save'
+  [1m[36mGamesPlayed Create (1.3ms)[0m  [1m[32mINSERT INTO "games_playeds" ("winner", "firstMove", "secondMove", "thirdMove", "fourthMove", "fifthMove") VALUES (?, ?, ?, ?, ?, ?)[0m  [["winner", "X"], ["firstMove", 0], ["secondMove", 3], ["thirdMove", 1], ["fourthMove", 4], ["fifthMove", 2]]
+  ↳ app/controllers/api/data_controller.rb:17:in `save'
+  [1m[36mTRANSACTION (11.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/data_controller.rb:17:in `save'
+Completed 200 OK in 117ms (Views: 1.0ms | ActiveRecord: 15.0ms | Allocations: 12233)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 16:11:59 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>[30, 7, 4, 5, 2, 1, 0, 8, 3, 6], "datum"=>{"game_data"=>[30, 7, 4, 5, 2, 1, 0, 8, 3, 6]}}
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/data_controller.rb:17:in `save'
+  [1m[36mGamesPlayed Create (3.2ms)[0m  [1m[32mINSERT INTO "games_playeds" ("winner", "firstMove", "secondMove", "thirdMove", "fourthMove", "fifthMove", "sixthMove", "seventhMove", "eightMove", "ninthMove") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["winner", "X"], ["firstMove", 7], ["secondMove", 4], ["thirdMove", 5], ["fourthMove", 2], ["fifthMove", 1], ["sixthMove", 0], ["seventhMove", 8], ["eightMove", 3], ["ninthMove", 6]]
+  ↳ app/controllers/api/data_controller.rb:17:in `save'
+  [1m[36mTRANSACTION (20.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/data_controller.rb:17:in `save'
+Completed 200 OK in 60ms (Views: 1.3ms | ActiveRecord: 24.1ms | Allocations: 3770)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 16:12:10 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>[30, 0, 7, 8, 4, 6, 2, 3], "datum"=>{"game_data"=>[30, 0, 7, 8, 4, 6, 2, 3]}}
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/data_controller.rb:17:in `save'
+  [1m[36mGamesPlayed Create (3.1ms)[0m  [1m[32mINSERT INTO "games_playeds" ("winner", "firstMove", "secondMove", "thirdMove", "fourthMove", "fifthMove", "sixthMove", "seventhMove") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["winner", "X"], ["firstMove", 0], ["secondMove", 7], ["thirdMove", 8], ["fourthMove", 4], ["fifthMove", 6], ["sixthMove", 2], ["seventhMove", 3]]
+  ↳ app/controllers/api/data_controller.rb:17:in `save'
+  [1m[36mTRANSACTION (20.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/data_controller.rb:17:in `save'
+Completed 200 OK in 57ms (Views: 1.7ms | ActiveRecord: 23.8ms | Allocations: 3738)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 16:12:39 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>[30, 8, 7, 2, 1, 6, 0, 4], "datum"=>{"game_data"=>[30, 8, 7, 2, 1, 6, 0, 4]}}
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/data_controller.rb:17:in `save'
+  [1m[36mGamesPlayed Create (1.0ms)[0m  [1m[32mINSERT INTO "games_playeds" ("winner", "firstMove", "secondMove", "thirdMove", "fourthMove", "fifthMove", "sixthMove", "seventhMove") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["winner", "X"], ["firstMove", 8], ["secondMove", 7], ["thirdMove", 2], ["fourthMove", 1], ["fifthMove", 6], ["sixthMove", 0], ["seventhMove", 4]]
+  ↳ app/controllers/api/data_controller.rb:17:in `save'
+  [1m[36mTRANSACTION (9.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/data_controller.rb:17:in `save'
+Completed 200 OK in 38ms (Views: 0.4ms | ActiveRecord: 11.9ms | Allocations: 3738)
+
+
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "games_playeds"[0m
+  [1m[35m (12.8ms)[0m  [1m[35mCREATE TABLE "games_playeds" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "winner" varchar, "firstMove" integer, "secondMove" integer, "thirdMove" integer, "fourthMove" integer, "fifthMove" integer, "sixthMove" integer, "seventhMove" integer, "eightMove" integer, "ninthMove" integer)[0m
+  [1m[35m (9.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (6.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20240409135614)[0m
+  [1m[35m (7.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-04-09 14:21:36.268641"], ["updated_at", "2024-04-09 14:21:36.268641"]]
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "e7df44b3463cda7c78c326ded87acd127289d41f"], ["created_at", "2024-04-09 14:21:36.324169"], ["updated_at", "2024-04-09 14:21:36.324169"]]
+  [1m[36mTRANSACTION (8.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "games_playeds"[0m
+  [1m[35m (10.2ms)[0m  [1m[35mCREATE TABLE "games_playeds" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "winner" varchar, "firstMove" integer, "secondMove" integer, "thirdMove" integer, "fourthMove" integer, "fifthMove" integer, "sixthMove" integer, "seventhMove" integer, "eightMove" integer, "ninthMove" integer)[0m
+  [1m[35m (9.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (8.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20240409135614)[0m
+  [1m[35m (11.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-04-09 14:21:36.486824"], ["updated_at", "2024-04-09 14:21:36.486824"]]
+  [1m[36mTRANSACTION (8.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.7ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2024-04-09 14:21:36.513051"], ["key", "environment"]]
+  [1m[36mTRANSACTION (6.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "e7df44b3463cda7c78c326ded87acd127289d41f"], ["created_at", "2024-04-09 14:21:36.535706"], ["updated_at", "2024-04-09 14:21:36.535706"]]
+  [1m[36mTRANSACTION (6.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 16:22:19 +0200
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>["player", "player", 30, 0, 3, 1, 4, 2], "datum"=>{"game_data"=>["player", "player", 30, 0, 3, 1, 4, 2]}}
+Completed 200 OK in 32ms (Views: 0.5ms | ActiveRecord: 0.8ms | Allocations: 8506)
+
+
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "games_playeds"[0m
+  [1m[35m (13.3ms)[0m  [1m[35mCREATE TABLE "games_playeds" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "winner" varchar, "firstMove" integer, "secondMove" integer, "thirdMove" integer, "fourthMove" integer, "fifthMove" integer, "sixthMove" integer, "seventhMove" integer, "eightMove" integer, "ninthMove" integer)[0m
+  [1m[35m (11.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (8.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20240409135614)[0m
+  [1m[35m (13.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-04-09 14:23:51.491165"], ["updated_at", "2024-04-09 14:23:51.491165"]]
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "e7df44b3463cda7c78c326ded87acd127289d41f"], ["created_at", "2024-04-09 14:23:51.528905"], ["updated_at", "2024-04-09 14:23:51.528905"]]
+  [1m[36mTRANSACTION (9.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "games_playeds"[0m
+  [1m[35m (10.8ms)[0m  [1m[35mCREATE TABLE "games_playeds" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "winner" varchar, "firstMove" integer, "secondMove" integer, "thirdMove" integer, "fourthMove" integer, "fifthMove" integer, "sixthMove" integer, "seventhMove" integer, "eightMove" integer, "ninthMove" integer)[0m
+  [1m[35m (11.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (9.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20240409135614)[0m
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-04-09 14:23:51.628128"], ["updated_at", "2024-04-09 14:23:51.628128"]]
+  [1m[36mTRANSACTION (10.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.6ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2024-04-09 14:23:51.655980"], ["key", "environment"]]
+  [1m[36mTRANSACTION (9.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "schema_sha1"], ["value", "e7df44b3463cda7c78c326ded87acd127289d41f"], ["created_at", "2024-04-09 14:23:51.687772"], ["updated_at", "2024-04-09 14:23:51.687772"]]
+  [1m[36mTRANSACTION (7.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 16:24:01 +0200
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>["player", "player", "X", 0, 3, 1, 4, 2], "datum"=>{"game_data"=>["player", "player", "X", 0, 3, 1, 4, 2]}}
+Completed 200 OK in 25ms (Views: 0.4ms | ActiveRecord: 0.8ms | Allocations: 8505)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 16:24:17 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>["player", "player", "O", 0, 6, 7, 2, 5, 4], "datum"=>{"game_data"=>["player", "player", "O", 0, 6, 7, 2, 5, 4]}}
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 172)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 16:24:42 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>["player", "player", "X", 0, 3, 1, 4, 2], "datum"=>{"game_data"=>["player", "player", "X", 0, 3, 1, 4, 2]}}
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 169)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 16:25:44 +0200
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>["player", "player", "X", 0, 3, 1, 4, 2], "datum"=>{"game_data"=>["player", "player", "X", 0, 3, 1, 4, 2]}}
+Completed 200 OK in 11ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 2719)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 16:26:15 +0200
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>["player", "player", "X", 0, 3, 4, 7, 8], "datum"=>{"game_data"=>["player", "player", "X", 0, 3, 4, 7, 8]}}
+Completed 200 OK in 11ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 2719)
+
+
