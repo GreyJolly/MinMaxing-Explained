@@ -1,0 +1,650 @@
+Started OPTIONS "/api/data/save" for 127.0.0.1 at 2024-04-09 11:02:20 +0200
+  [1m[35m (10.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+ActionController::RoutingError (No route matches [OPTIONS] "/api/data/save"):
+  
+Started GET "/" for 127.0.0.1 at 2024-04-09 11:02:37 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/share/rvm/gems/ext-2.7.8/gems/railties-6.1.7.7/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/share/rvm/gems/ext-2.7.8/gems/railties-6.1.7.7/lib/rails/templates/rails/welcome/index.html.erb (Duration: 16.5ms | Allocations: 403)
+Completed 200 OK in 69ms (Views: 37.0ms | ActiveRecord: 0.0ms | Allocations: 3460)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2024-04-09 11:02:37 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:05:47 +0200
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+ArgumentError (Before process_action callback :verify_authenticity_token has not been defined):
+  
+app/controllers/api/data_controller.rb:2:in `<class:DataController>'
+app/controllers/api/data_controller.rb:1:in `<main>'
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:05:50 +0200
+  
+ArgumentError (Before process_action callback :verify_authenticity_token has not been defined):
+  
+app/controllers/api/data_controller.rb:2:in `<class:DataController>'
+app/controllers/api/data_controller.rb:1:in `<main>'
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:05:53 +0200
+  
+ArgumentError (Before process_action callback :verify_authenticity_token has not been defined):
+  
+app/controllers/api/data_controller.rb:2:in `<class:DataController>'
+app/controllers/api/data_controller.rb:1:in `<main>'
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:05:54 +0200
+  
+ArgumentError (Before process_action callback :verify_authenticity_token has not been defined):
+  
+app/controllers/api/data_controller.rb:2:in `<class:DataController>'
+app/controllers/api/data_controller.rb:1:in `<main>'
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:05:55 +0200
+  
+ArgumentError (Before process_action callback :verify_authenticity_token has not been defined):
+  
+app/controllers/api/data_controller.rb:2:in `<class:DataController>'
+app/controllers/api/data_controller.rb:1:in `<main>'
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:05:56 +0200
+  
+ArgumentError (Before process_action callback :verify_authenticity_token has not been defined):
+  
+app/controllers/api/data_controller.rb:2:in `<class:DataController>'
+app/controllers/api/data_controller.rb:1:in `<main>'
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:05:57 +0200
+  
+ArgumentError (Before process_action callback :verify_authenticity_token has not been defined):
+  
+app/controllers/api/data_controller.rb:2:in `<class:DataController>'
+app/controllers/api/data_controller.rb:1:in `<main>'
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:05:57 +0200
+  
+ArgumentError (Before process_action callback :verify_authenticity_token has not been defined):
+  
+app/controllers/api/data_controller.rb:2:in `<class:DataController>'
+app/controllers/api/data_controller.rb:1:in `<main>'
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:05:58 +0200
+  
+ArgumentError (Before process_action callback :verify_authenticity_token has not been defined):
+  
+app/controllers/api/data_controller.rb:2:in `<class:DataController>'
+app/controllers/api/data_controller.rb:1:in `<main>'
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:06:02 +0200
+  
+ArgumentError (Before process_action callback :verify_authenticity_token has not been defined):
+  
+app/controllers/api/data_controller.rb:2:in `<class:DataController>'
+app/controllers/api/data_controller.rb:1:in `<main>'
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:08:09 +0200
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 12ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 2743)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:08:12 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[0, 0, 0, 0, 1, 0, 0, 0, 0], "datum"=>{"array_data"=>[0, 0, 0, 0, 1, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 150)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:08:19 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[0, 0, 0, 0, 0, 0, 0, 0, 1], "datum"=>{"array_data"=>[0, 0, 0, 0, 0, 0, 0, 0, 1]}}
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 150)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:08:51 +0200
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 11ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 2743)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:09:28 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.7ms | Allocations: 167)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:11:27 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.6ms | Allocations: 150)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:19:23 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 4ms (Views: 1.0ms | Allocations: 150)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:19:30 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 3ms (Views: 0.9ms | Allocations: 150)
+
+
+Started PUT "/api/data/save" for 127.0.0.1 at 2024-04-09 11:24:15 +0200
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+ActionController::RoutingError (No route matches [PUT] "/api/data/save"):
+  
+Started PUT "/api/data/save" for 127.0.0.1 at 2024-04-09 11:24:17 +0200
+  
+ActionController::RoutingError (No route matches [PUT] "/api/data/save"):
+  
+Started PUT "/api/data/save" for 127.0.0.1 at 2024-04-09 11:24:19 +0200
+  
+ActionController::RoutingError (No route matches [PUT] "/api/data/save"):
+  
+Started PUT "/api/data/save" for 127.0.0.1 at 2024-04-09 11:24:20 +0200
+  
+ActionController::RoutingError (No route matches [PUT] "/api/data/save"):
+  
+Started PUT "/api/data/save" for 127.0.0.1 at 2024-04-09 11:24:21 +0200
+  
+ActionController::RoutingError (No route matches [PUT] "/api/data/save"):
+  
+Started PUT "/api/data/save" for 127.0.0.1 at 2024-04-09 11:24:22 +0200
+  
+ActionController::RoutingError (No route matches [PUT] "/api/data/save"):
+  
+Started PUT "/api/data/save" for 127.0.0.1 at 2024-04-09 11:24:23 +0200
+  
+ActionController::RoutingError (No route matches [PUT] "/api/data/save"):
+  
+Started PUT "/api/data/save" for 127.0.0.1 at 2024-04-09 11:24:37 +0200
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 9ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 2743)
+
+
+Started PUT "/api/data/save" for 127.0.0.1 at 2024-04-09 11:24:40 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 150)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:26:04 +0200
+  [1m[35m (4.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 9ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 2743)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:26:09 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[0, 1, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[0, 1, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 150)
+
+
+Started TEST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:37:12 +0200
+  
+ActionController::UnknownHttpMethod (TEST, accepted HTTP methods are OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT, PROPFIND, PROPPATCH, MKCOL, COPY, MOVE, LOCK, UNLOCK, VERSION-CONTROL, REPORT, CHECKOUT, CHECKIN, UNCHECKOUT, MKWORKSPACE, UPDATE, LABEL, MERGE, BASELINE-CONTROL, MKACTIVITY, ORDERPATCH, ACL, SEARCH, MKCALENDAR, and PATCH):
+  
+actionpack (6.1.7.7) lib/action_dispatch/http/request.rb:447:in `check_method'
+actionpack (6.1.7.7) lib/action_dispatch/http/request.rb:149:in `request_method'
+rack (2.2.9) lib/rack/request.rb:199:in `post?'
+actionpack (6.1.7.7) lib/action_dispatch/middleware/actionable_exceptions.rb:27:in `actionable_request?'
+actionpack (6.1.7.7) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.7.7) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (6.1.7.7) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.7.7) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.7.7) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.7.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.7.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.7.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.7.7) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.1.7.7) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.7.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.9) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.7.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.7.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7.7) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.9) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.7.7) lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+rack-cors (2.0.2) lib/rack/cors.rb:102:in `call'
+railties (6.1.7.7) lib/rails/engine.rb:539:in `call'
+puma (5.6.8) lib/puma/configuration.rb:252:in `call'
+puma (5.6.8) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.8) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.8) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.8) lib/puma/server.rb:443:in `process_client'
+puma (5.6.8) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:38:56 +0200
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 2742)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:39:05 +0200
+  [1m[35m (4.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 17ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 2743)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:39:13 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[0, 1, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[0, 1, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 150)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:39:16 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 150)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:39:17 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 150)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:39:19 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 150)
+
+
+Started POST "/api/data/save" for ::1 at 2024-04-09 11:40:01 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for ::1 at 2024-04-09 11:40:03 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for ::1 at 2024-04-09 11:40:03 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for ::1 at 2024-04-09 11:40:04 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 146)
+
+
+Started POST "/api/data/save" for ::1 at 2024-04-09 11:40:06 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[0, 0, 0, 0, 1, 0, 0, 0, 0], "datum"=>{"array_data"=>[0, 0, 0, 0, 1, 0, 0, 0, 0]}}
+Completed 200 OK in 4ms (Views: 1.2ms | ActiveRecord: 0.0ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:45:07 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 3ms (Views: 1.3ms | Allocations: 146)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:45:14 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[0, 1, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[0, 1, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 6ms (Views: 2.0ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:45:16 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[0, 0, 0, 0, 0, 0, 0, 1, 0], "datum"=>{"array_data"=>[0, 0, 0, 0, 0, 0, 0, 1, 0]}}
+Completed 200 OK in 1ms (Views: 0.4ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:45:17 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[0, 0, 0, 0, 0, 0, 1, 0, 0], "datum"=>{"array_data"=>[0, 0, 0, 0, 0, 0, 1, 0, 0]}}
+Completed 200 OK in 1ms (Views: 0.7ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:57:32 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 3ms (Views: 1.3ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:58:03 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 1ms (Views: 0.4ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:58:08 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 3, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 3, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 1.2ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:58:21 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 1, 0, 3, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 1, 0, 3, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.5ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:58:28 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 1, 0, 3, 0, 3, 0, 0], "datum"=>{"array_data"=>[1, 0, 1, 0, 3, 0, 3, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.9ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:58:38 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[0, 0, 0, 0, 0, 0, 1, 0, 0], "datum"=>{"array_data"=>[0, 0, 0, 0, 0, 0, 1, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.5ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:58:41 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[0, 0, 0, 1, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[0, 0, 0, 1, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 6ms (Views: 4.4ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:58:42 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[0, 0, 0, 1, 3, 0, 0, 0, 0], "datum"=>{"array_data"=>[0, 0, 0, 1, 3, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.5ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:58:43 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[0, 0, 0, 1, 3, 0, 0, 1, 0], "datum"=>{"array_data"=>[0, 0, 0, 1, 3, 0, 0, 1, 0]}}
+Completed 200 OK in 1ms (Views: 0.5ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:58:44 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[0, 0, 0, 1, 3, 0, 3, 1, 0], "datum"=>{"array_data"=>[0, 0, 0, 1, 3, 0, 3, 1, 0]}}
+Completed 200 OK in 2ms (Views: 0.6ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:58:45 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[0, 0, 0, 1, 3, 1, 3, 1, 0], "datum"=>{"array_data"=>[0, 0, 0, 1, 3, 1, 3, 1, 0]}}
+Completed 200 OK in 2ms (Views: 0.6ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 11:58:47 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[0, 0, 3, 1, 3, 1, 3, 1, 0], "datum"=>{"array_data"=>[0, 0, 3, 1, 3, 1, 3, 1, 0]}}
+Completed 200 OK in 2ms (Views: 0.7ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 12:02:32 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 3ms (Views: 0.6ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 12:02:34 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 3, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 3, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.5ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 12:02:36 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 1, 3, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 1, 3, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.6ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 12:02:37 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 1, 3, 3, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 1, 3, 3, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.9ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 12:02:38 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 1, 1, 3, 3, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 1, 1, 3, 3, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.6ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 12:02:40 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 1, 1, 3, 3, 0, 3], "datum"=>{"array_data"=>[1, 0, 0, 1, 1, 3, 3, 0, 3]}}
+Completed 200 OK in 2ms (Views: 0.6ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 12:02:41 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 1, 1, 1, 3, 3, 0, 3], "datum"=>{"array_data"=>[1, 0, 1, 1, 1, 3, 3, 0, 3]}}
+Completed 200 OK in 2ms (Views: 0.8ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for ::1 at 2024-04-09 12:02:51 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.8ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for ::1 at 2024-04-09 12:02:53 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.7ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for ::1 at 2024-04-09 12:02:54 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.5ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for ::1 at 2024-04-09 12:02:55 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.7ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 12:03:26 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 3ms (Views: 1.5ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 12:03:37 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 3, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 3, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.9ms | Allocations: 146)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 12:06:05 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 1.0ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 12:06:11 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 3, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 3, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 3ms (Views: 0.7ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 12:06:13 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 3, 0, 0, 1, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 3, 0, 0, 1, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 1.1ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 12:06:15 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 3, 0, 0, 1, 3, 0, 0, 0], "datum"=>{"array_data"=>[1, 3, 0, 0, 1, 3, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.7ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 12:06:15 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 3, 0, 0, 1, 3, 0, 0, 1], "datum"=>{"array_data"=>[1, 3, 0, 0, 1, 3, 0, 0, 1]}}
+Completed 200 OK in 1ms (Views: 0.5ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 12:30:11 +0200
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 10ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 2743)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 12:30:19 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 3, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 3, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 150)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 12:30:23 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 3, 0, 0, 1, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 3, 0, 0, 1, 0, 0, 0, 0]}}
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 150)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 12:30:50 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 3, 0, 3, 1, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 3, 0, 3, 1, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 150)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 12:30:54 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 150)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 12:31:14 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 12:31:49 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 3, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 3, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 12:31:50 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 3, 1, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 3, 1, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 12:32:15 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 3, 1, 3, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 3, 1, 3, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 39ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 146)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 12:32:16 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 3, 1, 3, 1, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 3, 1, 3, 1, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 12:32:24 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 146)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 12:32:25 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 3, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 3, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 12:32:26 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 1, 0, 0, 3, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 1, 0, 0, 3, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for ::1 at 2024-04-09 12:32:33 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for ::1 at 2024-04-09 12:32:34 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-09 12:33:23 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 1, 0, 3, 3, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 1, 0, 3, 3, 0, 0, 0, 0]}}
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.0ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for ::1 at 2024-04-09 12:33:25 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for ::1 at 2024-04-09 12:33:26 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for ::1 at 2024-04-09 12:33:26 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[0, 1, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[0, 1, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for ::1 at 2024-04-09 12:33:27 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[0, 0, 0, 0, 1, 0, 0, 0, 0], "datum"=>{"array_data"=>[0, 0, 0, 0, 1, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for ::1 at 2024-04-09 12:33:28 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[0, 0, 0, 1, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[0, 0, 0, 1, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for ::1 at 2024-04-09 12:33:29 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[0, 0, 0, 0, 0, 1, 0, 0, 0], "datum"=>{"array_data"=>[0, 0, 0, 0, 0, 1, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for ::1 at 2024-04-09 12:33:32 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[1, 0, 0, 0, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for ::1 at 2024-04-09 12:33:33 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[0, 0, 0, 1, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[0, 0, 0, 1, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for ::1 at 2024-04-09 12:33:35 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[0, 0, 0, 1, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[0, 0, 0, 1, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for ::1 at 2024-04-09 12:33:35 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[0, 0, 0, 1, 0, 0, 0, 0, 3], "datum"=>{"array_data"=>[0, 0, 0, 1, 0, 0, 0, 0, 3]}}
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 145)
+
+
+Started POST "/api/data/save" for ::1 at 2024-04-09 12:34:01 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"array_data"=>[0, 0, 0, 1, 0, 0, 0, 0, 0], "datum"=>{"array_data"=>[0, 0, 0, 1, 0, 0, 0, 0, 0]}}
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.0ms | Allocations: 145)
+
+

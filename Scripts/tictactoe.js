@@ -27,7 +27,8 @@ const
 	author_minmaxer = "minmaxer",
 	x_background = "rgba(0, 255, 255, 0.20)",
 	o_background = "rgba(255, 0, 255, 0.20",
-	depth_limit = 9;
+	depth_limit = 9,
+	API_URL = 'http://localhost:3000/api/data/save';
 
 // GLOBAL VARIABLES
 var
@@ -282,7 +283,7 @@ function handleMove(author, cell) {
 
 	}
 
-
+	sendArrayToAPI(playingGrid.cells);
 	return true;
 }
 
@@ -486,4 +487,21 @@ function evaluate(cellsMatrix, lastRowPlayed, lastColPlayed) {
 		return (cellsMatrix[2][0] == x) ? xWin : oWin;
 	}
 	return 0;
+}
+
+//==================================
+// API HANDLING
+//==================================
+
+function sendArrayToAPI(array) {
+	fetch(API_URL, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({ array_data: array }),
+	})
+		.then(response => response.json())
+		.then(data => console.log('Success:', data))
+		.catch((error) => console.error('Error:', error));
 }
