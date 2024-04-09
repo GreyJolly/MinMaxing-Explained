@@ -128,11 +128,11 @@ Grid.prototype.checkMoveForWin = function (lastMovePlayed) {
 
 	// Check row
 	if (cellsMatrix[lastRowPlayed][0] != 0 && cellsMatrix[lastRowPlayed][0] == cellsMatrix[lastRowPlayed][1] && cellsMatrix[lastRowPlayed][0] == cellsMatrix[lastRowPlayed][2]) {
-		return [(cellsMatrix[lastRowPlayed][0] == x) ? [xWin] : [oWin], lastRowPlayed*3, lastRowPlayed*3+1, lastRowPlayed*3+2];
+		return [(cellsMatrix[lastRowPlayed][0] == x) ? [xWin] : [oWin], lastRowPlayed * 3, lastRowPlayed * 3 + 1, lastRowPlayed * 3 + 2];
 	}
 	// Check column
 	if (cellsMatrix[0][lastColPlayed] != 0 && cellsMatrix[0][lastColPlayed] == cellsMatrix[1][lastColPlayed] && cellsMatrix[0][lastColPlayed] == cellsMatrix[2][lastColPlayed]) {
-		return [(cellsMatrix[0][lastColPlayed] == x) ? [xWin] : [oWin], lastColPlayed, lastColPlayed+3, lastColPlayed+6];
+		return [(cellsMatrix[0][lastColPlayed] == x) ? [xWin] : [oWin], lastColPlayed, lastColPlayed + 3, lastColPlayed + 6];
 	}
 	// Check diagonals
 	if (cellsMatrix[0][0] != 0 && cellsMatrix[0][0] == cellsMatrix[1][1] && cellsMatrix[0][0] == cellsMatrix[2][2]) {
@@ -228,10 +228,7 @@ function handleMove(author, cell) {
 	// Test if we have a winner:
 
 	if (playingGrid.won == xWin || playingGrid.won == oWin) {
-		for (var i = 0; i < playingGrid.winningCells.length; i++) {
-			var str = "cell" + playingGrid.winningCells[i];
-			document.getElementById(str).classList.add("win-color");
-		}
+
 		endGame(playingGrid.won);
 	}
 	else if (playingGrid.won == tieWin) {
@@ -261,7 +258,7 @@ function handleMove(author, cell) {
 					// TODO: see if you want to implement level 4
 					//var possibleAnswersLevel4 = possibleAnswersLevel3[k].getPossibleAnswers();
 					//for (var z = 0; z < possibleAnswersLevel4.length; z++) {
-					//	levelString[3] += makeStringForTreeGame(possibleAnswersLevel4[z]);
+					//	levelString[3] += makeStringForTreeGame(possibleAnswersLevel4[z].cells, possibleAnswersLevel4[z].winningCells);
 					//}	
 				}
 			}
@@ -283,7 +280,6 @@ function handleMove(author, cell) {
 			document.querySelector(".level4").style.backgroundColor = x_background;
 		}
 
-		//adjustTreeTablesSize();
 	}
 
 
@@ -328,8 +324,19 @@ function closeModal(id) {
 }
 
 function endGame(winner) {
-
 	gameOver = true;
+	document.getElementById("gameTreeLevel1").innerHTML = "";
+	document.getElementById("gameTreeLevel2").innerHTML = "";
+	document.getElementById("gameTreeLevel3").innerHTML = "";
+	document.getElementById("gameTreeLevel4").innerHTML = "";
+
+	if (winner == xWin || winner == oWin) {
+		for (var i = 0; i < playingGrid.winningCells.length; i++) {
+			var str = "cell" + playingGrid.winningCells[i];
+			document.getElementById(str).classList.add("win-color");
+		}
+	}
+
 	for (var i = 0; i < 9; i++) {
 		var id = "cell" + i.toString();
 		document.getElementById(id).style.cursor = "default";
@@ -480,19 +487,3 @@ function evaluate(cellsMatrix, lastRowPlayed, lastColPlayed) {
 	}
 	return 0;
 }
-
-// TODO: MAKE WORK FOR SECOND LEVEL!!!!
-/*
-// Adjust the size of existing tables to fit on the same row
-function adjustTreeTablesSize() {
-
-	const allTables = document.querySelectorAll('.ttd_game');
-	for (var i = 0; i < allTables.length; i++) {
-		// TODO: check all elements to change
-		// TODO: check proportion appropiately
-		
-		allTables[i].style.width = `${60 / ((allTables.length) / 9) / 3}vw`;
-		allTables[i].style.height = `${60 / ((allTables.length) / 9) / 3}vw`;
-	}
-}
-*/
