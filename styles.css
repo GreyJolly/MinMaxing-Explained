@@ -130,6 +130,10 @@ button:hover span {
 	/* TODO: check */
 }
 
+.row {
+	width: 100vw;
+}
+
 .left-half {
 	background: black;
 	grid-column: 1;
