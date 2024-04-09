@@ -7,7 +7,7 @@ class Api::DataController < ApplicationController
 	print ("======= DATA RECIEVED ======\n")
 	def save
 	  # Assuming the array is sent with the key 'array_data'
-	  received_array = params[:array_data]
+	  received_array = params[:game_data]
 	  
 	  # You can process the array as needed, here's a simple print to server logs
 	  puts "Received array: #{received_array.inspect}"
