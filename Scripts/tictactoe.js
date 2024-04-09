@@ -27,7 +27,7 @@ const
 	author_minmaxer = "minmaxer",
 	x_background = "rgba(0, 255, 255, 0.20)",
 	o_background = "rgba(255, 0, 255, 0.20",
-	HARD_LIMIT = 9;
+	depth_limit = 9;
 
 // GLOBAL VARIABLES
 var
@@ -72,19 +72,6 @@ Grid.prototype.makeMove = function (lastMovePlayed) {
 	return this;
 }
 
-// Get free cells in an array.
-// Returns an array of indices in the original Grid.cells array, not their values.
-Grid.prototype.getFreeCellIndices = function () {
-	var i = 0,
-		resultArray = [];
-	for (i = 0; i < this.cells.length; i++) {
-		if (this.cells[i] === 0) {
-			resultArray.push(i);
-		}
-	}
-	return resultArray;
-};
-
 Grid.prototype.getRandomFreeCell = function () {
 	var possibleFreeCell;
 	do {
@@ -92,95 +79,6 @@ Grid.prototype.getRandomFreeCell = function () {
 	} while (this.cells[possibleFreeCell] != 0);
 	return possibleFreeCell;
 };
-
-// Get a row (accepts 0, 1, or 2 as argument).
-// Returns the values of the elements.
-Grid.prototype.getRowValues = function (index) {
-	var i = index * 3;
-	return this.cells.slice(i, i + 3);
-};
-
-// Get a row (accepts 0, 1, or 2 as argument).
-// Returns an array with the indices, not their values.
-Grid.prototype.getRowIndices = function (index) {
-	var row = [];
-	index = index * 3;
-	row.push(index);
-	row.push(index + 1);
-	row.push(index + 2);
-	return row;
-};
-
-// get a column (values)
-Grid.prototype.getColumnValues = function (index) {
-	var i, column = [];
-	for (i = index; i < this.cells.length; i += 3) {
-		column.push(this.cells[i]);
-	}
-	return column;
-};
-
-// get a column (indices)
-Grid.prototype.getColumnIndices = function (index) {
-	if (index !== 0 && index !== 1 && index !== 2) {
-		console.error("Wrong arg for getColumnIndices!");
-		return undefined;
-	}
-	var i, column = [];
-	for (i = index; i < this.cells.length; i += 3) {
-		column.push(i);
-	}
-	return column;
-};
-
-// get diagonal cells
-// arg 0: from top-left
-// arg 1: from top-right
-Grid.prototype.getDiagValues = function (arg) {
-	var cells = [];
-	if (arg !== 1 && arg !== 0) {
-		console.error("Wrong arg for getDiagValues!");
-		return undefined;
-	} else if (arg === 0) {
-		cells.push(this.cells[0]);
-		cells.push(this.cells[4]);
-		cells.push(this.cells[8]);
-	} else {
-		cells.push(this.cells[2]);
-		cells.push(this.cells[4]);
-		cells.push(this.cells[6]);
-	}
-	return cells;
-};
-
-// get diagonal cells
-// arg 0: from top-left
-// arg 1: from top-right
-Grid.prototype.getDiagIndices = function (arg) {
-	if (arg !== 1 && arg !== 0) {
-		console.error("Wrong arg for getDiagIndices!");
-		return undefined;
-	} else if (arg === 0) {
-		return [0, 4, 8];
-	} else {
-		return [2, 4, 6];
-	}
-};
-
-// Get the index the row, column and eventually the diagonal of a cell
-Grid.prototype.getRowColDiagOfCell = function (arg) {
-	var rowColDiag = [];
-	rowColDiag.push(Math.floor(arg / 3));
-	rowColDiag.push(arg % 3);
-	if (rowColDiag[0] == rowColDiag[1]) rowColDiag.push(0);
-	if (rowColDiag[0] + rowColDiag[1] == 2) rowColDiag.push(1);
-	rowColDiag.push(null);
-	return rowColDiag;
-};
-
-Grid.prototype.getCellValue = function (row, col) {
-	return this.cells[row * 3 + col];
-}
 
 Grid.prototype.reset = function () {
 	for (var i = 0; i < this.cells.length; i++) {
@@ -191,7 +89,7 @@ Grid.prototype.reset = function () {
 	this.won = noWin;
 	this.winningCells = [null, null, null];
 	return true;
-};
+}
 
 Grid.prototype.getPossibleAnswers = function () {
 	if (this.won !== noWin) return [];
@@ -221,40 +119,28 @@ Grid.prototype.getPossibleAnswers = function () {
 
 // Check if a game is over and determine the winner and the winning row/column/diagonal
 Grid.prototype.checkMoveForWin = function (lastMovePlayed) {
-	var stuffToCheck = this.getRowColDiagOfCell(lastMovePlayed);
-	var winner;
-	// rows
-	var row = this.getRowValues(stuffToCheck[0]);
-	if (row[0] > 0 && row[0] == row[1] && row[0] == row[2]) {
-		winner = (row[0] == x) ? [xWin] : [oWin];
-		// Return the winning row
-		winner = winner.concat(this.getRowIndices(stuffToCheck[0]));
-		return winner;
+
+	var cellsMatrix = [[, ,], [, ,], [, ,]];
+	const lastRowPlayed = Math.floor(lastMovePlayed / 3), lastColPlayed = lastMovePlayed % 3;
+	for (var i = 0; i < 9; i++) {
+		cellsMatrix[Math.floor(i / 3)][i % 3] = this.cells[i];
 	}
 
-	// columns
-	var col = this.getColumnValues(stuffToCheck[1]);
-	if (col[0] > 0 && col[0] == col[1] && col[0] == col[2]) {
-		winner = (col[0] == x) ? [xWin] : [oWin];
-		// Return the winning column
-		winner = winner.concat(this.getColumnIndices(stuffToCheck[1]));
-		return winner;
+	// Check row
+	if (cellsMatrix[lastRowPlayed][0] != 0 && cellsMatrix[lastRowPlayed][0] == cellsMatrix[lastRowPlayed][1] && cellsMatrix[lastRowPlayed][0] == cellsMatrix[lastRowPlayed][2]) {
+		return [(cellsMatrix[lastRowPlayed][0] == x) ? [xWin] : [oWin], lastRowPlayed*3, lastRowPlayed*3+1, lastRowPlayed*3+2];
 	}
-
-	// diagonals
-
-	for (var i = 2; i <= 3; i++) {
-		if (stuffToCheck[i] !== null) {
-			var diagonal = this.getDiagValues(stuffToCheck[i]);
-			if (diagonal[0] > 0 && diagonal[0] == diagonal[1] && diagonal[0] == diagonal[2]) {
-				winner = (diagonal[0] == x) ? [xWin] : [oWin];
-				// Return the winning diagonal
-				winner = winner.concat(this.getDiagIndices(stuffToCheck[i]));
-				return winner;
-			}
-		} else break;
+	// Check column
+	if (cellsMatrix[0][lastColPlayed] != 0 && cellsMatrix[0][lastColPlayed] == cellsMatrix[1][lastColPlayed] && cellsMatrix[0][lastColPlayed] == cellsMatrix[2][lastColPlayed]) {
+		return [(cellsMatrix[0][lastColPlayed] == x) ? [xWin] : [oWin], lastColPlayed, lastColPlayed+3, lastColPlayed+6];
 	}
-
+	// Check diagonals
+	if (cellsMatrix[0][0] != 0 && cellsMatrix[0][0] == cellsMatrix[1][1] && cellsMatrix[0][0] == cellsMatrix[2][2]) {
+		return [(cellsMatrix[0][0] == x) ? [xWin] : [oWin], 0, 4, 8];
+	}
+	if (cellsMatrix[2][0] != 0 && cellsMatrix[2][0] == cellsMatrix[1][1] && cellsMatrix[2][0] == cellsMatrix[0][2]) {
+		return [(cellsMatrix[2][0] == x) ? [xWin] : [oWin], 2, 4, 6];
+	}
 	return [noWin, null, null, null];
 };
 
@@ -278,7 +164,6 @@ Grid.prototype.getSymmetries = function () {
 
 	return symmetries;
 }
-
 
 Grid.prototype.clone = function () {
 	var clonedGrid = new Grid();
@@ -366,13 +251,13 @@ function handleMove(author, cell) {
 		var possibleAnswers = playingGrid.getPossibleAnswers();
 		var levelString = ["", "", "", ""];
 		for (var i = 0; i < possibleAnswers.length; i++) {
-			levelString[0] += makeStringForTreeGame(possibleAnswers[i]);
+			levelString[0] += makeStringForTreeGame(possibleAnswers[i].cells, possibleAnswers[i].winningCells);
 			var possibleAnswersLevel2 = possibleAnswers[i].getPossibleAnswers();
 			for (var j = 0; j < possibleAnswersLevel2.length; j++) {
-				levelString[1] += makeStringForTreeGame(possibleAnswersLevel2[j]);
+				levelString[1] += makeStringForTreeGame(possibleAnswers[i].cells, possibleAnswers[i].winningCells);
 				var possibleAnswersLevel3 = possibleAnswersLevel2[j].getPossibleAnswers();
 				for (var k = 0; k < possibleAnswersLevel3.length; k++) {
-					levelString[2] += makeStringForTreeGame(possibleAnswersLevel3[k]);
+					levelString[2] += makeStringForTreeGame(possibleAnswers[i].cells, possibleAnswers[i].winningCells);
 					// TODO: see if you want to implement level 4
 					//var possibleAnswersLevel4 = possibleAnswersLevel3[k].getPossibleAnswers();
 					//for (var z = 0; z < possibleAnswersLevel4.length; z++) {
@@ -468,20 +353,20 @@ function areArraysEqual(array1, array2) {
 }
 
 // Make an HTML string to display a given Grid
-function makeStringForTreeGame(treeGrid) {
+function makeStringForTreeGame(cells, winningCells) {
 	var treeTable = '<table id="tree_table_game">\n\t';
 	for (var i = 0; i < 3; i++) {
 		treeTable += '\t<tr>'
 		for (var j = 0; j < 3; j++) {
 			var cellid = i * 3 + j;
 			treeTable += '<td class="ttd_game"><div id="cell0" class="tree_cell';
-			if (treeGrid.winningCells[0] == cellid || treeGrid.winningCells[1] == cellid || treeGrid.winningCells[2] == cellid) {
+			if (winningCells[0] == cellid || winningCells[1] == cellid || winningCells[2] == cellid) {
 				treeTable += ' tree_win-color';
 			}
 			treeTable += '">';
-			if (treeGrid.cells[cellid] == x) {
+			if (cells[cellid] == x) {
 				treeTable += '<span class="tree_x">&times;</class>';
-			} else if (treeGrid.cells[cellid] == o) {
+			} else if (cells[cellid] == o) {
 				treeTable += '<span class="tree_o">o</class>';
 			}
 			treeTable += '</div></td>';
@@ -541,17 +426,11 @@ function findBestMove(grid) {
 }
 
 function minmax(cellMatrix, depth, isMaximizingPlayer, movesDone, lastRowPlayed, lastColPlayed) {
-	if (depth > HARD_LIMIT) return 0;
+	if (depth > depth_limit) return 0;
 	var score = evaluate(cellMatrix, lastRowPlayed, lastColPlayed);
-	if (score == xWin) {
-		return xWin;
-	}
-	if (score == oWin) {
-		return oWin;
-	}
-	if (movesDone == 9) {
-		return tieWin;
-	}
+	if (score == xWin) return xWin;
+	if (score == oWin) return oWin;
+	if (movesDone == 9) return tieWin;
 	var bestScore;
 	if (isMaximizingPlayer) {
 		bestScore = -1000;
