@@ -196,7 +196,15 @@ button:hover span {
 	width: 20px;
 }
 
-.entry-label {
+.entry-label_Right {
+	cursor: pointer;
+	margin-top: -3px;
+	padding-right: 40px;
+	user-select: none;
+	-moz-user-select: none;
+}
+
+.entry-label_Left {
 	cursor: pointer;
 	margin-top: -3px;
 	padding-left: 40px;
