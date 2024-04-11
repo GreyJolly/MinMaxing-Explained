@@ -28,7 +28,7 @@ const
 	x_background = "rgba(0, 255, 255, 0.20)",
 	o_background = "rgba(255, 0, 255, 0.20",
 	depth_limit = 9;
-
+	
 // GLOBAL VARIABLES
 var
 	gameOver = false,
@@ -291,7 +291,6 @@ function restartGame() {
 
 	document.getElementById("turnText").innerHTML = "È il turno delle X";
 
-
 	playingGrid.reset();
 	for (var i = 0; i < 9; i++) {
 		var id = "cell" + i.toString();
@@ -304,7 +303,31 @@ function restartGame() {
 	document.getElementById("gameTreeLevel3").innerHTML = "";
 	document.getElementById("gameTreeLevel4").innerHTML = "";
 	author_turn = document.querySelector('input[name="X_player"]:checked').value;
+
+	if (document.querySelector('input[name="X_player"]:checked').value == author_player) {
+		document.getElementById("author_player_X").src = "./Images and Assets/RadioButton1.jpg";
+	}
+	else if (document.querySelector('input[name="X_player"]:checked').value == author_minmaxer) {
+		document.getElementById("author_player_X").src = "./Images and Assets/RadioButton3.jpg";
+	}
+	else{
+		document.getElementById("author_player_X").src = "./Images and Assets/RadioButton2.jpg";
+	}
+
+	if (document.querySelector('input[name="O_player"]:checked').value == author_player) {
+		document.getElementById("author_player_O").src = "./Images and Assets/RadioButton1.jpg";
+	}
+	else if (document.querySelector('input[name="O_player"]:checked').value == author_minmaxer) {
+		document.getElementById("author_player_O").src = "./Images and Assets/RadioButton3.jpg";
+	}
+	else{
+		document.getElementById("author_player_O").src = "./Images and Assets/RadioButton2.jpg";
+	}
+	
+
 	gameOver = false;
+
+
 
 	if (author_turn == author_random) {
 		setTimeout(handleMove, 1000, author_random, playingGrid.getRandomFreeCell());
@@ -487,3 +510,5 @@ function evaluate(cellsMatrix, lastRowPlayed, lastColPlayed) {
 	}
 	return 0;
 }
+
+
