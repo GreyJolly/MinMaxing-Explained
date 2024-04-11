@@ -424,9 +424,14 @@ a:hover {
 }
 
 .oval{
-		padding: 30px;
-		background-color: #383838;
-		margin-left: 11vw;
-		margin-right: 11vw;
-		border-radius: 50px;
+	padding: 30px;
+	background-color: #383838;
+	margin-left: 11vw;
+	margin-right: 11vw;
+	border-radius: 50px;
+	margin-bottom: 2vw;
+}
+
+.bigger{
+	font-size: 2vw;
 }
