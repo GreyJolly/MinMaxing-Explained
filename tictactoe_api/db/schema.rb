@@ -10,9 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_04_09_135614) do
+ActiveRecord::Schema.define(version: 2024_04_11_123915) do
 
   create_table "games_playeds", force: :cascade do |t|
+    t.string "x_author"
+    t.string "o_author"
     t.string "winner"
     t.integer "firstMove"
     t.integer "secondMove"
@@ -21,8 +23,10 @@ ActiveRecord::Schema.define(version: 2024_04_09_135614) do
     t.integer "fifthMove"
     t.integer "sixthMove"
     t.integer "seventhMove"
-    t.integer "eightMove"
+    t.integer "eigthMove"
     t.integer "ninthMove"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
-
+  
 end

@@ -8,7 +8,7 @@ class Api::DataController < ApplicationController
 		# Assuming the array is sent with the key 'game_data'
 		received_array = params[:game_data]
 
-		GamesPlayed.create!(
+		game = GamesPlayed.create(
 			x_author: received_array.fetch(0, nil),
 			o_author: received_array.fetch(1, nil),
 			winner: received_array.fetch(2, nil),
@@ -19,7 +19,7 @@ class Api::DataController < ApplicationController
 			fifthMove: received_array.fetch(7, nil),
 			sixthMove: received_array.fetch(8, nil),
 			seventhMove: received_array.fetch(9, nil),
-			eightMove: received_array.fetch(10, nil),
+			eigthMove: received_array.fetch(10, nil),
 			ninthMove: received_array.fetch(11, nil)
 		)
 
@@ -28,4 +28,5 @@ class Api::DataController < ApplicationController
 	rescue => e
 		render json: { status: 'error', message: e.message }
 	end
+
 end
