@@ -15,8 +15,9 @@ const
 	author_minmaxer = "minmaxer",
 	x_background = "rgba(0, 255, 255, 0.20)",
 	o_background = "rgba(255, 0, 255, 0.20",
-	depth_limit = 9,
-	API_URL = 'http://localhost:3000/api/data/save';
+	API_set_URL = 'http://localhost:3000/api/data/save',
+	API_get_URL = 'http://localhost:3000/api/data/get_value';
+	
 
 // GLOBAL VARIABLES
 var
@@ -438,7 +439,6 @@ function findBestMove(grid) {
 }
 
 function minmax(cellMatrix, depth, isMaximizingPlayer, movesDone, lastRowPlayed, lastColPlayed) {
-	if (depth > depth_limit) return 0;
 	var score = evaluate(cellMatrix, lastRowPlayed, lastColPlayed);
 	if (score == xWin) return xWin;
 	if (score == oWin) return oWin;
@@ -498,10 +498,10 @@ function evaluate(cellsMatrix, lastRowPlayed, lastColPlayed) {
 //==================================
 
 function sendArrayToAPI(array) {
-	fetch(API_URL, {
+	fetch(API_set_URL, {
 		method: 'POST',
 		headers: {
-			'Content-Type': 'application/json',
+			'Content-Type': 'application/json', // Sending JSON object
 		},
 		body: JSON.stringify({ game_data: array }),
 	})
@@ -509,3 +509,26 @@ function sendArrayToAPI(array) {
 		//.then(data => console.log('Success:', data))
 		.catch((error) => console.error('Error:', error));
 }
+
+// Not implemented yet 
+function getObjectFromAPI() {
+	fetch(API_get_URL, {
+	  method: 'GET', 
+	  headers: {
+		'Accept': 'application/json', // Expect JSON response
+	  },
+	})
+	/*.then(response => {
+	  if (!response.ok) {
+		throw new Error('Network response was not ok');
+	  }
+	  return response.json();
+	})*/
+	.then(data => {
+		// TODO : ACTUALLY HANDLE RESPONSE
+	  // Handle the retrieved element (e.g., update a UI element)
+	  const elementValue = data.element; // Assuming the response contains an "element" key
+	  return elementValue;
+	})
+	.catch((error) => console.error('Error:', error));
+  }
