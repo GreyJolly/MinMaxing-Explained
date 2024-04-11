@@ -1,0 +1,365 @@
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-11 14:31:41 +0200
+  [1m[35m (4.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+ActionController::RoutingError (No route matches [POST] "/api/data/save"):
+  
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-11 14:32:57 +0200
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>["player", "player", "X", 0, 3, 1, 4, 2], "datum"=>{"game_data"=>["player", "player", "X", 0, 3, 1, 4, 2]}}
+Completed 200 OK in 29ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 5637)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-11 14:33:04 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>["player", "player", "X", 3, 7, 4, 8, 5], "datum"=>{"game_data"=>["player", "player", "X", 3, 7, 4, 8, 5]}}
+Completed 200 OK in 8ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 1711)
+
+
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (13.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (11.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2024-04-11 12:37:08.184655"], ["updated_at", "2024-04-11 12:37:08.184655"]]
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGamesPlayeds (20240411123915)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "games_playeds" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "x_author" varchar, "o_author" varchar, "winner" varchar, "firstMove" integer, "secondMove" integer, "thirdMove" integer, "fourthMove" integer, "fifthMove" integer, "sixthMove" integer, "seventhMove" integer, "eigthMove" integer, "ninthMove" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20240411123915"]]
+  [1m[36mTRANSACTION (13.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-11 14:40:20 +0200
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>["player", "player", "X", 0, 3, 1, 4, 2], "datum"=>{"game_data"=>["player", "player", "X", 0, 3, 1, 4, 2]}}
+Completed 200 OK in 56ms (Views: 0.4ms | ActiveRecord: 1.5ms | Allocations: 10374)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-11 14:40:29 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>["player", "player", "O", 3, 6, 4, 7, 0, 8], "datum"=>{"game_data"=>["player", "player", "O", 3, 6, 4, 7, 0, 8]}}
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 192)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-11 14:40:42 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>["player", "player", "X", 3, 7, 4, 1, 5], "datum"=>{"game_data"=>["player", "player", "X", 3, 7, 4, 1, 5]}}
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 192)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-11 14:43:22 +0200
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>["player", "player", "X", 0, 3, 1, 4, 2], "datum"=>{"game_data"=>["player", "player", "X", 0, 3, 1, 4, 2]}}
+Completed 200 OK in 81ms (Views: 0.5ms | ActiveRecord: 0.9ms | Allocations: 10337)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-11 14:44:55 +0200
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>["player", "player", "X", 0, 3, 1, 4, 2], "datum"=>{"game_data"=>["player", "player", "X", 0, 3, 1, 4, 2]}}
+Completed 200 OK in 51ms (Views: 0.5ms | ActiveRecord: 1.0ms | Allocations: 10337)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-11 14:45:29 +0200
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>["player", "player", "X", 0, 3, 1, 4, 2], "datum"=>{"game_data"=>["player", "player", "X", 0, 3, 1, 4, 2]}}
+Completed 200 OK in 55ms (Views: 0.5ms | ActiveRecord: 0.8ms | Allocations: 10337)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-11 14:46:24 +0200
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+AbstractController::ActionNotFound (The action 'save' could not be found for Api::DataController
+Did you mean?  options):
+  
+actionpack (6.1.7.7) lib/abstract_controller/base.rb:160:in `process'
+actionpack (6.1.7.7) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (6.1.7.7) lib/action_controller/metal.rb:254:in `dispatch'
+actionpack (6.1.7.7) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (6.1.7.7) lib/action_dispatch/routing/route_set.rb:33:in `serve'
+actionpack (6.1.7.7) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (6.1.7.7) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.1.7.7) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.1.7.7) lib/action_dispatch/routing/route_set.rb:842:in `call'
+rack (2.2.9) lib/rack/etag.rb:27:in `call'
+rack (2.2.9) lib/rack/conditional_get.rb:40:in `call'
+rack (2.2.9) lib/rack/head.rb:12:in `call'
+activerecord (6.1.7.7) lib/active_record/migration.rb:601:in `call'
+actionpack (6.1.7.7) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.7.7) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.7.7) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.7.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7.7) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.7.7) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (6.1.7.7) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.7.7) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.7.7) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.7.7) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.7.7) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.7.7) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.7.7) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.1.7.7) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.7.7) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.9) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.7.7) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.7.7) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.7.7) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.9) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.7.7) lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+rack-cors (2.0.2) lib/rack/cors.rb:102:in `call'
+railties (6.1.7.7) lib/rails/engine.rb:539:in `call'
+puma (5.6.8) lib/puma/configuration.rb:252:in `call'
+puma (5.6.8) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.8) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.8) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.8) lib/puma/server.rb:443:in `process_client'
+puma (5.6.8) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-11 14:48:47 +0200
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>["player", "player", "X", 0, 3, 1, 4, 2], "datum"=>{"game_data"=>["player", "player", "X", 0, 3, 1, 4, 2]}}
+Completed 200 OK in 56ms (Views: 0.5ms | ActiveRecord: 1.1ms | Allocations: 10337)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-11 14:50:21 +0200
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+NameError (undefined local variable or method `game' for Api::DataController:Class):
+  
+app/controllers/api/data_controller.rb:7:in `<class:DataController>'
+app/controllers/api/data_controller.rb:1:in `<main>'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-11 14:58:04 +0200
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>["player", "player", "X", 0, 3, 1, 4, 2], "datum"=>{"game_data"=>["player", "player", "X", 0, 3, 1, 4, 2]}}
+Completed 200 OK in 54ms (Views: 0.5ms | ActiveRecord: 1.1ms | Allocations: 10337)
+
+
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mGamesPlayed Load (0.4ms)[0m  [1m[34mSELECT "games_playeds".* FROM "games_playeds" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mGamesPlayed Load (0.6ms)[0m  [1m[34mSELECT "games_playeds".* FROM "games_playeds" ORDER BY "games_playeds"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGamesPlayed Create (1.3ms)[0m  [1m[32mINSERT INTO "games_playeds" ("x_author", "o_author", "winner", "firstMove", "secondMove", "thirdMove", "fourthMove", "fifthMove", "sixthMove", "seventhMove", "eigthMove", "ninthMove", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["x_author", "x"], ["o_author", "o"], ["winner", "T"], ["firstMove", 0], ["secondMove", 0], ["thirdMove", 0], ["fourthMove", 0], ["fifthMove", 0], ["sixthMove", 0], ["seventhMove", 0], ["eigthMove", 0], ["ninthMove", 0], ["created_at", "2024-04-11 13:05:03.573516"], ["updated_at", "2024-04-11 13:05:03.573516"]]
+  [1m[36mTRANSACTION (8.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mGamesPlayed Load (0.8ms)[0m  [1m[34mSELECT "games_playeds".* FROM "games_playeds" ORDER BY "games_playeds"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (4.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mGamesPlayed Create (2.5ms)[0m  [1m[32mINSERT INTO "games_playeds" ("x_author", "o_author", "winner", "firstMove", "secondMove", "thirdMove", "fourthMove", "fifthMove", "sixthMove", "seventhMove", "eigthMove", "ninthMove", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["x_author", "x"], ["o_author", "o"], ["winner", "T"], ["firstMove", 0], ["secondMove", 0], ["thirdMove", 0], ["fourthMove", 0], ["fifthMove", 0], ["sixthMove", 0], ["seventhMove", 0], ["eigthMove", 0], ["ninthMove", 0], ["created_at", "2024-04-11 13:05:55.804766"], ["updated_at", "2024-04-11 13:05:55.804766"]]
+  [1m[36mTRANSACTION (19.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mGamesPlayed Load (0.9ms)[0m  [1m[34mSELECT "games_playeds".* FROM "games_playeds" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mGamesPlayed Load (0.3ms)[0m  [1m[34mSELECT "games_playeds".* FROM "games_playeds" ORDER BY "games_playeds"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-11 15:06:50 +0200
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>["player", "player", "X", 0, 3, 1, 4, 2], "datum"=>{"game_data"=>["player", "player", "X", 0, 3, 1, 4, 2]}}
+Completed 200 OK in 59ms (Views: 0.4ms | ActiveRecord: 1.4ms | Allocations: 10337)
+
+
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mGamesPlayed Load (0.7ms)[0m  [1m[34mSELECT "games_playeds".* FROM "games_playeds" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-11 15:08:07 +0200
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>["player", "player", "X", 3, 0, 4, 1, 5], "datum"=>{"game_data"=>["player", "player", "X", 3, 0, 4, 1, 5]}}
+Completed 200 OK in 52ms (Views: 0.4ms | ActiveRecord: 1.3ms | Allocations: 10334)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-11 15:08:13 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>["player", "player", "X", 0, 3, 1, 4, 2], "datum"=>{"game_data"=>["player", "player", "X", 0, 3, 1, 4, 2]}}
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.0ms | Allocations: 192)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-11 15:08:17 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>["player", "player", "X", 2, 1, 5, 4, 8], "datum"=>{"game_data"=>["player", "player", "X", 2, 1, 5, 4, 8]}}
+Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 192)
+
+
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mGamesPlayed Load (1.0ms)[0m  [1m[34mSELECT "games_playeds".* FROM "games_playeds" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-11 15:10:46 +0200
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>["player", "player", "X", 0, 3, 1, 4, 2], "datum"=>{"game_data"=>["player", "player", "X", 0, 3, 1, 4, 2]}}
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 2656)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-11 15:11:37 +0200
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+NameError (undefined local variable or method `params' for Api::DataController:Class):
+  
+app/controllers/api/data_controller.rb:7:in `<class:DataController>'
+app/controllers/api/data_controller.rb:1:in `<main>'
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-11 15:12:18 +0200
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+NameError (undefined local variable or method `params' for Api::DataController:Class):
+  
+app/controllers/api/data_controller.rb:51:in `<class:DataController>'
+app/controllers/api/data_controller.rb:1:in `<main>'
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-11 15:15:33 +0200
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+NameError (undefined local variable or method `params' for ApplicationController:Class):
+  
+app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/api/data_controller.rb:1:in `<main>'
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-11 15:17:31 +0200
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>["player", "player", "X", 3, 0, 4, 1, 5], "datum"=>{"game_data"=>["player", "player", "X", 3, 0, 4, 1, 5]}}
+Completed 500 Internal Server Error in 50ms (ActiveRecord: 1.0ms | Allocations: 10298)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'eightMove' for GamesPlayed.):
+  
+app/controllers/api/data_controller.rb:11:in `save'
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-11 15:17:56 +0200
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>["player", "player", "X", 0, 3, 1, 4, 2], "datum"=>{"game_data"=>["player", "player", "X", 0, 3, 1, 4, 2]}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/data_controller.rb:11:in `save'
+  [1m[36mGamesPlayed Create (1.3ms)[0m  [1m[32mINSERT INTO "games_playeds" ("x_author", "o_author", "winner", "firstMove", "secondMove", "thirdMove", "fourthMove", "fifthMove", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["x_author", "player"], ["o_author", "player"], ["winner", "X"], ["firstMove", 0], ["secondMove", 3], ["thirdMove", 1], ["fourthMove", 4], ["fifthMove", 2], ["created_at", "2024-04-11 13:17:56.592757"], ["updated_at", "2024-04-11 13:17:56.592757"]]
+  ↳ app/controllers/api/data_controller.rb:11:in `save'
+  [1m[36mTRANSACTION (18.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/data_controller.rb:11:in `save'
+Completed 204 No Content in 91ms (ActiveRecord: 20.6ms | Allocations: 14021)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-11 15:20:07 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>["player", "player", "X", 0, 3, 1, 4, 2], "datum"=>{"game_data"=>["player", "player", "X", 0, 3, 1, 4, 2]}}
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/data_controller.rb:11:in `save'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/data_controller.rb:11:in `save'
+  [1m[36mGamesPlayed Create (0.9ms)[0m  [1m[32mINSERT INTO "games_playeds" ("x_author", "o_author", "winner", "firstMove", "secondMove", "thirdMove", "fourthMove", "fifthMove", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["x_author", "player"], ["o_author", "player"], ["winner", "X"], ["firstMove", 0], ["secondMove", 3], ["thirdMove", 1], ["fourthMove", 4], ["fifthMove", 2], ["created_at", "2024-04-11 13:20:07.794522"], ["updated_at", "2024-04-11 13:20:07.794522"]]
+  ↳ app/controllers/api/data_controller.rb:11:in `save'
+  [1m[36mTRANSACTION (9.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/data_controller.rb:11:in `save'
+Completed 200 OK in 105ms (Views: 0.9ms | ActiveRecord: 13.1ms | Allocations: 11144)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-11 15:20:23 +0200
+  [1m[35m (12.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>["player", "player", "X", 0, 1, 3, 4, 6], "datum"=>{"game_data"=>["player", "player", "X", 0, 1, 3, 4, 6]}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/data_controller.rb:11:in `save'
+  [1m[36mGamesPlayed Create (2.8ms)[0m  [1m[32mINSERT INTO "games_playeds" ("x_author", "o_author", "winner", "firstMove", "secondMove", "thirdMove", "fourthMove", "fifthMove", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["x_author", "player"], ["o_author", "player"], ["winner", "X"], ["firstMove", 0], ["secondMove", 1], ["thirdMove", 3], ["fourthMove", 4], ["fifthMove", 6], ["created_at", "2024-04-11 13:20:23.248642"], ["updated_at", "2024-04-11 13:20:23.248642"]]
+  ↳ app/controllers/api/data_controller.rb:11:in `save'
+  [1m[36mTRANSACTION (15.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/data_controller.rb:11:in `save'
+Completed 200 OK in 104ms (Views: 0.7ms | ActiveRecord: 18.9ms | Allocations: 14156)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-11 15:20:29 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>["player", "player", "O", 2, 1, 5, 4, 3, 7], "datum"=>{"game_data"=>["player", "player", "O", 2, 1, 5, 4, 3, 7]}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/data_controller.rb:11:in `save'
+  [1m[36mGamesPlayed Create (0.9ms)[0m  [1m[32mINSERT INTO "games_playeds" ("x_author", "o_author", "winner", "firstMove", "secondMove", "thirdMove", "fourthMove", "fifthMove", "sixthMove", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["x_author", "player"], ["o_author", "player"], ["winner", "O"], ["firstMove", 2], ["secondMove", 1], ["thirdMove", 5], ["fourthMove", 4], ["fifthMove", 3], ["sixthMove", 7], ["created_at", "2024-04-11 13:20:29.231175"], ["updated_at", "2024-04-11 13:20:29.231175"]]
+  ↳ app/controllers/api/data_controller.rb:11:in `save'
+  [1m[36mTRANSACTION (18.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/data_controller.rb:11:in `save'
+Completed 200 OK in 41ms (Views: 0.7ms | ActiveRecord: 19.9ms | Allocations: 3878)
+
+
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mGamesPlayed Load (0.9ms)[0m  [1m[34mSELECT "games_playeds".* FROM "games_playeds" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-11 15:22:43 +0200
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>["player", "player", "X", 0, 3, 1, 4, 2], "datum"=>{"game_data"=>["player", "player", "X", 0, 3, 1, 4, 2]}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/data_controller.rb:11:in `save'
+  [1m[36mGamesPlayed Create (1.0ms)[0m  [1m[32mINSERT INTO "games_playeds" ("x_author", "o_author", "winner", "firstMove", "secondMove", "thirdMove", "fourthMove", "fifthMove", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["x_author", "player"], ["o_author", "player"], ["winner", "X"], ["firstMove", 0], ["secondMove", 3], ["thirdMove", 1], ["fourthMove", 4], ["fifthMove", 2], ["created_at", "2024-04-11 13:22:43.543925"], ["updated_at", "2024-04-11 13:22:43.543925"]]
+  ↳ app/controllers/api/data_controller.rb:11:in `save'
+  [1m[36mTRANSACTION (23.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/data_controller.rb:11:in `save'
+Completed 200 OK in 99ms (Views: 0.8ms | ActiveRecord: 25.5ms | Allocations: 14156)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-11 15:22:59 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>["random", "random", "X", 8, 2, 7, 1, 3, 5, 0, 4, 6], "datum"=>{"game_data"=>["random", "random", "X", 8, 2, 7, 1, 3, 5, 0, 4, 6]}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/data_controller.rb:11:in `save'
+  [1m[36mGamesPlayed Create (1.0ms)[0m  [1m[32mINSERT INTO "games_playeds" ("x_author", "o_author", "winner", "firstMove", "secondMove", "thirdMove", "fourthMove", "fifthMove", "sixthMove", "seventhMove", "eigthMove", "ninthMove", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["x_author", "random"], ["o_author", "random"], ["winner", "X"], ["firstMove", 8], ["secondMove", 2], ["thirdMove", 7], ["fourthMove", 1], ["fifthMove", 3], ["sixthMove", 5], ["seventhMove", 0], ["eigthMove", 4], ["ninthMove", 6], ["created_at", "2024-04-11 13:22:59.929854"], ["updated_at", "2024-04-11 13:22:59.929854"]]
+  ↳ app/controllers/api/data_controller.rb:11:in `save'
+  [1m[36mTRANSACTION (18.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/data_controller.rb:11:in `save'
+Completed 200 OK in 43ms (Views: 0.5ms | ActiveRecord: 19.4ms | Allocations: 3914)
+
+
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-11 15:23:13 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>["random", "player", "X", 4, 0, 6, 2, 7, 5, 1], "datum"=>{"game_data"=>["random", "player", "X", 4, 0, 6, 2, 7, 5, 1]}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/data_controller.rb:11:in `save'
+  [1m[36mGamesPlayed Create (1.1ms)[0m  [1m[32mINSERT INTO "games_playeds" ("x_author", "o_author", "winner", "firstMove", "secondMove", "thirdMove", "fourthMove", "fifthMove", "sixthMove", "seventhMove", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["x_author", "random"], ["o_author", "player"], ["winner", "X"], ["firstMove", 4], ["secondMove", 0], ["thirdMove", 6], ["fourthMove", 2], ["fifthMove", 7], ["sixthMove", 5], ["seventhMove", 1], ["created_at", "2024-04-11 13:23:13.761067"], ["updated_at", "2024-04-11 13:23:13.761067"]]
+  ↳ app/controllers/api/data_controller.rb:11:in `save'
+  [1m[36mTRANSACTION (9.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/data_controller.rb:11:in `save'
+Completed 200 OK in 39ms (Views: 0.5ms | ActiveRecord: 10.8ms | Allocations: 3884)
+
+

@@ -1,0 +1,29 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  x_author: MyString
+  o_author: MyString
+  winner: MyString
+  firstMove: 1
+  secondMove: 1
+  thirdMove: 1
+  fourthMove: 1
+  fifthMove: 1
+  sixthMove: 1
+  seventhMove: 1
+  eigthMove: 1
+  ninthMove: 1
+
+two:
+  x_author: MyString
+  o_author: MyString
+  winner: MyString
+  firstMove: 1
+  secondMove: 1
+  thirdMove: 1
+  fourthMove: 1
+  fifthMove: 1
+  sixthMove: 1
+  seventhMove: 1
+  eigthMove: 1
+  ninthMove: 1
