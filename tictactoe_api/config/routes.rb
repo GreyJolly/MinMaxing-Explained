@@ -4,4 +4,3 @@ Rails.application.routes.draw do
 	post 'data/save', to: 'data#save'
 	end
 end
-

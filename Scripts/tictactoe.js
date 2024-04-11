@@ -1,17 +1,5 @@
 "use strict";
 
-//==================================
-// EVENT BINDINGS
-//==================================
-
-// When the user clicks anywhere outside of the modal dialog, close it
-window.onclick = function (evt) {
-	var modal = document.getElementsByClassName("modal")[0];
-	if (evt.target === modal) {
-		closeModal("winAnnounce");
-	}
-};
-
 // GLOBAL CONSTANTS
 const
 	x = 1,
@@ -34,8 +22,24 @@ const
 var
 	gameOver = false,
 	playingGrid = null,
+	X_player,
+	O_player,
 	author_turn,
 	gameData =  [null,null,noWin];
+
+
+//==================================
+// EVENT BINDINGS
+//==================================
+
+// When the user clicks anywhere outside of the modal dialog, close it
+window.onclick = function (evt) {
+	var modal = document.getElementsByClassName("modal")[0];
+	if (evt.target === modal) {
+		closeModal("winAnnounce");
+	}
+};
+
 
 //==================================
 // GRID OBJECT
@@ -111,7 +115,6 @@ Grid.prototype.getPossibleAnswers = function () {
 						include = false;
 						break;
 					}
-
 				}
 			}
 			if (include) possibleAnswers.push(possibleAnswerGrid.clone());
@@ -184,18 +187,12 @@ Grid.prototype.clone = function () {
 
 // Executed when the page loads
 function initialize() {
-	document.getElementById("turnText").innerHTML = "È il turno delle X";
-	author_turn = document.querySelector('input[name="X_player"]:checked').value;
 	playingGrid = new Grid();
-	gameOver = false;
 	playingGrid.whoseTurn = x;
 	for (var i = 0; i < playingGrid.cells.length; i++) {
 		playingGrid.cells[i] = 0;
 	}
-
-	if (author_turn == author_random) {
-		setTimeout(handleMove, 1000, author_random, playingGrid.getRandomFreeCell());
-	}
+	restartGame();
 }
 
 // Executed when the user clicks one of the table cells
@@ -206,9 +203,7 @@ function cellClicked(id) {
 };
 
 function handleMove(author, cell) {
-	var X_player = document.querySelector('input[name="X_player"]:checked').value
-	var O_player = document.querySelector('input[name="O_player"]:checked').value
-
+	
 	var id = "cell" + cell.toString();
 
 	// Cell is already occupied, not the correct turn or something else is wrong
@@ -255,10 +250,10 @@ function handleMove(author, cell) {
 			levelString[0] += makeStringForTreeGame(possibleAnswers[i].cells, possibleAnswers[i].winningCells);
 			var possibleAnswersLevel2 = possibleAnswers[i].getPossibleAnswers();
 			for (var j = 0; j < possibleAnswersLevel2.length; j++) {
-				levelString[1] += makeStringForTreeGame(possibleAnswers[i].cells, possibleAnswers[i].winningCells);
+				levelString[1] += makeStringForTreeGame(possibleAnswersLevel2[j].cells, possibleAnswersLevel2[j].winningCells);
 				var possibleAnswersLevel3 = possibleAnswersLevel2[j].getPossibleAnswers();
 				for (var k = 0; k < possibleAnswersLevel3.length; k++) {
-					levelString[2] += makeStringForTreeGame(possibleAnswers[i].cells, possibleAnswers[i].winningCells);
+					levelString[2] += makeStringForTreeGame(possibleAnswersLevel3[k].cells, possibleAnswersLevel3[k].winningCells);
 				}
 			}
 		}
@@ -296,32 +291,20 @@ function restartGame() {
 	document.getElementById("gameTreeLevel1").innerHTML = "";
 	document.getElementById("gameTreeLevel2").innerHTML = "";
 	document.getElementById("gameTreeLevel3").innerHTML = "";
-	author_turn = document.querySelector('input[name="X_player"]:checked').value;
 
-	if (document.querySelector('input[name="X_player"]:checked').value == author_player) {
-		document.getElementById("author_player_X").src = "./Images and Assets/RadioButton1.jpg";
-	}
-	else if (document.querySelector('input[name="X_player"]:checked').value == author_minmaxer) {
-		document.getElementById("author_player_X").src = "./Images and Assets/RadioButton3.jpg";
-	}
-	else{
-		document.getElementById("author_player_X").src = "./Images and Assets/RadioButton2.jpg";
-	}
+	X_player = document.querySelector('input[name="X_player"]:checked').value;
+	O_player = document.querySelector('input[name="O_player"]:checked').value
+	author_turn = X_player;
 
-	if (document.querySelector('input[name="O_player"]:checked').value == author_player) {
-		document.getElementById("author_player_O").src = "./Images and Assets/RadioButton1.jpg";
-	}
-	else if (document.querySelector('input[name="O_player"]:checked').value == author_minmaxer) {
-		document.getElementById("author_player_O").src = "./Images and Assets/RadioButton3.jpg";
-	}
-	else{
-		document.getElementById("author_player_O").src = "./Images and Assets/RadioButton2.jpg";
-	}
+	document.getElementById("author_player_X").src = (X_player == author_player)?
+		"./Images and Assets/RadioButton1.jpg":(X_player == author_random)?
+		"./Images and Assets/RadioButton2.jpg":"./Images and Assets/RadioButton3.jpg";
+
+	document.getElementById("author_player_O").src = (O_player == author_player)?
+		"./Images and Assets/RadioButton1.jpg":(O_player == author_random)?
+		"./Images and Assets/RadioButton2.jpg":"./Images and Assets/RadioButton3.jpg";
 	
-
 	gameOver = false;
-
-
 
 	if (author_turn == author_random) {
 		setTimeout(handleMove, 1000, author_random, playingGrid.getRandomFreeCell());
