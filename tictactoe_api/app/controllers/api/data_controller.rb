@@ -29,4 +29,12 @@ class Api::DataController < ApplicationController
 		render json: { status: 'error', message: e.message }
 	end
 
+	def get_value
+		# TODO: implement
+		test_value = "12345"
+		render json: { element: test_value }
+	rescue => e
+		render json: { status: 'error', message: e.message }
+	end
+
 end
