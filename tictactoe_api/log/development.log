@@ -401,3 +401,511 @@ Processing by Api::DataController#save as */*
 Completed 200 OK in 48ms (Views: 0.4ms | ActiveRecord: 22.8ms | Allocations: 3866)
 
 
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:07:24 +0200
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:07:24 +0200
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:07:24 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:07:25 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:07:25 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:07:25 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:07:25 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:07:25 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:07:26 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:07:26 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:07:26 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:07:26 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:07:26 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:07:27 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:07:27 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:07:27 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:07:27 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:07:27 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:07:27 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:07:28 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:07:28 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:07:28 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:07:28 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:07:28 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:07:29 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:07:29 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:07:29 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:07:29 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:07:29 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:28 +0200
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:28 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:28 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:29 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:29 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:29 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:29 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:30 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:30 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:30 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:30 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:31 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:31 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:31 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:32 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:32 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:32 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:33 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:33 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:33 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:33 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:34 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:34 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:34 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:35 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:35 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:35 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:36 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:36 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:36 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:36 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:37 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:37 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:38 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:38 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:38 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:39 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:39 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:39 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:40 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:40 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:40 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:41 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:41 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:41 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:41 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:42 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:42 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:42 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:43 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:43 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:43 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:44 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:44 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:09:49 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:11:06 +0200
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:11:19 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:11:23 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:12:05 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:13:07 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:13:24 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-13 11:14:09 +0200
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>["random", "random", "X", 4, 0, 3, 6, 7, 8, 1], "datum"=>{"game_data"=>["random", "random", "X", 4, 0, 3, 6, 7, 8, 1]}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/data_controller.rb:11:in `save'
+  [1m[36mGamesPlayed Create (1.7ms)[0m  [1m[32mINSERT INTO "games_playeds" ("x_author", "o_author", "winner", "firstMove", "secondMove", "thirdMove", "fourthMove", "fifthMove", "sixthMove", "seventhMove", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["x_author", "random"], ["o_author", "random"], ["winner", "X"], ["firstMove", 4], ["secondMove", 0], ["thirdMove", 3], ["fourthMove", 6], ["fifthMove", 7], ["sixthMove", 8], ["seventhMove", 1], ["created_at", "2024-04-13 09:14:09.431915"], ["updated_at", "2024-04-13 09:14:09.431915"]]
+  ↳ app/controllers/api/data_controller.rb:11:in `save'
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/data_controller.rb:11:in `save'
+Completed 200 OK in 34ms (Views: 0.5ms | ActiveRecord: 7.3ms | Allocations: 13471)
+
+
+Started GET "/api/get_value" for 127.0.0.1 at 2024-04-13 11:17:19 +0200
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/api/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:18:05 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/api/data/get_value"):
+  
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:35:27 +0200
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::DataController#get_value as JSON
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 1954)
+
+
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:35:34 +0200
+Processing by Api::DataController#get_value as JSON
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 93)
+
+
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:35:37 +0200
+Processing by Api::DataController#get_value as JSON
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 93)
+
+
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:37:01 +0200
+Processing by Api::DataController#get_value as JSON
+Completed 200 OK in 14ms (Views: 6.5ms | ActiveRecord: 0.0ms | Allocations: 93)
+
+
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:37:03 +0200
+Processing by Api::DataController#get_value as JSON
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 93)
+
+
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:37:18 +0200
+Processing by Api::DataController#get_value as JSON
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 90)
+
+
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:37:31 +0200
+Processing by Api::DataController#get_value as JSON
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms | Allocations: 89)
+
+
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:37:39 +0200
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::DataController#get_value as JSON
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1954)
+
+
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:37:40 +0200
+Processing by Api::DataController#get_value as JSON
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 93)
+
+
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:37:41 +0200
+Processing by Api::DataController#get_value as JSON
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 93)
+
+
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:37:43 +0200
+Processing by Api::DataController#get_value as JSON
+Completed 200 OK in 12ms (Views: 11.6ms | ActiveRecord: 0.0ms | Allocations: 94)
+
+
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:37:44 +0200
+Processing by Api::DataController#get_value as JSON
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 93)
+
+
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:37:46 +0200
+Processing by Api::DataController#get_value as JSON
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 89)
+
+
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:43:35 +0200
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::DataController#get_value as JSON
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1954)
+
+
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:43:37 +0200
+Processing by Api::DataController#get_value as JSON
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 93)
+
+
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:43:39 +0200
+Processing by Api::DataController#get_value as JSON
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 93)
+
+
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:43:40 +0200
+Processing by Api::DataController#get_value as JSON
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 94)
+
+
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:44:40 +0200
+Processing by Api::DataController#get_value as JSON
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 93)
+
+
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:44:42 +0200
+Processing by Api::DataController#get_value as JSON
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 89)
+
+
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:45:42 +0200
+Processing by Api::DataController#get_value as JSON
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 89)
+
+
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:45:47 +0200
+Processing by Api::DataController#get_value as JSON
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 89)
+
+
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-13 11:45:48 +0200
+Processing by Api::DataController#get_value as JSON
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 89)
+
+

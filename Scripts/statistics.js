@@ -4,6 +4,11 @@ function initialize() {
 	
 }
 
+function refresh() {
+		
+	document.getElementById("getme").innerHTML=getObjectFromAPI();
+}
+
 //==================================
 // API HANDLING
 //==================================
@@ -25,6 +30,7 @@ function getObjectFromAPI() {
 			// TODO : ACTUALLY HANDLE RESPONSE
 			// Handle the retrieved element (e.g., update a UI element)
 			const elementValue = data.element; // Assuming the response contains an "element" key
+			console.log("elementValue");
 			return elementValue;
 		})
 		.catch((error) => console.error('Error:', error));

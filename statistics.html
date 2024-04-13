@@ -12,8 +12,9 @@
 	<link href="styles.css" rel="stylesheet">
 	<link rel="icon" href="/Images and Assets/favicon.ico">
 	<title>Statistics</title>
+	<script src="Scripts/statistics.js"></script>
 </head>
-<body>
+<body onload="initialize()">
 
 	<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
 		<div class="container-fluid">
@@ -50,6 +51,11 @@
 		  </button>
 		</div>
 	</nav>
+
+	<button onclick="refresh()">Get Value</button>
 	
+	<p> Retrieved value: </p>
+	<p id = "getme"></p>
+
 </body>
 </html>
