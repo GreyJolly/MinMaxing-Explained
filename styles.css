@@ -326,7 +326,7 @@ table {
 .o {
 	color: magenta;
 	position: relative;
-	top: -7px;
+	top: -11px;
 	font-size: 1.0em;
 	cursor: default;
 }
@@ -364,7 +364,7 @@ table {
 .tree_o {
 	color: magenta;
 	position: relative;
-	top: -0.7cqb;
+	top: -0.2cqb;
 	font-size: 20px;
 	cursor: default;
 }
@@ -389,8 +389,7 @@ table {
 }
 
 .modal-content {
-	background-color: rgb(36, 36, 36);
-	color: rgb(32, 32, 32);
+	background-color: rgb(0, 40, 80);
 	font-size: 2em;
 	font-weight: bold;
 	margin: 16% auto;
