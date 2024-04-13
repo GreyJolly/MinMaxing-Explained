@@ -153,20 +153,19 @@ button:hover span {
 .left-half {
 	background: #001530;
 	grid-column: 1;
+	padding-top:45px;
+	padding-left: 150px;
 }
 
 .right-half {
 	background: #001530;
 	grid-column: 2;
-	margin: 0 auto;
 	width: 80%;
 	text-align: center;
+	padding-top:10px;
+	padding-left: 50px;
 }
 
-.center {
-	padding: 25vh 0;
-	text-align: center;
-}
 
 /*radio button*/
 
