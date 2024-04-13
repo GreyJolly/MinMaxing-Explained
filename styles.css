@@ -5,8 +5,7 @@
 }
 
 body {
-	background-color: black;
-	color: black;
+	background-color: #001530;
 	text-align: center;
 	color: white;
 }
@@ -23,65 +22,18 @@ p {
 	text-align: center;
 }
 
-/* Navigation Bar 
-.navclass {
-	height: 95px;
-	margin-bottom: 40px;
-	background-color: #383838;
-}
 
-.navbar {
-	width: 85%;
-	margin: auto;
-	padding: 35px 0;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-
-}
-
-.navbar ul li {
-	list-style: none;
-	display: inline-block;
-	margin: 0 20px;
-	position: relative;
-}
-
-.navbar ul li a {
-	text-decoration: none;
-	color: #fca311;
-	text-transform: uppercase;
-}
-
-.navbar ul li::after {
-	content: '';
-	height: 3px;
-	width: 0;
-	background: #fca311;
-	position: absolute;
-	left: 0;
-	bottom: -5px;
-	transition: 0.5s;
-}
-
-.navbar ul li:hover::after {
-	width: 100%;
-}
-*/
-
-/*new nav bar*/
+/*Nav bar*/
 .navbar{
-	background-color: greenyellow;
-	height: 6vw;
+	background-color: #1e96fc;
 }
 
 .navar-brand{
 	font-weight: 500;
-	color:#fca311;
+	color:#001530;
 	font-size: 24px;
 	transition:0.3s color;
 }
-
 
 .navbar-toggler{
 	border:none;
@@ -100,7 +52,7 @@ p {
 }
 
 .nav-link:hover, .nav-link.active{
-	color: #fca311;
+	color: #001530;
 }
 
 @media (min-width: 991px){
@@ -112,7 +64,7 @@ p {
 		transform: translate(-50%);
 		width:0;
 		height:2px;
-		background-color: #fca311;
+		background-color: #001530;
 		visibility:hidden;
 		transition: 0.3s ease-in-out;
 	}
@@ -125,9 +77,6 @@ p {
 }
 
 
-
-
-
 /* Progress buttons */
 
 .progressButton {
@@ -137,7 +86,7 @@ p {
 	margin: 20px 10px;
 	border-radius: 25px;
 	font-weight: bold;
-	border: 2px solid #fca311;
+	border: 2px solid #00a8e8;
 	background: transparent;
 	color: #ffffff;
 	cursor: pointer;
@@ -146,7 +95,7 @@ p {
 }
 
 .button_span {
-	background: #fca311;
+	background: #00a8e8;
 	height: 100%;
 	width: 0;
 	border-radius: 0;
@@ -198,12 +147,12 @@ button:hover span {
 }
 
 .left-half {
-	background: black;
+	background: #001530;
 	grid-column: 1;
 }
 
 .right-half {
-	background: black;
+	background: #001530;
 	grid-column: 2;
 	margin: 0 auto;
 	width: 80%;
@@ -284,7 +233,7 @@ button:hover span {
 }
 
 .highlight {
-	background: #fca311;
+	background: #00a8e8;
 	border-radius: 50%;
 	height: 12px;
 	left: 12px;
@@ -309,15 +258,15 @@ button:hover span {
 }
 
 .hidden:nth-child(1):checked+.entry .circle {
-	border-color: #fca311;
+	border-color: #00a8e8;
 }
 
 .hidden:nth-child(3):checked+.entry .circle {
-	border-color: #fca311;
+	border-color: #00a8e8;
 }
 
 .hidden:nth-child(5):checked+.entry .circle {
-	border-color: #fca311;
+	border-color: #00a8e8;
 }
 
 /* TicTacToe */
@@ -473,7 +422,7 @@ table {
 }
 
 .link:hover {
-	color: #fca311;
+	color: #00a8e8;
 	text-decoration:underline;
 }
 .rounded{
@@ -488,7 +437,7 @@ table {
 
 .oval{
 	padding: 30px;
-	background-color: #383838;
+	background-color: #204070;
 	margin-left: 11vw;
 	margin-right: 11vw;
 	border-radius: 50px;
