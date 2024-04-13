@@ -23,8 +23,7 @@ p {
 	text-align: center;
 }
 
-/* Navigation Bar */
-
+/* Navigation Bar 
 .navclass {
 	height: 95px;
 	margin-bottom: 40px;
@@ -68,6 +67,66 @@ p {
 .navbar ul li:hover::after {
 	width: 100%;
 }
+*/
+
+/*new nav bar*/
+.navbar{
+	background-color: greenyellow;
+	height: 6vw;
+}
+
+.navar-brand{
+	font-weight: 500;
+	color:#fca311;
+	font-size: 24px;
+	transition:0.3s color;
+}
+
+
+.navbar-toggler{
+	border:none;
+	font-size: 1.25rem;
+
+}
+
+.navbar-toggler:focus, .btn-close:focus{
+	box-shadow: none;
+	outline:none;
+}
+.nav-link{
+	color: white;
+	font-weight: 500;
+	position:relative;
+}
+
+.nav-link:hover, .nav-link.active{
+	color: #fca311;
+}
+
+@media (min-width: 991px){
+	.nav-link::before{
+		content:"";
+		position:absolute;
+		bottom:0;
+		left: 50%;
+		transform: translate(-50%);
+		width:0;
+		height:2px;
+		background-color: #fca311;
+		visibility:hidden;
+		transition: 0.3s ease-in-out;
+	}
+	
+	.nav-link:hover::before, .nav-link.active::before{
+		width:100%;
+		visibility:visible;
+	}
+
+}
+
+
+
+
 
 /* Progress buttons */
 
@@ -403,17 +462,17 @@ table {
 }
 
 /*About us*/
-a:link {
+.link:link {
 	color:white;
 	text-decoration:none;
 }
 
-a:visited {
+.link:visited {
 	color:white;
 	text-decoration:none;
 }
 
-a:hover {
+.link:hover {
 	color: #fca311;
 	text-decoration:underline;
 }

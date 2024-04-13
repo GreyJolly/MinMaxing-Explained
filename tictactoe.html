@@ -18,21 +18,46 @@
 
 <body onload="initialize()">
 
-	<nav class="navclass">
-		<div class="navbar">
-			<img class="mb-2" src="Images and Assets/stadia_controller_FILL0_wght400_GRAD0_opsz24.png">
-			<h1 class="nav_header">
-				<h1>MinMaxing explained</h1>
-			</h1>
-			<ul>
-				<li><a href="Home.html">Home</a></li>
-				<li> <a href="tictactoe.html">Free play</a></li>
-				<li> <a href="learnMore.html">Learn more</a></li>
-				<li><a href="aboutUs.html">About us</a></li>
+	<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+		<div class="container-fluid">
+		  <a class="navbar-brand" href="./Home.html">MinMaxing-Explained</a>
+		  
+		  <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+			<div class="offcanvas-header">
+			  <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">MinMaxing-Explained</h5>
+			  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+			</div>
+			<div class="offcanvas-body">
+			  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+				<li class="nav-item">
+					<a class="nav-link mx-lg-2" href="./Home.html">Home</a>
+				  </li>
 
-			</ul>
+				  <li class="nav-item">
+					<a class="nav-link mx-lg-2 active" aria-current="page" href="./statistics.html">Free play</a>
+				  </li>
+
+				<li class="nav-item">
+				  <a class="nav-link mx-lg-2" href="./statistics.html">Statistics</a>
+				</li>
+				
+				  <li class="nav-item">
+					<a class="nav-link mx-lg-2" href="./learnMore.html">Learn more</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link mx-lg-2" href="./aboutUs.html">About us</a>
+				  </li>
+				</ul>  
+			</div>
+		  </div>
+		  <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
 		</div>
 	</nav>
+	
+	<br>
+	<br>
 
 	<div class="row ">
 		<div class="col-sm">
