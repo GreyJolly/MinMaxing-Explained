@@ -15,9 +15,8 @@ const
 	author_minmaxer = "minmaxer",
 	x_background = "rgba(0, 255, 255, 0.20)",
 	o_background = "rgba(255, 0, 255, 0.20",
-	API_set_URL = 'http://localhost:3000/api/data/save',
-	API_get_URL = 'http://localhost:3000/api/data/get_value';
-	
+	API_set_URL = 'http://localhost:3000/api/data/save';
+
 
 // GLOBAL VARIABLES
 var
@@ -26,7 +25,7 @@ var
 	X_player,
 	O_player,
 	author_turn,
-	gameData =  [null,null,noWin];
+	gameData = [null, null, noWin];
 
 
 //==================================
@@ -95,7 +94,7 @@ Grid.prototype.reset = function () {
 	this.whoseTurn = x;
 	this.won = noWin;
 	this.winningCells = [null, null, null];
-	gameData = [null,null,noWin];
+	gameData = [null, null, noWin];
 	return true;
 }
 
@@ -204,7 +203,7 @@ function cellClicked(id) {
 };
 
 function handleMove(author, cell) {
-	
+
 	var id = "cell" + cell.toString();
 
 	// Cell is already occupied, not the correct turn or something else is wrong
@@ -212,7 +211,7 @@ function handleMove(author, cell) {
 		return false;
 	}
 	if (playingGrid.makeMove(cell) == false) return false;
-	
+
 	gameData.push(cell);
 
 	document.getElementById(id).style.cursor = "default";
@@ -297,14 +296,14 @@ function restartGame() {
 	O_player = document.querySelector('input[name="O_player"]:checked').value
 	author_turn = X_player;
 
-	document.getElementById("author_player_X").src = (X_player == author_player)?
-		"./Images and Assets/RadioButton1.jpg":(X_player == author_random)?
-		"./Images and Assets/RadioButton2.jpg":"./Images and Assets/RadioButton3.jpg";
+	document.getElementById("author_player_X").src = (X_player == author_player) ?
+		"./Images and Assets/RadioButton1.jpg" : (X_player == author_random) ?
+			"./Images and Assets/RadioButton2.jpg" : "./Images and Assets/RadioButton3.jpg";
 
-	document.getElementById("author_player_O").src = (O_player == author_player)?
-		"./Images and Assets/RadioButton1.jpg":(O_player == author_random)?
-		"./Images and Assets/RadioButton2.jpg":"./Images and Assets/RadioButton3.jpg";
-	
+	document.getElementById("author_player_O").src = (O_player == author_player) ?
+		"./Images and Assets/RadioButton1.jpg" : (O_player == author_random) ?
+			"./Images and Assets/RadioButton2.jpg" : "./Images and Assets/RadioButton3.jpg";
+
 	gameOver = false;
 
 	if (author_turn == author_random) {
@@ -330,9 +329,9 @@ function endGame(winner) {
 	gameOver = true;
 	gameData[0] = document.querySelector('input[name="X_player"]:checked').value;
 	gameData[1] = document.querySelector('input[name="O_player"]:checked').value;
-	gameData[2] = (winner==xWin)?"X":(winner==oWin)?"O":"Tie";
+	gameData[2] = (winner == xWin) ? "X" : (winner == oWin) ? "O" : "Tie";
 	document.getElementById("gameTreeLevel1").innerHTML = "";
-	
+
 	document.getElementById("gameTreeLevel2").innerHTML = "";
 	document.getElementById("gameTreeLevel3").innerHTML = "";
 
@@ -509,26 +508,3 @@ function sendArrayToAPI(array) {
 		//.then(data => console.log('Success:', data))
 		.catch((error) => console.error('Error:', error));
 }
-
-// Not implemented yet 
-function getObjectFromAPI() {
-	fetch(API_get_URL, {
-	  method: 'GET', 
-	  headers: {
-		'Accept': 'application/json', // Expect JSON response
-	  },
-	})
-	/*.then(response => {
-	  if (!response.ok) {
-		throw new Error('Network response was not ok');
-	  }
-	  return response.json();
-	})*/
-	.then(data => {
-		// TODO : ACTUALLY HANDLE RESPONSE
-	  // Handle the retrieved element (e.g., update a UI element)
-	  const elementValue = data.element; // Assuming the response contains an "element" key
-	  return elementValue;
-	})
-	.catch((error) => console.error('Error:', error));
-  }
