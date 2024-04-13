@@ -32,7 +32,13 @@ class Api::DataController < ApplicationController
 	def get_value
 		# TODO: implement
 		test_value = "12345"
-		render json: { element: test_value }
+		render json: {	
+			x_winrate: test_value,
+			player_winrate: test_value,
+			random_winrate: test_value,
+			minmaxer_winrate: test_value,
+			most_common_first: test_value
+		}
 	rescue => e
 		render json: { status: 'error', message: e.message }
 	end

@@ -1,19 +1,29 @@
+// GLOBAL CONSTANTS
+
 const API_get_URL = 'http://localhost:3000/api/data/get_value';
+
+// GLOBAL VARIABLES
+
+var winrates;
+
+//==================================
+// MAIN FUNCTIONS
+//==================================
 
 function initialize() {
 
 }
 
 function refresh() {
-	getObjectFromAPI();
+	console.log(updateWinratesFromAPI());
+	document.getElementById("x_winrate").innerHTML = winrates.x_winrate;
 }
 
 //==================================
 // API HANDLING
 //==================================
 
-function getObjectFromAPI() {
-	var elementValue;
+function updateWinratesFromAPI() {
 
 	fetch(API_get_URL, {
 		method: 'GET',
@@ -28,13 +38,9 @@ function getObjectFromAPI() {
 			return response.json();
 		})
 		.then(data => {
-			// TODO : ACTUALLY HANDLE RESPONSE
-			// Handle the retrieved element (e.g., update a UI element)
-			elementValue = data.element; // Assuming the response contains an "element" key
-			
-			document.getElementById("getme").innerHTML = elementValue;
-			return elementValue;
+			winrates = data;
+			return winrates;
 		})
 
-	return elementValue;
+	return winrates;
 }
