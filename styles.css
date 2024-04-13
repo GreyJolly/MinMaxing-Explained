@@ -56,6 +56,10 @@ p {
 }
 
 @media (min-width: 991px){
+	.navbar{
+		background-color: #1e96fc;
+	}
+	
 	.nav-link::before{
 		content:"";
 		position:absolute;
