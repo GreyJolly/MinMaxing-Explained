@@ -33,18 +33,53 @@ class Api::DataController < ApplicationController
 		# TODO: implement
 		test_value = "12345"
 		render json: {	
-			x_winrate: test_value,
-			player_winrate: test_value,
-			random_winrate: test_value,
-			minmaxer_winrate: test_value,
-			x_tierate: test_value,
-			player_tierate: test_value,
-			random_tierate: test_value,
-			minmaxer_tierate: test_value,
-			most_common_first: test_value
+			x_winrate: GamesPlayed.where(winner: "X").count / GamesPlayed.count.to_f * 100,
+			player_winrate: (
+				GamesPlayed.where(winner: "X", x_author: "player").count + 
+				GamesPlayed.where(winner: "O", o_author: "player").count
+				) / (
+				GamesPlayed.where(x_author: "player").count + 
+				GamesPlayed.where(o_author: "player").count.to_f
+				) * 100,
+			random_winrate: (
+				GamesPlayed.where(winner: "X", x_author: "random").count + 
+				GamesPlayed.where(winner: "O", o_author: "random").count
+				) / (
+				GamesPlayed.where(x_author: "random").count + 
+				GamesPlayed.where(o_author: "random").count.to_f
+				) * 100,
+			minmaxer_winrate:	(
+				GamesPlayed.where(winner: "X", x_author: "minmaxer").count + 
+				GamesPlayed.where(winner: "O", o_author: "minmaxer").count
+				) / (
+				GamesPlayed.where(x_author: "minmaxer").count + 
+				GamesPlayed.where(o_author: "minmaxer").count.to_f
+				) * 100,
+			x_tierate: GamesPlayed.where(winner: "Tie").count / GamesPlayed.count.to_f * 100,
+			player_tierate:(
+				GamesPlayed.where(winner: "Tie", x_author: "player").count + 
+				GamesPlayed.where(winner: "Tie", o_author: "player").count
+				) / (
+				GamesPlayed.where(x_author: "player").count + 
+				GamesPlayed.where(o_author: "player").count.to_f
+				) * 100,
+			random_tierate: (
+				GamesPlayed.where(winner: "Tie", x_author: "random").count + 
+				GamesPlayed.where(winner: "Tie", o_author: "random").count
+				) / (
+				GamesPlayed.where(x_author: "random").count + 
+				GamesPlayed.where(o_author: "random").count.to_f
+				) * 100,
+			minmaxer_tierate: (
+				GamesPlayed.where(winner: "Tie", x_author: "minmaxer").count + 
+				GamesPlayed.where(winner: "Tie", o_author: "minmaxer").count
+				) / (
+				GamesPlayed.where(x_author: "minmaxer").count + 
+				GamesPlayed.where(o_author: "minmaxer").count.to_f
+				) * 100
 		}
 	rescue => e
-		render json: { status: 'error', message: e.message }
+		render json: { status: 'Error', message: e.message }
 	end
 
 end
