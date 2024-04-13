@@ -37,6 +37,10 @@ class Api::DataController < ApplicationController
 			player_winrate: test_value,
 			random_winrate: test_value,
 			minmaxer_winrate: test_value,
+			x_tierate: test_value,
+			player_tierate: test_value,
+			random_tierate: test_value,
+			minmaxer_tierate: test_value,
 			most_common_first: test_value
 		}
 	rescue => e
