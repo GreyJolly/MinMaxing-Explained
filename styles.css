@@ -449,3 +449,9 @@ table {
 .bigger{
 	font-size: 2vw;
 }
+
+/* Statistics */
+
+.stats_chart {
+	width: 100px;
+}
