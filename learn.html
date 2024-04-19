@@ -37,10 +37,10 @@
 					<li class="nav-item">
 					  <a class="nav-link mx-lg-2" href="./play.html">Play</a>
 					</li>
-					
+					<li class="nav-item">
 						<a class="nav-link mx-lg-2" href="./statistics.html">Statistics</a>
 					  </li>
-					  <li class="nav-item">
+					  
 						<li class="nav-item">
 							<a class="nav-link mx-lg-2 active" aria-current="page" href="./learn.html">Learn</a>
 						  </li>
@@ -51,7 +51,7 @@
 				</ul>  
 			</div>
 		  </div>
-		  <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+		  <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		  </button>
 		</div>
@@ -110,7 +110,7 @@
 						<div class="center">
 							<article>
 								<p>
-									Ipotizziamo che il giocatore delle X sia il massimizzatore e quello delle O sia il minimizzatore: potremmo assegnare alle posizioni in cui c’è un tris di X un punteggio di 1 (massimo possibile), nelle posizioni in cui c’è un tris di O un punteggio di -1 (minimo possibile), e nelle posizioni in cui il campo è pieno ma senza tris un valore di 0.
+									<br><br>Ipotizziamo che il giocatore delle X sia il massimizzatore e quello delle O sia il minimizzatore: potremmo assegnare alle posizioni in cui c’è un tris di X un punteggio di 1 (massimo possibile), nelle posizioni in cui c’è un tris di O un punteggio di -1 (minimo possibile), e nelle posizioni in cui il campo è pieno ma senza tris un valore di 0.
 									<br><br>Una funzione di valutazione del genere consente di cogliere una vittoria ogni volta che se ne presenta una, ma non aiuta nelle maggior parte delle posizioni.
 
 								</p>
@@ -133,7 +133,7 @@
 						
 							<article>
 								<p>
-									Per analizzare una posizione, considereremo tutte le possibili risposte dell’avversario.<br>
+									<br><br><br>Per analizzare una posizione, considereremo tutte le possibili risposte dell’avversario.<br>
 									Assumendo che giochi perfettamente, anche lui cercherà la risposta migliore tramite il minmaxing, considerando le nostre possibili risposte…
 									Costruiremo così un albero delle posizioni raggiungibili, da considerare al fine di trovare una mossa ottimale.
 									<br><br>Per ragioni di ottimizzazione, non rappresentiamo tutte le possibili risposte sull’albero, poiché molte di loro sono in realtà uguali per ragioni di simmetria.
