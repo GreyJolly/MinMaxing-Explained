@@ -85,11 +85,11 @@ function initialize() {
 		options: options,
 	});
 
+	setTimeout(refresh, 550); // If you don't wait for the page to fully load it doesn't work
+
 	document.getElementById("win_label_box").style.background = backgroundColor[0];
 	document.getElementById("loss_label_box").style.background = backgroundColor[1];
 	document.getElementById("tie_label_box").style.background = backgroundColor[2];
-
-	setTimeout(refresh, 500); // If you don't wait for the page to fully load it doesn't work
 }
 
 function refresh() {
