@@ -26,6 +26,7 @@ p {
 /*Nav bar*/
 .navbar{
 	background-color: #1e96fc;
+	z-index:9; 
 }
 
 .navar-brand{
@@ -55,7 +56,10 @@ p {
 	color: #001530;
 }
 
+
+
 @media (min-width: 991px){
+	
 	.nav-link::before{
 		content:"";
 		position:absolute;
@@ -73,7 +77,6 @@ p {
 		width:100%;
 		visibility:visible;
 	}
-
 }
 
 .sidebar_background {
@@ -127,6 +130,12 @@ button:hover span {
 }
 
 /* Carousel */
+#fullCarousel{
+	position:absolute;
+	width:100%;
+	top:0;
+}
+
 .c-item {
 	height: 500px;
 }
