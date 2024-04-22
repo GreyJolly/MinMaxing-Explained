@@ -46,6 +46,8 @@ p {
 	box-shadow: none;
 	outline:none;
 }
+
+
 .nav-link{
 	color: white;
 	font-weight: 500;
@@ -82,6 +84,8 @@ p {
 .sidebar_background {
 	background-color: #00a8e8;
 }
+
+
 
 
 /* Progress buttons */
@@ -262,7 +266,7 @@ button:hover span {
 }
 
 .hidden:nth-child(3):checked~.highlight {
-	transform: translateY(50px);
+	transform: translateY(49.5px);
 }
 
 .hidden:nth-child(5):checked~.highlight {
