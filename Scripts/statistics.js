@@ -1,6 +1,47 @@
 // GLOBAL CONSTANTS
 
 const API_get_URL = 'http://localhost:3000/api/data/get_value';
+const backgroundColor =  ['#ff6384', '#36a2eb', '#ffce56'];
+const labels = ['Vittorie' , 'Sconfitte', 'Pareggi'];
+
+const xData = {
+	labels: labels,
+	datasets: [{
+		data: [0, 0, 0],
+		backgroundColor: backgroundColor,
+	}],
+
+};
+const playerData = {
+	labels: labels,
+	datasets: [{
+		data: [0, 0, 0],
+		backgroundColor: backgroundColor,
+	}],
+};
+const randomData = {
+	labels: labels,
+	datasets: [{
+		data: [0, 0, 0],
+		backgroundColor: backgroundColor,
+	}],
+};
+const minmaxerData = {
+	labels: labels,
+	datasets: [{
+		data: [0, 0, 0],
+		backgroundColor: backgroundColor,
+	}],
+};
+
+const options = {
+	legend: {
+		labels: {
+			fontColor: 'white'
+		},
+		display: false 
+	}
+}
 
 // GLOBAL VARIABLES
 
@@ -23,58 +64,34 @@ function initialize() {
 	const random_chart_context = document.getElementById('random_chart').getContext('2d');
 	const minmaxer_chart_context = document.getElementById('minmaxer_chart').getContext('2d');
 
-	const xData = {
-		labels: ['Wins', 'Ties', 'Losses'],
-		datasets: [{
-			data: [0, 0, 0],
-			backgroundColor: ['#ff6384', '#36a2eb', '#ffce56'],
-		}],
-	};
-	const playerData = {
-		labels: ['Wins', 'Ties', 'Losses'],
-		datasets: [{
-			data: [0, 0, 0],
-			backgroundColor: ['#ff6384', '#36a2eb', '#ffce56'],
-		}],
-	};
-	const randomData = {
-		labels: ['Wins', 'Ties', 'Losses'],
-		datasets: [{
-			data: [0, 0, 0],
-			backgroundColor: ['#ff6384', '#36a2eb', '#ffce56'],
-		}],
-	};
-	const minmaxerData = {
-		labels: ['Wins', 'Ties', 'Losses'],
-		datasets: [{
-			data: [0, 0, 0],
-			backgroundColor: ['#ff6384', '#36a2eb', '#ffce56'],
-		}],
-	};
-
+	
 	xChart = new Chart(x_chart_context, {
 		type: 'pie',
 		data: xData,
+		options: options,
 	});
 	playerChart = new Chart(player_chart_context, {
 		type: 'pie',
 		data: playerData,
+		options: options,
 	});
 	randomChart = new Chart(random_chart_context, {
 		type: 'pie',
 		data: randomData,
+		options: options,
 	});
 	minmaxerChart = new Chart(minmaxer_chart_context, {
 		type: 'pie',
 		data: minmaxerData,
+		options: options,
 	});
-	
- 	setTimeout(refresh, 500); // If you don't wait for the page to fully load it doesn't work
+
+	setTimeout(refresh, 500); // If you don't wait for the page to fully load it doesn't work
 }
 
 function refresh() {
 	api_data = updateDataFromAPI();
-	
+
 	// Update the chart data
 	xChart.data.datasets[0].data = [api_data.x_winrate, api_data.x_tierate, 100 - (api_data.x_winrate + api_data.x_tierate)];
 	playerChart.data.datasets[0].data = [api_data.player_winrate, api_data.player_tierate, (100 - (api_data.player_winrate + api_data.player_tierate))];
