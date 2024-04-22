@@ -60,25 +60,28 @@
 	</nav>
 
 	<div class="row">
-		<div class="col">
+		<div class="col justify-content-center">
 			Risultati delle X:
 			<canvas id="x_chart" class="stats_chart"></canvas>
 		</div>
-		<div class="col">
+		<div class="col justify-content-center">
 			Risultati dei giocatori:
 			<canvas id="player_chart" class="stats_chart"></canvas>
 		</div>
-		<div class="col">
+		<div class="col justify-content-center">
 			Risultati delle mosse casuali:
 			<canvas id="random_chart" class="stats_chart"></canvas>
 		</div>
-		<div class="col">
+		<div class="col justify-content-center">
 			Risultati del minmaxing:
 			<canvas id="minmaxer_chart" class="stats_chart"></canvas>
 		</div>
 	</div>
-	Vittoria, Sconfitta, Pareggio
-
+	<br>
+	Vittoria: <span class="label_box" id="win_label_box"></span>
+	Sconfitta: <span class="label_box" id="loss_label_box"></span>
+	Pareggio: <span class="label_box" id="tie_label_box"></span>
+	<br>
 
 	<button class="progressButton" onclick="refresh()"><span class="button_span"></span>Refresh</button>
 

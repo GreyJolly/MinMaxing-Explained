@@ -64,7 +64,6 @@ function initialize() {
 	const random_chart_context = document.getElementById('random_chart').getContext('2d');
 	const minmaxer_chart_context = document.getElementById('minmaxer_chart').getContext('2d');
 
-	
 	xChart = new Chart(x_chart_context, {
 		type: 'pie',
 		data: xData,
@@ -85,6 +84,10 @@ function initialize() {
 		data: minmaxerData,
 		options: options,
 	});
+
+	document.getElementById("win_label_box").style.background = backgroundColor[0];
+	document.getElementById("loss_label_box").style.background = backgroundColor[1];
+	document.getElementById("tie_label_box").style.background = backgroundColor[2];
 
 	setTimeout(refresh, 500); // If you don't wait for the page to fully load it doesn't work
 }

@@ -24,60 +24,63 @@ p {
 
 
 /*Nav bar*/
-.navbar{
+.navbar {
 	background-color: #1e96fc;
-	z-index:9; 
+	z-index: 9;
 }
 
-.navar-brand{
+.navar-brand {
 	font-weight: 500;
-	color:#001530;
+	color: #001530;
 	font-size: 24px;
-	transition:0.3s color;
+	transition: 0.3s color;
 }
 
-.navbar-toggler{
-	border:none;
+.navbar-toggler {
+	border: none;
 	font-size: 1.25rem;
 
 }
 
-.navbar-toggler:focus, .btn-close:focus{
+.navbar-toggler:focus,
+.btn-close:focus {
 	box-shadow: none;
-	outline:none;
+	outline: none;
 }
 
 
-.nav-link{
+.nav-link {
 	color: white;
 	font-weight: 500;
-	position:relative;
+	position: relative;
 }
 
-.nav-link:hover, .nav-link.active{
+.nav-link:hover,
+.nav-link.active {
 	color: #001530;
 }
 
 
 
-@media (min-width: 991px){
-	
-	.nav-link::before{
-		content:"";
-		position:absolute;
-		bottom:0;
+@media (min-width: 991px) {
+
+	.nav-link::before {
+		content: "";
+		position: absolute;
+		bottom: 0;
 		left: 50%;
 		transform: translate(-50%);
-		width:0;
-		height:2px;
+		width: 0;
+		height: 2px;
 		background-color: #001530;
-		visibility:hidden;
+		visibility: hidden;
 		transition: 0.3s ease-in-out;
 	}
-	
-	.nav-link:hover::before, .nav-link.active::before{
-		width:100%;
-		visibility:visible;
+
+	.nav-link:hover::before,
+	.nav-link.active::before {
+		width: 100%;
+		visibility: visible;
 	}
 }
 
@@ -134,10 +137,10 @@ button:hover span {
 }
 
 /* Carousel */
-#fullCarousel{
-	position:absolute;
-	width:100%;
-	top:0;
+#fullCarousel {
+	position: absolute;
+	width: 100%;
+	top: 0;
 }
 
 .c-item {
@@ -166,7 +169,7 @@ button:hover span {
 .left-half {
 	background: #001530;
 	grid-column: 1;
-	padding-top:45px;
+	padding-top: 45px;
 	padding-left: 150px;
 }
 
@@ -175,7 +178,7 @@ button:hover span {
 	grid-column: 2;
 	width: 80%;
 	text-align: center;
-	padding-top:10px;
+	padding-top: 10px;
 	padding-left: 50px;
 }
 
@@ -427,30 +430,30 @@ table {
 
 /*About us*/
 .link:link {
-	color:white;
-	text-decoration:none;
+	color: #00e8e8;
+	text-decoration: none;
 }
 
 .link:visited {
-	color:white;
-	text-decoration:none;
+	color: #e000e0;
+	text-decoration: none;
 }
 
 .link:hover {
-	color: #00a8e8;
-	text-decoration:underline;
+	text-decoration: underline;
 }
-.rounded{
+
+.rounded {
 	border-radius: 50%;
 }
 
 .profilePicture {
-	width:20vh;
-	height:20vh;
+	width: 20vh;
+	height: 20vh;
 	border-radius: 80%;
 }
 
-.oval{
+.oval {
 	padding: 30px;
 	background-color: #204070;
 	margin-left: 11vw;
@@ -459,12 +462,20 @@ table {
 	margin-bottom: 2vw;
 }
 
-.bigger{
+.bigger {
 	font-size: 2vw;
 }
 
 /* Statistics */
 
 .stats_chart {
-	width: 100px;
+	width:300px;
+}
+
+.label_box {
+	display: inline-block;
+	height: 20px;
+	width: 50px;
+	margin-right: 20px;
+	border: 1px solid white;
 }
