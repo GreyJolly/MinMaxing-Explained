@@ -22,6 +22,10 @@ p {
 	text-align: center;
 }
 
+.big{
+	font-size:2.5em;
+}
+
 
 /*Nav bar*/
 .navbar {
@@ -467,10 +471,6 @@ table {
 }
 
 /* Statistics */
-
-.stats_chart {
-	width:300px;
-}
 
 .label_box {
 	display: inline-block;

@@ -4,6 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
@@ -60,30 +61,36 @@
 	</nav>
 
 	<br>
-	<div class="row">
-		<div class="col justify-content-center">
-			Risultati delle X:
-			<canvas id="x_chart" class="stats_chart"></canvas>
-		</div>
-		<div class="col justify-content-center">
-			Risultati dei giocatori:
-			<canvas id="player_chart" class="stats_chart"></canvas>
-		</div>
-		<div class="col justify-content-center">
-			Risultati delle mosse casuali:
-			<canvas id="random_chart" class="stats_chart"></canvas>
-		</div>
-		<div class="col justify-content-center">
-			Risultati del minmaxing:
-			<canvas id="minmaxer_chart" class="stats_chart"></canvas>
-		</div>
-	</div>
-	<br>
 	Vittorie: <span class="label_box" id="win_label_box"></span>
 	Sconfitte: <span class="label_box" id="loss_label_box"></span>
 	Pareggi: <span class="label_box" id="tie_label_box"></span>
 	<br>
 
+	<div class = "container">
+		<div class="row row-cols-2">
+			<div class="col">
+				Risultati delle X:
+				<canvas id="x_chart" class="stats_chart"></canvas>
+			</div>
+			<div class="col">
+				Risultati dei giocatori:
+				<canvas id="player_chart" class="stats_chart"></canvas>
+			</div>
+	
+			<div class="col ">
+				<br>
+				Risultati delle mosse casuali:
+				<canvas id="random_chart" class="stats_chart"></canvas>
+			</div>
+			<div class="col ">
+				<br>
+				Risultati del minmaxing:
+				<canvas id="minmaxer_chart" class="stats_chart"></canvas>
+			</div>
+		</div>
+	</div>
+
+	<br>
 	<button class="progressButton" onclick="refresh()"><span class="button_span"></span>Refresh</button>
 
 </body>

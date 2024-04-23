@@ -37436,3 +37436,737 @@ Processing by Api::DataController#get_value as JSON
 Completed 200 OK in 98ms (Views: 0.4ms | ActiveRecord: 9.1ms | Allocations: 13175)
 
 
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-23 09:53:36 +0200
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::DataController#get_value as JSON
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ?[0m  [["winner", "X"]]
+  ↳ app/controllers/api/data_controller.rb:36:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds"[0m
+  ↳ app/controllers/api/data_controller.rb:36:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:38:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:39:in `get_value'
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:41:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:42:in `get_value'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:45:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:46:in `get_value'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:48:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:49:in `get_value'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:52:in `get_value'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:53:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:55:in `get_value'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:56:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ?[0m  [["winner", "Tie"]]
+  ↳ app/controllers/api/data_controller.rb:58:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds"[0m
+  ↳ app/controllers/api/data_controller.rb:58:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:60:in `get_value'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:61:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:63:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:64:in `get_value'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:67:in `get_value'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:68:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:70:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:71:in `get_value'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:74:in `get_value'
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:75:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:77:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:78:in `get_value'
+Completed 200 OK in 209ms (Views: 1.0ms | ActiveRecord: 16.6ms | Allocations: 16488)
+
+
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-23 09:53:36 +0200
+Processing by Api::DataController#get_value as JSON
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ?[0m  [["winner", "X"]]
+  ↳ app/controllers/api/data_controller.rb:36:in `get_value'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds"[0m
+  ↳ app/controllers/api/data_controller.rb:36:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:38:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:39:in `get_value'
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:41:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:42:in `get_value'
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:45:in `get_value'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:46:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:48:in `get_value'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:49:in `get_value'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:52:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:53:in `get_value'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:55:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:56:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ?[0m  [["winner", "Tie"]]
+  ↳ app/controllers/api/data_controller.rb:58:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds"[0m
+  ↳ app/controllers/api/data_controller.rb:58:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:60:in `get_value'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:61:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:63:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:64:in `get_value'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:67:in `get_value'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:68:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:70:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:71:in `get_value'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:74:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:75:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:77:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:78:in `get_value'
+Completed 200 OK in 114ms (Views: 0.3ms | ActiveRecord: 10.9ms | Allocations: 13197)
+
+
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-23 09:53:37 +0200
+Processing by Api::DataController#get_value as JSON
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ?[0m  [["winner", "X"]]
+  ↳ app/controllers/api/data_controller.rb:36:in `get_value'
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds"[0m
+  ↳ app/controllers/api/data_controller.rb:36:in `get_value'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:38:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:39:in `get_value'
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:41:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:42:in `get_value'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:45:in `get_value'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:46:in `get_value'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:48:in `get_value'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:49:in `get_value'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:52:in `get_value'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:53:in `get_value'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:55:in `get_value'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:56:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ?[0m  [["winner", "Tie"]]
+  ↳ app/controllers/api/data_controller.rb:58:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds"[0m
+  ↳ app/controllers/api/data_controller.rb:58:in `get_value'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:60:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:61:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:63:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:64:in `get_value'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:67:in `get_value'
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:68:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:70:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:71:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:74:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:75:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:77:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:78:in `get_value'
+Completed 200 OK in 178ms (Views: 3.3ms | ActiveRecord: 18.5ms | Allocations: 13198)
+
+
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-23 09:53:38 +0200
+Processing by Api::DataController#get_value as JSON
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ?[0m  [["winner", "X"]]
+  ↳ app/controllers/api/data_controller.rb:36:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds"[0m
+  ↳ app/controllers/api/data_controller.rb:36:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:38:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:39:in `get_value'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:41:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:42:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:45:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:46:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:48:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:49:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:52:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:53:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:55:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:56:in `get_value'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ?[0m  [["winner", "Tie"]]
+  ↳ app/controllers/api/data_controller.rb:58:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds"[0m
+  ↳ app/controllers/api/data_controller.rb:58:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:60:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:61:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:63:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:64:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:67:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:68:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:70:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:71:in `get_value'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:74:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:75:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:77:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:78:in `get_value'
+Completed 200 OK in 134ms (Views: 0.4ms | ActiveRecord: 9.3ms | Allocations: 13199)
+
+
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-23 09:53:42 +0200
+Processing by Api::DataController#get_value as JSON
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ?[0m  [["winner", "X"]]
+  ↳ app/controllers/api/data_controller.rb:36:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds"[0m
+  ↳ app/controllers/api/data_controller.rb:36:in `get_value'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:38:in `get_value'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:39:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:41:in `get_value'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:42:in `get_value'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:45:in `get_value'
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:46:in `get_value'
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:48:in `get_value'
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:49:in `get_value'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:52:in `get_value'
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:53:in `get_value'
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:55:in `get_value'
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:56:in `get_value'
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ?[0m  [["winner", "Tie"]]
+  ↳ app/controllers/api/data_controller.rb:58:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds"[0m
+  ↳ app/controllers/api/data_controller.rb:58:in `get_value'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:60:in `get_value'
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:61:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:63:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:64:in `get_value'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:67:in `get_value'
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:68:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:70:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:71:in `get_value'
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:74:in `get_value'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:75:in `get_value'
+  [1m[35mCACHE  (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:77:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:78:in `get_value'
+Completed 200 OK in 191ms (Views: 1.2ms | ActiveRecord: 21.7ms | Allocations: 13197)
+
+
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-23 09:53:43 +0200
+Processing by Api::DataController#get_value as JSON
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ?[0m  [["winner", "X"]]
+  ↳ app/controllers/api/data_controller.rb:36:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds"[0m
+  ↳ app/controllers/api/data_controller.rb:36:in `get_value'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:38:in `get_value'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:39:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:41:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:42:in `get_value'
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:45:in `get_value'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:46:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:48:in `get_value'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:49:in `get_value'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:52:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:53:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:55:in `get_value'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:56:in `get_value'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ?[0m  [["winner", "Tie"]]
+  ↳ app/controllers/api/data_controller.rb:58:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds"[0m
+  ↳ app/controllers/api/data_controller.rb:58:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:60:in `get_value'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:61:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:63:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:64:in `get_value'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:67:in `get_value'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:68:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:70:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:71:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:74:in `get_value'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:75:in `get_value'
+  [1m[35mCACHE  (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:77:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:78:in `get_value'
+Completed 200 OK in 116ms (Views: 1.0ms | ActiveRecord: 14.0ms | Allocations: 13174)
+
+
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-23 09:53:53 +0200
+Processing by Api::DataController#get_value as JSON
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ?[0m  [["winner", "X"]]
+  ↳ app/controllers/api/data_controller.rb:36:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds"[0m
+  ↳ app/controllers/api/data_controller.rb:36:in `get_value'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:38:in `get_value'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:39:in `get_value'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:41:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:42:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:45:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:46:in `get_value'
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:48:in `get_value'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:49:in `get_value'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:52:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:53:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:55:in `get_value'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:56:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ?[0m  [["winner", "Tie"]]
+  ↳ app/controllers/api/data_controller.rb:58:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds"[0m
+  ↳ app/controllers/api/data_controller.rb:58:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:60:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:61:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:63:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:64:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:67:in `get_value'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:68:in `get_value'
+  [1m[35mCACHE  (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:70:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:71:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:74:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:75:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:77:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:78:in `get_value'
+Completed 200 OK in 106ms (Views: 0.8ms | ActiveRecord: 12.3ms | Allocations: 13174)
+
+
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-23 09:53:54 +0200
+Processing by Api::DataController#get_value as JSON
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ?[0m  [["winner", "X"]]
+  ↳ app/controllers/api/data_controller.rb:36:in `get_value'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds"[0m
+  ↳ app/controllers/api/data_controller.rb:36:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:38:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:39:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:41:in `get_value'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:42:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:45:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:46:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:48:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:49:in `get_value'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:52:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:53:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:55:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:56:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ?[0m  [["winner", "Tie"]]
+  ↳ app/controllers/api/data_controller.rb:58:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds"[0m
+  ↳ app/controllers/api/data_controller.rb:58:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:60:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:61:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:63:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:64:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:67:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:68:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:70:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:71:in `get_value'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:74:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:75:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:77:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:78:in `get_value'
+Completed 200 OK in 92ms (Views: 0.8ms | ActiveRecord: 9.5ms | Allocations: 13174)
+
+
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-23 09:53:58 +0200
+Processing by Api::DataController#get_value as JSON
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ?[0m  [["winner", "X"]]
+  ↳ app/controllers/api/data_controller.rb:36:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds"[0m
+  ↳ app/controllers/api/data_controller.rb:36:in `get_value'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:38:in `get_value'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:39:in `get_value'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:41:in `get_value'
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:42:in `get_value'
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:45:in `get_value'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:46:in `get_value'
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:48:in `get_value'
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:49:in `get_value'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:52:in `get_value'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:53:in `get_value'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:55:in `get_value'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:56:in `get_value'
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ?[0m  [["winner", "Tie"]]
+  ↳ app/controllers/api/data_controller.rb:58:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds"[0m
+  ↳ app/controllers/api/data_controller.rb:58:in `get_value'
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:60:in `get_value'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:61:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:63:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:64:in `get_value'
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:67:in `get_value'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:68:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:70:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:71:in `get_value'
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:74:in `get_value'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:75:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:77:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:78:in `get_value'
+Completed 200 OK in 189ms (Views: 0.5ms | ActiveRecord: 21.7ms | Allocations: 13175)
+
+
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-23 09:53:59 +0200
+Processing by Api::DataController#get_value as JSON
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ?[0m  [["winner", "X"]]
+  ↳ app/controllers/api/data_controller.rb:36:in `get_value'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds"[0m
+  ↳ app/controllers/api/data_controller.rb:36:in `get_value'
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:38:in `get_value'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:39:in `get_value'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:41:in `get_value'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:42:in `get_value'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:45:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:46:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:48:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:49:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:52:in `get_value'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:53:in `get_value'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:55:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:56:in `get_value'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ?[0m  [["winner", "Tie"]]
+  ↳ app/controllers/api/data_controller.rb:58:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds"[0m
+  ↳ app/controllers/api/data_controller.rb:58:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:60:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:61:in `get_value'
+  [1m[35mCACHE  (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:63:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:64:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:67:in `get_value'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:68:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:70:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:71:in `get_value'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:74:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:75:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:77:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:78:in `get_value'
+Completed 200 OK in 108ms (Views: 0.4ms | ActiveRecord: 11.4ms | Allocations: 13174)
+
+
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-23 09:54:26 +0200
+Processing by Api::DataController#get_value as JSON
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ?[0m  [["winner", "X"]]
+  ↳ app/controllers/api/data_controller.rb:36:in `get_value'
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds"[0m
+  ↳ app/controllers/api/data_controller.rb:36:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:38:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:39:in `get_value'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:41:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:42:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:45:in `get_value'
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:46:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:48:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:49:in `get_value'
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:52:in `get_value'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:53:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:55:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:56:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ?[0m  [["winner", "Tie"]]
+  ↳ app/controllers/api/data_controller.rb:58:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds"[0m
+  ↳ app/controllers/api/data_controller.rb:58:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:60:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:61:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:63:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:64:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:67:in `get_value'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:68:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:70:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:71:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:74:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:75:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:77:in `get_value'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:78:in `get_value'
+Completed 200 OK in 113ms (Views: 0.4ms | ActiveRecord: 14.8ms | Allocations: 13174)
+
+
+Started GET "/api/data/get_value" for 127.0.0.1 at 2024-04-23 09:54:27 +0200
+Processing by Api::DataController#get_value as JSON
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ?[0m  [["winner", "X"]]
+  ↳ app/controllers/api/data_controller.rb:36:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds"[0m
+  ↳ app/controllers/api/data_controller.rb:36:in `get_value'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:38:in `get_value'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:39:in `get_value'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:41:in `get_value'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:42:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:45:in `get_value'
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:46:in `get_value'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:48:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:49:in `get_value'
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "X"], ["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:52:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "O"], ["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:53:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:55:in `get_value'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:56:in `get_value'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ?[0m  [["winner", "Tie"]]
+  ↳ app/controllers/api/data_controller.rb:58:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds"[0m
+  ↳ app/controllers/api/data_controller.rb:58:in `get_value'
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:60:in `get_value'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:61:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:63:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "player"]]
+  ↳ app/controllers/api/data_controller.rb:64:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:67:in `get_value'
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:68:in `get_value'
+  [1m[35mCACHE  (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:70:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "random"]]
+  ↳ app/controllers/api/data_controller.rb:71:in `get_value'
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."x_author" = ?[0m  [["winner", "Tie"], ["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:74:in `get_value'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."winner" = ? AND "games_playeds"."o_author" = ?[0m  [["winner", "Tie"], ["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:75:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."x_author" = ?[0m  [["x_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:77:in `get_value'
+  [1m[35mCACHE  (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "games_playeds" WHERE "games_playeds"."o_author" = ?[0m  [["o_author", "minmaxer"]]
+  ↳ app/controllers/api/data_controller.rb:78:in `get_value'
+Completed 200 OK in 160ms (Views: 1.3ms | ActiveRecord: 15.6ms | Allocations: 13175)
+
+
