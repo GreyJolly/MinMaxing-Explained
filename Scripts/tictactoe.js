@@ -6,6 +6,8 @@ const
 	o = 3,
 	xText = '<span class="x">&times;</class>',
 	oText = '<span class="o">o</class>',
+	xTextPhantom = '<span class="x_phantom">&times;</class>',
+	oTextPhantom = '<span class="o_phantom">o</class>',
 	noWin = null,
 	xWin = 30,
 	oWin = -30,
@@ -182,7 +184,7 @@ Grid.prototype.clone = function () {
 }
 
 //==================================
-// MAIN FUNCTIONS
+// EVENT FUNCTIONS
 //==================================
 
 // Executed when the page loads
@@ -202,12 +204,31 @@ function cellClicked(id) {
 	handleMove(author_player, parseInt(idName[idName.length - 1]));
 };
 
+function cellHovered(id) {
+	// The last character of the id corresponds to the numeric index in Grid.cells:
+	var idName = id.toString(), cell = parseInt(idName[idName.length - 1]);
+	if (playingGrid.cells[cell] != 0 || gameOver || author_turn != author_player) {
+		return false;
+	}
+	document.getElementById(id).innerHTML = playingGrid.whoseTurn==x?xTextPhantom:oTextPhantom;
+	
+};
+
+function cellOut(id) {
+	var innerText = document.getElementById(id).innerHTML;
+	if (innerText == '<span class="x_phantom">×</span>' || innerText == '<span class="o_phantom">o</span>') document.getElementById(id).innerHTML = "";
+}
+
+//==================================
+// MAIN FUNCTIONS
+//==================================
+
 function handleMove(author, cell) {
 
 	var id = "cell" + cell.toString();
 
 	// Cell is already occupied, not the correct turn or something else is wrong
-	if (playingGrid.cells[cell] > 0 || gameOver || author != author_turn) {
+	if (playingGrid.cells[cell] != 0 || gameOver || author != author_turn) {
 		return false;
 	}
 	if (playingGrid.makeMove(cell) == false) return false;
