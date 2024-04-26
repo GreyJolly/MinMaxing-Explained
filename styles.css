@@ -89,7 +89,7 @@ p {
 }
 
 .sidebar_background {
-	background-color: #00a8e8;
+	background-color: #1e96fc;
 }
 
 
@@ -449,6 +449,12 @@ table {
 	background-color: rgba(255, 255, 255, 0.3);
 }
 
+.playerPicture {
+	width: 20vh;
+	height: 20vh;
+	border-radius: 80%;
+}
+
 /*About us*/
 .link:link {
 	color: #00e8e8;
@@ -472,6 +478,10 @@ table {
 	width: 20vh;
 	height: 20vh;
 	border-radius: 80%;
+	transition: 0.5s;
+}
+.profilePicture:hover {
+	transform: scale(1.2);
 }
 
 .oval {

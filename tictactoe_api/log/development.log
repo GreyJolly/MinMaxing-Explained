@@ -38794,3 +38794,17 @@ Processing by Api::DataController#save as */*
 Completed 200 OK in 73ms (Views: 0.6ms | ActiveRecord: 22.2ms | Allocations: 10566)
 
 
+Started POST "/api/data/save" for 127.0.0.1 at 2024-04-26 16:12:42 +0200
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::DataController#save as */*
+  Parameters: {"game_data"=>["random", "minmaxer", "Tie", 1, 0, 4, 7, 3, 5, 2, 6, 8], "datum"=>{"game_data"=>["random", "minmaxer", "Tie", 1, 0, 4, 7, 3, 5, 2, 6, 8]}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/data_controller.rb:11:in `save'
+  [1m[36mGamesPlayed Create (4.3ms)[0m  [1m[32mINSERT INTO "games_playeds" ("x_author", "o_author", "winner", "firstMove", "secondMove", "thirdMove", "fourthMove", "fifthMove", "sixthMove", "seventhMove", "eigthMove", "ninthMove", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["x_author", "random"], ["o_author", "minmaxer"], ["winner", "Tie"], ["firstMove", 1], ["secondMove", 0], ["thirdMove", 4], ["fourthMove", 7], ["fifthMove", 3], ["sixthMove", 5], ["seventhMove", 2], ["eigthMove", 6], ["ninthMove", 8], ["created_at", "2024-04-26 14:12:42.526005"], ["updated_at", "2024-04-26 14:12:42.526005"]]
+  ↳ app/controllers/api/data_controller.rb:11:in `save'
+  [1m[36mTRANSACTION (10.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/data_controller.rb:11:in `save'
+Completed 200 OK in 128ms (Views: 1.7ms | ActiveRecord: 16.1ms | Allocations: 14203)
+
+
