@@ -21,39 +21,43 @@
 
 	<nav class="navbar navbar-dark navbar-expand-lg">
 		<div class="container-fluid">
-		  <a class="navbar-brand" href="./Home.html">MinMaxing-Explained</a>
-		  
-		  <div class="offcanvas offcanvas-end sidebar_background" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-			<div class="offcanvas-header">
-			  <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">MinMaxing-Explained</h5>
-			  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-			</div>
-			<div class="offcanvas-body">
-			  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-				<li class="nav-item">
-					<a class="nav-link mx-lg-2" href="./Home.html">Home</a>
-					  </li>
-					
-					<li class="nav-item">
-					  <a class="nav-link mx-lg-2" href="./play.html">Play</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link mx-lg-2" href="./statistics.html">Statistics</a>
-					  </li>
-					  
+			<a class="navbar-brand" href="./Home.html">MinMaxing-Explained</a>
+
+			<div class="offcanvas offcanvas-end sidebar_background" tabindex="-1" id="offcanvasDarkNavbar"
+				aria-labelledby="offcanvasDarkNavbarLabel">
+				<div class="offcanvas-header">
+					<h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">MinMaxing-Explained</h5>
+					<button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+						aria-label="Close"></button>
+				</div>
+				<div class="offcanvas-body">
+					<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+						<li class="nav-item">
+							<a class="nav-link mx-lg-2" href="./Home.html">Home</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link mx-lg-2" href="./play.html">Play</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link mx-lg-2" href="./statistics.html">Statistics</a>
+						</li>
+
 						<li class="nav-item">
 							<a class="nav-link mx-lg-2 active" aria-current="page" href="./learn.html">Learn</a>
-						  </li>
-						
-					  <li class="nav-item">
-						<a class="nav-link mx-lg-2" href="./aboutUs.html">About us</a>
-					  </li>
-				</ul>  
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link mx-lg-2" href="./aboutUs.html">About us</a>
+						</li>
+					</ul>
+				</div>
 			</div>
-		  </div>
-		  <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		  </button>
+			<button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="offcanvas"
+				data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 		</div>
 	</nav>
 
@@ -61,61 +65,55 @@
 	<br>
 
 	<div id="hero-carousel" class="carousel">
-
-		<div class="carousel-indicators">
-
-
-			<button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="0" class="active"
-				aria-current="true" aria-label="Slide 1"></button>
-			<button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-			<button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-			<button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
-			<button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
-
-		</div>
-
 		<div class="carousel-inner">
 			<div class="carousel-item active c-item">
 				<section class="container">
-					<div class="left-half">
-						<article>
+					<div class="item active">
+						<div class="img-box">
 							<img src="./Images and Assets/Slide1.png" class="d-block w-100 c-img" alt="Slide 1">
-						</article>
-					</div>
-					<div class="right-half">
+						</div>
+
 						<article>
 							<br>
 							<p>
-								L’algoritmo Minmax è un algoritmo, utilizzato nella teoria dei giochi, per poter scegliere la mossa ottimale per un giocatore. 
-								È ampiamente utilizzato nei giochi a turni per due giocatori. In questo sito utilizzeremo il tris come esempio, ma il principio viene utilizzato per cercare di ottimizzare dama, scacchi, Go…
-								<br><br> L’obiettivo è di cercare di assegnare ad ogni posizione un punteggio, in modo tale che uno dei  due giocatori sia interessato a massimizzare il punteggio, e l’altro a minimizzarlo.
-								<br>Una volta trovata la funzione di valutazione, scegliere una mossa ottimale consisterà semplicemente nello scegliere una mossa che porta ad una posizione avente il punteggio più alto (o più basso).
+								L’algoritmo Minmax è un algoritmo, utilizzato nella teoria dei giochi, per poter
+								scegliere la mossa ottimale per un giocatore.
+								È ampiamente utilizzato nei giochi a turni per due giocatori. In questo sito
+								utilizzeremo il tris come esempio, ma il principio viene utilizzato per cercare di
+								ottimizzare dama, scacchi, Go…
+								<br><br> L’obiettivo è di cercare di assegnare ad ogni posizione un punteggio, in modo
+								tale che uno dei due giocatori sia interessato a massimizzare il punteggio, e l’altro a
+								minimizzarlo.
+								<br>Una volta trovata la funzione di valutazione, scegliere una mossa ottimale
+								consisterà semplicemente nello scegliere una mossa che porta ad una posizione avente il
+								punteggio più alto (o più basso).
 							</p>
 						</article>
 
 					</div>
-				</secion>
-				<div class="carousel-caption top-0 mt-4">
-				</div>
+					</secion>
+					<div class="carousel-caption top-0 mt-4">
+					</div>
 			</div>
 
 			<div class="carousel-item c-item">
 				<section class="container">
-					<div class="left-half">
-						<article>
+					<div class="item">
+						<div class="img-box">
 							<img src="./Images and Assets/Slide2.png" class="d-block w-100 c-img" alt="Slide 2">
-						</article>
-					</div>
-					<div class="right-half">
-						<div class="center">
+						</div>
 							<article>
 								<p>
-									<br><br>Ipotizziamo che il giocatore delle X sia il massimizzatore e quello delle O sia il minimizzatore: potremmo assegnare alle posizioni in cui c’è un tris di X un punteggio di 1 (massimo possibile), nelle posizioni in cui c’è un tris di O un punteggio di -1 (minimo possibile), e nelle posizioni in cui il campo è pieno ma senza tris un valore di 0.
-									<br><br>Una funzione di valutazione del genere consente di cogliere una vittoria ogni volta che se ne presenta una, ma non aiuta nelle maggior parte delle posizioni.
+									Ipotizziamo che il giocatore delle X sia il massimizzatore e quello delle O
+									sia il minimizzatore: potremmo assegnare alle posizioni in cui c’è un tris di X un
+									punteggio di 1 (massimo possibile), nelle posizioni in cui c’è un tris di O un
+									punteggio di -1 (minimo possibile), e nelle posizioni in cui il campo è pieno ma
+									senza tris un valore di 0.
+									<br><br>Una funzione di valutazione del genere consente di cogliere una vittoria
+									ogni volta che se ne presenta una, ma non aiuta nelle maggior parte delle posizioni.
 
 								</p>
 							</article>
-						</div>
 					</div>
 					</secion>
 					<div class="carousel-caption top-0 mt-4">
@@ -124,24 +122,26 @@
 
 			<div class="carousel-item c-item">
 				<section class="container">
-					<div class="left-half">
-						<article>
+					<div class = "item">
+						<div class="img-box">
 							<img src="./Images and Assets/Slide3.png" class="d-block w-100 c-img" alt="Slide 2">
-						</article>
+						</div>
 					</div>
-					<div class="right-half">
-						
-							<article>
-								<p>
-									<br><br><br>Per analizzare una posizione, considereremo tutte le possibili risposte dell’avversario.<br>
-									Assumendo che giochi perfettamente, anche lui cercherà la risposta migliore tramite il minmaxing, considerando le nostre possibili risposte…
-									Costruiremo così un albero delle posizioni raggiungibili, da considerare al fine di trovare una mossa ottimale.
-									<br><br>Per ragioni di ottimizzazione, non rappresentiamo tutte le possibili risposte sull’albero, poiché molte di loro sono in realtà uguali per ragioni di simmetria.
 
-								</p>
-							</article>
-						
-					</div>
+						<article>
+							<p>
+								<br>Per analizzare una posizione, considereremo tutte le possibili risposte
+								dell’avversario.<br>
+								Assumendo che giochi perfettamente, anche lui cercherà la risposta migliore tramite il
+								minmaxing, considerando le nostre possibili risposte…
+								Costruiremo così un albero delle posizioni raggiungibili, da considerare al fine di
+								trovare una mossa ottimale.
+								<br><br>Per ragioni di ottimizzazione, non rappresentiamo tutte le possibili risposte
+								sull’albero, poiché molte di loro sono in realtà uguali per ragioni di simmetria.
+
+							</p>
+						</article>
+
 					</secion>
 					<div class="carousel-caption top-0 mt-4">
 					</div>
@@ -149,22 +149,24 @@
 
 			<div class="carousel-item c-item">
 				<section class="container">
-					<div class="left-half">
-						<article>
+					<div class = "item">
+						<div class = "img-box">
 							<img src="./Images and Assets/Slide4.png" class="d-block w-100 c-img" alt="Slide 2">
-						</article>
+						</div>
 					</div>
-					<div class="right-half">
-						<div class="center">
+	
 							<article>
 								<p>
-									Assegnati i valori alle posizioni terminali, l’algoritmo Minmax assegna ricorsivamente valori a tutte le altre posizioni che possono raggiungerle, esplorando l’albero delle possibili mosse fino a una certa profondità.<br><br>
-									La posizione in figura è vantaggiosa per il giocatore delle X, poiché indipendentemente dalla mossa dell’avversario è sempre possibile raggiungere una posizione vincente: possiamo quindi assegnare a questa posizione un valore di 1, poiché raggiunta questa la vittoria è assicurata.
+									<br>Assegnati i valori alle posizioni terminali, l’algoritmo Minmax assegna
+									ricorsivamente valori a tutte le altre posizioni che possono raggiungerle,
+									esplorando l’albero delle possibili mosse fino a una certa profondità.<br><br>
+									La posizione in figura è vantaggiosa per il giocatore delle X, poiché
+									indipendentemente dalla mossa dell’avversario è sempre possibile raggiungere una
+									posizione vincente: possiamo quindi assegnare a questa posizione un valore di 1,
+									poiché raggiunta questa la vittoria è assicurata.
 
 								</p>
 							</article>
-						</div>
-					</div>
 					</secion>
 					<div class="carousel-caption top-0 mt-4">
 					</div>
@@ -172,44 +174,46 @@
 
 			<div class="carousel-item c-item">
 				<section class="container">
-					<div class="left-half">
-						<article>
+					<div class="item">
+						<div class = "img-box">
 							<img src="./Images and Assets/Slide5.png" class="d-block w-100 c-img" alt="Slide 5">
-						</article>
-					</div>
-					<div class="right-half">
-						<div class="center">
-							<article>
-								<p>
-									Una posizione di questo genere non è vantaggiosa per le O, nonostante sia in grado di portare a delle vittorie: dobbiamo considerare che la prossima mossa sarà fatta dal massimizzatore, che troverà che la posizione avente una X in basso a sinistra avrà un valore di 1, poiché da questa sarà sempre possibile raggiungere posizioni vincenti.
-									<br><br>La ricerca nel minmaxing va fatta alternando valutazioni dal punto di vista del massimizzatore e del minimizzatore. 
-	
-								</p>
-							</article>
 						</div>
 					</div>
-				</secion>
-				<div class="carousel-caption top-0 mt-4">
-				</div>
+					
+							<article>
+								<p>
+									<br>Una posizione di questo genere non è vantaggiosa per le O, nonostante sia in grado
+									di portare a delle vittorie: dobbiamo considerare che la prossima mossa sarà fatta
+									dal massimizzatore, che troverà che la posizione avente una X in basso a sinistra
+									avrà un valore di 1, poiché da questa sarà sempre possibile raggiungere posizioni
+									vincenti.
+									<br><br>La ricerca nel minmaxing va fatta alternando valutazioni dal punto di vista
+									del massimizzatore e del minimizzatore.
+
+								</p>
+							</article>
+					</secion>
+					<div class="carousel-caption top-0 mt-4">
+					</div>
 			</div>
 
 		</div>
 
-		
-
-		</div>
-
-		<button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span class="visually-hidden">Previous</span>
-		</button>
-
-
-		<button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span>
-			<span class="visually-hidden">Next</span>
-		</button>
 	</div>
+
+
+	<button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
+		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		<span class="visually-hidden">Previous</span>
+	</button>
+
+
+	<button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
+		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		<span class="visually-hidden">Next</span>
+	</button>
+	</div>
+	<br>
 </body>
 
 </html>
