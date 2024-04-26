@@ -22,8 +22,8 @@ p {
 	text-align: center;
 }
 
-.big{
-	font-size:2.5em;
+.big {
+	font-size: 2.5em;
 }
 
 
@@ -350,6 +350,24 @@ table {
 	cursor: default;
 }
 
+.x_phantom {
+	color: rgba(0, 255, 255, 0.5);
+	position: relative;
+	top: 0px;
+	font-size: 1.2em;
+	cursor: default;
+	pointer-events: none;
+}
+
+.o_phantom {
+	color: rgba(255, 0, 255, 0.5);
+	position: relative;
+	top: -11px;
+	font-size: 1.0em;
+	cursor: default;
+	pointer-events: none;
+}
+
 #tree_table_game {
 	display: inline-block;
 	position: relative;
@@ -369,7 +387,6 @@ table {
 .tree_cell {
 	display: block;
 	overflow: hidden;
-	cursor: pointer;
 }
 
 .tree_x {
