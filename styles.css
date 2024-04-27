@@ -471,6 +471,7 @@ table {
 .profilePicture {
 	width: 20vh;
 	height: 20vh;
+	margin: 8px;
 	border-radius: 80%;
 	transition: 0.5s;
 }
