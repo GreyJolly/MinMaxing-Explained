@@ -1,8 +1,8 @@
 // GLOBAL CONSTANTS
 
 const API_get_URL = 'http://localhost:3000/api/data/get_value';
-const backgroundColor =  ['#ff6384', '#36a2eb', '#ffce56'];
-const labels = ['Vittorie' , 'Sconfitte', 'Pareggi'];
+const backgroundColor =  ['#ffce56','#ff6384','#36a2eb'];
+const labels = ['Vittorie' , 'Pareggi', 'Sconfitte'];
 
 const xData = {
 	labels: labels,
@@ -88,8 +88,8 @@ function initialize() {
 	setTimeout(refresh, 550); // If you don't wait for the page to fully load it doesn't work
 
 	document.getElementById("win_label_box").style.background = backgroundColor[0];
-	document.getElementById("loss_label_box").style.background = backgroundColor[1];
-	document.getElementById("tie_label_box").style.background = backgroundColor[2];
+	document.getElementById("tie_label_box").style.background = backgroundColor[1];
+	document.getElementById("loss_label_box").style.background = backgroundColor[2];
 }
 
 function refresh() {
