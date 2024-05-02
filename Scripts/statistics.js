@@ -1,8 +1,8 @@
 // GLOBAL CONSTANTS
 
 const API_get_URL = 'http://localhost:3000/api/data/get_value';
-const backgroundColor =  ['#ffce56','#ff6384','#36a2eb'];
-const labels = ['Vittorie' , 'Pareggi', 'Sconfitte'];
+const backgroundColor = ['#ffce56', '#ff6384', '#36a2eb'];
+const labels = ['Vittorie%', 'Pareggi%', 'Sconfitte%'];
 
 const xData = {
 	labels: labels,
@@ -39,7 +39,7 @@ const options = {
 		labels: {
 			fontColor: 'white'
 		},
-		display: false 
+		display: false
 	}
 }
 
@@ -57,7 +57,6 @@ var xChart,
 	minmaxerChart;
 
 function initialize() {
-	updateDataFromAPI();
 
 	const x_chart_context = document.getElementById('x_chart').getContext('2d');
 	const player_chart_context = document.getElementById('player_chart').getContext('2d');
@@ -85,21 +84,34 @@ function initialize() {
 		options: options,
 	});
 
-	setTimeout(refresh, 550); // If you don't wait for the page to fully load it doesn't work
+	updateDataFromAPI();
 
 	document.getElementById("win_label_box").style.background = backgroundColor[0];
 	document.getElementById("tie_label_box").style.background = backgroundColor[1];
 	document.getElementById("loss_label_box").style.background = backgroundColor[2];
+
 }
 
-function refresh() {
-	api_data = updateDataFromAPI();
+function refresh(api_data) {
+
+	parser = new DOMParser();
+	xmlData = parser.parseFromString(api_data, "text/xml");
+
+	const
+		x_winrate = Number(xmlData.getElementsByTagName("winrate")[0].childNodes[0].nodeValue),
+		x_tierate = Number(xmlData.getElementsByTagName("tierate")[0].childNodes[0].nodeValue),
+		player_winrate = Number(xmlData.getElementsByTagName("winrate")[1].childNodes[0].nodeValue),
+		player_tierate = Number(xmlData.getElementsByTagName("tierate")[1].childNodes[0].nodeValue),
+		random_winrate = Number(xmlData.getElementsByTagName("winrate")[2].childNodes[0].nodeValue),
+		random_tierate = Number(xmlData.getElementsByTagName("tierate")[2].childNodes[0].nodeValue),
+		minmaxer_winrate = Number(xmlData.getElementsByTagName("winrate")[3].childNodes[0].nodeValue),
+		minmaxer_tierate = Number(xmlData.getElementsByTagName("tierate")[3].childNodes[0].nodeValue);
 
 	// Update the chart data
-	xChart.data.datasets[0].data = [api_data.x_winrate, api_data.x_tierate, 100 - (api_data.x_winrate + api_data.x_tierate)];
-	playerChart.data.datasets[0].data = [api_data.player_winrate, api_data.player_tierate, (100 - (api_data.player_winrate + api_data.player_tierate))];
-	randomChart.data.datasets[0].data = [api_data.random_winrate, api_data.random_tierate, (100 - (api_data.random_winrate + api_data.random_tierate))];
-	minmaxerChart.data.datasets[0].data = [api_data.minmaxer_winrate, api_data.minmaxer_tierate, 100 - (api_data.minmaxer_winrate + api_data.minmaxer_tierate)];
+	xChart.data.datasets[0].data = [x_winrate, x_tierate, 100 - (x_winrate + x_tierate)];
+	playerChart.data.datasets[0].data = [player_winrate, player_tierate, 100 - (player_winrate + player_tierate)];
+	randomChart.data.datasets[0].data = [random_winrate, random_tierate, 100 - (random_winrate + random_tierate)];
+	minmaxerChart.data.datasets[0].data = [minmaxer_winrate, minmaxer_tierate, 100 - (minmaxer_winrate + minmaxer_tierate)];
 
 	// Refresh the charts
 	xChart.update();
@@ -108,31 +120,24 @@ function refresh() {
 	minmaxerChart.update();
 }
 
-
-
-
 //==================================
 // API HANDLING
 //==================================
 
-function updateDataFromAPI() {
+async function updateDataFromAPI() {
 
-	fetch(API_get_URL, {
+	await fetch(API_get_URL, {
 		method: 'GET',
 		headers: {
-			'Accept': 'application/json', // Expect JSON response
+			'Accept': 'application/xml', // Expect XML response
 		},
 	})
 		.then(response => {
 			if (!response.ok) {
 				throw new Error('Network response was not ok');
 			}
-			return response.json();
+			return response.text();
 		})
-		.then(data => {
-			api_data = data;
-			return api_data;
-		})
-
-	return api_data;
+		.then(data => refresh(data))
+		.catch(error => console.error('Error:', error));
 }
