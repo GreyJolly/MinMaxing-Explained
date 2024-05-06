@@ -87,6 +87,7 @@ function initialize() {
 	});
 
 	updateDataFromAPI();
+	setInterval(updateDataFromAPI, 5000);
 
 	document.getElementById("win_label_box").style.background = backgroundColor[0];
 	document.getElementById("tie_label_box").style.background = backgroundColor[1];
