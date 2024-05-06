@@ -1,3 +1,5 @@
+"use strict";
+
 // GLOBAL CONSTANTS
 
 const API_get_URL = 'http://localhost:3000/api/data/get_value';
@@ -94,8 +96,7 @@ function initialize() {
 
 function refresh(api_data) {
 
-	parser = new DOMParser();
-	xmlData = parser.parseFromString(api_data, "text/xml");
+	var xmlData = (new DOMParser()).parseFromString(api_data, "text/xml");
 
 	const
 		x_winrate = Number(xmlData.getElementsByTagName("winrate")[0].childNodes[0].nodeValue),

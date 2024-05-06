@@ -20,39 +20,43 @@
 
 	<nav class="navbar navbar-dark navbar-expand-lg">
 		<div class="container-fluid">
-		  <a class="navbar-brand" href="./Home.html"><b>MinMaxing-Explained</b></a>
-		  
-		  <div class="offcanvas offcanvas-end sidebar_background" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
-			<div class="offcanvas-header">
-			  <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"><b>MinMaxing-Explained</b></h5>
-			  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-			</div>
-			<div class="offcanvas-body">
-			  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-				<li class="nav-item">
-					<a class="nav-link mx-lg-2" href="./Home.html">Home</a>
-				  </li>
+			<a class="navbar-brand" href="./Home.html"><b>MinMaxing-Explained</b></a>
 
-				  <li class="nav-item">
-					<a class="nav-link mx-lg-2 active" aria-current="page" href="./play.html">Play</a>
-				  </li>
+			<div class="offcanvas offcanvas-end sidebar_background" tabindex="-1" id="offcanvasDarkNavbar"
+				aria-labelledby="offcanvasDarkNavbarLabel">
+				<div class="offcanvas-header">
+					<h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"><b>MinMaxing-Explained</b></h5>
+					<button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+						aria-label="Close"></button>
+				</div>
+				<div class="offcanvas-body">
+					<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+						<li class="nav-item">
+							<a class="nav-link mx-lg-2" href="./Home.html">Home</a>
+						</li>
 
-				<li class="nav-item">
-				  <a class="nav-link mx-lg-2" href="./statistics.html">Statistics</a>
-				</li>
-				
-				  <li class="nav-item">
-					<a class="nav-link mx-lg-2" href="./learn.html">Learn</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link mx-lg-2" href="./aboutUs.html">About us</a>
-				  </li>
-				</ul>  
+						<li class="nav-item">
+							<a class="nav-link mx-lg-2 active" aria-current="page" href="./play.html">Play</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link mx-lg-2" href="./statistics.html">Statistics</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link mx-lg-2" href="./learn.html">Learn</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link mx-lg-2" href="./aboutUs.html">About us</a>
+						</li>
+					</ul>
+				</div>
 			</div>
-		  </div>
-		  <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		  </button>
+			<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+				data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 		</div>
 	</nav>
 
@@ -62,7 +66,7 @@
 	<div class="row ">
 		<div class="col-sm">
 			<p>Giocatore delle X: </p>
-			<div class = "col">
+			<div class="col">
 				<div class="d-flex justify-content-center">
 					<div class="container_radioButton">
 						<input type="radio" id="radio_player_X" name="X_player" class="hidden" value="player"
@@ -96,15 +100,15 @@
 							</mask>
 						</defs>
 					</svg>
-					
+
 				</div>
 
 			</div>
 
-			<div class = "col">
+			<div class="col">
 				<img src="./Images and Assets/RadioButton1.jpg" class="playerPicture" id="author_player_X">
 			</div>
-			
+
 		</div>
 
 		<div class="col-sm">
@@ -115,36 +119,45 @@
 						<table id="table_game">
 							<tr>
 								<td class="td_game">
-									<div id="cell0" onclick="cellClicked(this.id)" onmouseover="cellHovered(this.id)" onmouseout="cellOut(this.id)" class="cell"></div>
+									<div id="cell0" onclick="cellClicked(this.id)" onmouseover="cellHovered(this.id)"
+										onmouseout="cellOut(this.id)" class="cell"></div>
 								</td>
 								<td class="td_game">
-									<div id="cell1" onclick="cellClicked(this.id)" onmouseover="cellHovered(this.id)" onmouseout="cellOut(this.id)" class="cell"></div>
+									<div id="cell1" onclick="cellClicked(this.id)" onmouseover="cellHovered(this.id)"
+										onmouseout="cellOut(this.id)" class="cell"></div>
 								</td>
 								<td class="td_game">
-									<div id="cell2" onclick="cellClicked(this.id)" onmouseover="cellHovered(this.id)" onmouseout="cellOut(this.id)" class="cell"></div>
+									<div id="cell2" onclick="cellClicked(this.id)" onmouseover="cellHovered(this.id)"
+										onmouseout="cellOut(this.id)" class="cell"></div>
 								</td>
 							</tr>
 							<tr>
 								<td class="td_game">
-									<div id="cell3" onclick="cellClicked(this.id)" onmouseover="cellHovered(this.id)" onmouseout="cellOut(this.id)" class="cell"></div>
+									<div id="cell3" onclick="cellClicked(this.id)" onmouseover="cellHovered(this.id)"
+										onmouseout="cellOut(this.id)" class="cell"></div>
 								</td>
 								<td class="td_game">
-									<div id="cell4" onclick="cellClicked(this.id)" onmouseover="cellHovered(this.id)" onmouseout="cellOut(this.id)" class="cell"></div>
+									<div id="cell4" onclick="cellClicked(this.id)" onmouseover="cellHovered(this.id)"
+										onmouseout="cellOut(this.id)" class="cell"></div>
 								</td>
 								<td class="td_game">
-									<div id="cell5" onclick="cellClicked(this.id)" onmouseover="cellHovered(this.id)" onmouseout="cellOut(this.id)" class="cell"></div>
+									<div id="cell5" onclick="cellClicked(this.id)" onmouseover="cellHovered(this.id)"
+										onmouseout="cellOut(this.id)" class="cell"></div>
 								</td>
 							</tr>
 
 							<tr>
 								<td class="td_game">
-									<div id="cell6" onclick="cellClicked(this.id)" onmouseover="cellHovered(this.id)" onmouseout="cellOut(this.id)" class="cell"></div>
+									<div id="cell6" onclick="cellClicked(this.id)" onmouseover="cellHovered(this.id)"
+										onmouseout="cellOut(this.id)" class="cell"></div>
 								</td>
 								<td class="td_game">
-									<div id="cell7" onclick="cellClicked(this.id)" onmouseover="cellHovered(this.id)" onmouseout="cellOut(this.id)" class="cell"></div>
+									<div id="cell7" onclick="cellClicked(this.id)" onmouseover="cellHovered(this.id)"
+										onmouseout="cellOut(this.id)" class="cell"></div>
 								</td>
 								<td class="td_game">
-									<div id="cell8" onclick="cellClicked(this.id)" onmouseover="cellHovered(this.id)" onmouseout="cellOut(this.id)" class="cell"></div>
+									<div id="cell8" onclick="cellClicked(this.id)" onmouseover="cellHovered(this.id)"
+										onmouseout="cellOut(this.id)" class="cell"></div>
 								</td>
 							</tr>
 						</table>
@@ -201,9 +214,9 @@
 		</div>
 	</div>
 
-	<div id="gameTreeLevel1" class= "level1"></div><br>
-	<div id="gameTreeLevel2" class= "level2"></div><br>
-	<div id="gameTreeLevel3" class= "level3"></div><br>
+	<div id="gameTreeLevel1" class="level1"></div><br>
+	<div id="gameTreeLevel2" class="level2"></div><br>
+	<div id="gameTreeLevel3" class="level3"></div><br>
 
 	<!-- The modal dialog for announcing the winner -->
 	<div id="winAnnounce" class="modal">

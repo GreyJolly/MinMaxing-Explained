@@ -210,8 +210,8 @@ function cellHovered(id) {
 	if (playingGrid.cells[cell] != 0 || gameOver || author_turn != author_player) {
 		return false;
 	}
-	document.getElementById(id).innerHTML = playingGrid.whoseTurn==x?xTextPhantom:oTextPhantom;
-	
+	document.getElementById(id).innerHTML = playingGrid.whoseTurn == x ? xTextPhantom : oTextPhantom;
+
 };
 
 function cellOut(id) {

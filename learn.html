@@ -102,71 +102,19 @@
 						<div class="img-box">
 							<img src="./Images and Assets/Slide2.png" class="d-block w-100 c-img" alt="Slide 2">
 						</div>
-							<article>
-								<p>
-									Ipotizziamo che il giocatore delle X sia il massimizzatore e quello delle O
-									sia il minimizzatore: potremmo assegnare alle posizioni in cui c’è un tris di X un
-									punteggio di 1 (massimo possibile), nelle posizioni in cui c’è un tris di O un
-									punteggio di -1 (minimo possibile), e nelle posizioni in cui il campo è pieno ma
-									senza tris un valore di 0.
-									<br><br>Una funzione di valutazione del genere consente di cogliere una vittoria
-									ogni volta che se ne presenta una, ma non aiuta nelle maggior parte delle posizioni.
-
-								</p>
-							</article>
-					</div>
-					</secion>
-					<div class="carousel-caption top-0 mt-4">
-					</div>
-			</div>
-
-			<div class="carousel-item c-item">
-				<section class="container mx-auto">
-					<div class = "item">
-						<div class="img-box">
-							<img src="./Images and Assets/Slide3.png" class="d-block w-100 c-img" alt="Slide 2">
-						</div>
-					</div>
-
 						<article>
 							<p>
-								<br>Per analizzare una posizione, considereremo tutte le possibili risposte
-								dell’avversario.<br>
-								Assumendo che giochi perfettamente, anche lui cercherà la risposta migliore tramite il
-								minmaxing, considerando le nostre possibili risposte…
-								Costruiremo così un albero delle posizioni raggiungibili, da considerare al fine di
-								trovare una mossa ottimale.
-								<br><br>Per ragioni di ottimizzazione, non rappresentiamo tutte le possibili risposte
-								sull’albero, poiché molte di loro sono in realtà uguali per ragioni di simmetria.
+								Ipotizziamo che il giocatore delle X sia il massimizzatore e quello delle O
+								sia il minimizzatore: potremmo assegnare alle posizioni in cui c’è un tris di X un
+								punteggio di 1 (massimo possibile), nelle posizioni in cui c’è un tris di O un
+								punteggio di -1 (minimo possibile), e nelle posizioni in cui il campo è pieno ma
+								senza tris un valore di 0.
+								<br><br>Una funzione di valutazione del genere consente di cogliere una vittoria
+								ogni volta che se ne presenta una, ma non aiuta nelle maggior parte delle posizioni.
 
 							</p>
 						</article>
-
-					</secion>
-					<div class="carousel-caption top-0 mt-4">
 					</div>
-			</div>
-
-			<div class="carousel-item c-item">
-				<section class="container mx-auto">
-					<div class = "item">
-						<div class = "img-box">
-							<img src="./Images and Assets/Slide4.png" class="d-block w-100 c-img" alt="Slide 2">
-						</div>
-					</div>
-	
-							<article>
-								<p>
-									<br>Assegnati i valori alle posizioni terminali, l’algoritmo Minmax assegna
-									ricorsivamente valori a tutte le altre posizioni che possono raggiungerle,
-									esplorando l’albero delle possibili mosse fino a una certa profondità.<br><br>
-									La posizione in figura è vantaggiosa per il giocatore delle X, poiché
-									indipendentemente dalla mossa dell’avversario è sempre possibile raggiungere una
-									posizione vincente: possiamo quindi assegnare a questa posizione un valore di 1,
-									poiché raggiunta questa la vittoria è assicurata.
-
-								</p>
-							</article>
 					</secion>
 					<div class="carousel-caption top-0 mt-4">
 					</div>
@@ -175,23 +123,75 @@
 			<div class="carousel-item c-item">
 				<section class="container mx-auto">
 					<div class="item">
-						<div class = "img-box">
+						<div class="img-box">
+							<img src="./Images and Assets/Slide3.png" class="d-block w-100 c-img" alt="Slide 2">
+						</div>
+					</div>
+
+					<article>
+						<p>
+							<br>Per analizzare una posizione, considereremo tutte le possibili risposte
+							dell’avversario.<br>
+							Assumendo che giochi perfettamente, anche lui cercherà la risposta migliore tramite il
+							minmaxing, considerando le nostre possibili risposte…
+							Costruiremo così un albero delle posizioni raggiungibili, da considerare al fine di
+							trovare una mossa ottimale.
+							<br><br>Per ragioni di ottimizzazione, non rappresentiamo tutte le possibili risposte
+							sull’albero, poiché molte di loro sono in realtà uguali per ragioni di simmetria.
+
+						</p>
+					</article>
+
+					</secion>
+					<div class="carousel-caption top-0 mt-4">
+					</div>
+			</div>
+
+			<div class="carousel-item c-item">
+				<section class="container mx-auto">
+					<div class="item">
+						<div class="img-box">
+							<img src="./Images and Assets/Slide4.png" class="d-block w-100 c-img" alt="Slide 2">
+						</div>
+					</div>
+
+					<article>
+						<p>
+							<br>Assegnati i valori alle posizioni terminali, l’algoritmo Minmax assegna
+							ricorsivamente valori a tutte le altre posizioni che possono raggiungerle,
+							esplorando l’albero delle possibili mosse fino a una certa profondità.<br><br>
+							La posizione in figura è vantaggiosa per il giocatore delle X, poiché
+							indipendentemente dalla mossa dell’avversario è sempre possibile raggiungere una
+							posizione vincente: possiamo quindi assegnare a questa posizione un valore di 1,
+							poiché raggiunta questa la vittoria è assicurata.
+
+						</p>
+					</article>
+					</secion>
+					<div class="carousel-caption top-0 mt-4">
+					</div>
+			</div>
+
+			<div class="carousel-item c-item">
+				<section class="container mx-auto">
+					<div class="item">
+						<div class="img-box">
 							<img src="./Images and Assets/Slide5.png" class="d-block w-100 c-img" alt="Slide 5">
 						</div>
 					</div>
-					
-							<article>
-								<p>
-									<br>Una posizione di questo genere non è vantaggiosa per le O, nonostante sia in grado
-									di portare a delle vittorie: dobbiamo considerare che la prossima mossa sarà fatta
-									dal massimizzatore, che troverà che la posizione avente una X in basso a sinistra
-									avrà un valore di 1, poiché da questa sarà sempre possibile raggiungere posizioni
-									vincenti.
-									<br><br>La ricerca nel minmaxing va fatta alternando valutazioni dal punto di vista
-									del massimizzatore e del minimizzatore.
 
-								</p>
-							</article>
+					<article>
+						<p>
+							<br>Una posizione di questo genere non è vantaggiosa per le O, nonostante sia in grado
+							di portare a delle vittorie: dobbiamo considerare che la prossima mossa sarà fatta
+							dal massimizzatore, che troverà che la posizione avente una X in basso a sinistra
+							avrà un valore di 1, poiché da questa sarà sempre possibile raggiungere posizioni
+							vincenti.
+							<br><br>La ricerca nel minmaxing va fatta alternando valutazioni dal punto di vista
+							del massimizzatore e del minimizzatore.
+
+						</p>
+					</article>
 					</secion>
 					<div class="carousel-caption top-0 mt-4">
 					</div>
