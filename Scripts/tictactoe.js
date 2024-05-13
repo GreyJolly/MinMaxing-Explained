@@ -521,7 +521,7 @@ function sendArrayToAPI(array) {
 	fetch(API_set_URL, {
 		method: 'POST',
 		headers: {
-			'Content-Type': 'application/json', // Sending JSON object
+			'Content-Type': 'application/json',
 		},
 		body: JSON.stringify({ game_data: array }),
 	})

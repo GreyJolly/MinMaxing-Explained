@@ -27,7 +27,7 @@ p {
 }
 
 
-/*Nav bar*/
+/* Navbar */
 .navbar {
 	background-color: #1e96fc;
 	z-index: 9;
@@ -157,14 +157,10 @@ button:hover span {
 	object-fit: cover;
 }
 
-/* Container of the carousel*/
+/* Container of the carousel */
 .container {
 	display: grid;
 	gap: 0px 0px;
-	margin-left: 0px;
-	/* TODO: check */
-	margin-right: 0px;
-	/* TODO: check */
 }
 
 
@@ -182,7 +178,7 @@ button:hover span {
 }
 
 
-/*radio button*/
+/* Radio button*/
 
 .container_radioButton {
 	position: relative;
@@ -285,6 +281,22 @@ button:hover span {
 
 .hidden:nth-child(5):checked+.entry .circle {
 	border-color: #00a8e8;
+}
+
+/* Home */
+.homeImage {
+	width: 50vw;
+	min-width: 400px;
+	max-width: 600px;
+	max-height: 400px;
+}
+
+.withoutMargin {
+	margin: 0px;
+}
+
+.fullViewWidth {
+	width: 100vw;
 }
 
 /* TicTacToe */
@@ -450,7 +462,7 @@ table {
 	border-radius: 80%;
 }
 
-/*About us*/
+/* About us */
 .link:link {
 	color: #00e8e8;
 	text-decoration: none;

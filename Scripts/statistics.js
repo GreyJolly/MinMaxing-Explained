@@ -131,7 +131,7 @@ async function updateDataFromAPI() {
 	await fetch(API_get_URL, {
 		method: 'GET',
 		headers: {
-			'Accept': 'application/xml', // Expect XML response
+			'Accept': 'application/xml',
 		},
 	})
 		.then(response => {
